@@ -1,0 +1,88 @@
+:root {
+  --main-color: #161616;
+  --background-color: #242323;
+  --text-color: #ffffff;
+  --my-color: #1977f1;
+}
+
+.car-container {
+  margin-top: 100px;
+  margin-bottom: 300px;
+}
+
+/* CAR-BLOCK */
+.car-block {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  margin: 4% 17%;
+}
+
+/* Auto samotné */
+.car-block img {
+  width: 400px;
+  aspect-ratio: 1 / 1; /* poměr stran 1:1 */
+  object-fit: cover; /* aby se obrázek nevykreslil deformovaný, ořízne se */
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transform: translateX(-230%) scale(1); /* start mimo obrazovku */
+  transition: transform 2s ease-out, box-shadow 0.3s ease;
+}
+
+.car-block:hover img {
+  transform: translateX(0) scale(1.05); /* auto už je na místě, zvětší se */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.car-block.right {
+  flex-direction: row-reverse; /* auto z pravé strany, text vlevo */
+}
+
+.car-block.right img {
+  transform: translateX(230%) scale(1);
+}
+
+.car-block.show img {
+  transform: translateX(0) scale(1); /* jen příjezd auta */
+}
+
+/* Text vedle auta */
+.car-text {
+  opacity: 0; /* start neviditelný */
+  transition: opacity 1.3s ease-out 1.4s;
+  font-size: 24px;
+  text-transform: uppercase; /* všechno velkými písmeny */
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 1.3vw; /* velikost podle šířky obrazovky */
+  font-weight: 700; /* tučné písmo */
+  letter-spacing: 2px; /* mezery mezi písmeny */
+  max-width: 480px;
+  color: var(--text-color); /* barva textu */
+  /* -webkit-text-stroke: 0.60px black; černý obrys 2px */
+  /* text-shadow: 1px 1px 5px rgba(0.5,0.5,0.5,0.5); */
+  /* text-shadow:
+  0.8px 0.8px 0 rgb(0, 0, 0),
+ -0.8px 0.8px 0 black,
+  0.8px -0.8px 0 black,
+ -0.8px -0.8px 0 black; */
+
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+/* Text se zviditelní po příjezdu auta */
+.car-block.show .car-text {
+  opacity: 1;
+}
+
+.car-block.hide-left .car-text,
+.car-block.hide-right .car-text {
+  opacity: 0;
+  transition: opacity 0.8s ease-out; /* bez delay, aby zmizel hned s autem */
+}
+
+.car-name {
+  font-weight: bold;
+  color: var(--my-color);
+}

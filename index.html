@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TORA - Tomáš Rajdus</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="photos/favicon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="photos/tora_logo.png" alt="Logo" class="logo" />
+      </a>
+
+      <div class="moving-javelin-wrapper">
+        <a href="easter.html" id="moving-logo-link">
+          <img src="photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
+        </a>
+        <img src="photos/siluety/javelin.png" class="moving-javelin" />
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html">Hlavní strana</a></li>
+          <li><a href="racing.html">Závody</a></li>
+          <li><a href="athletics.html">Atletika</a></li>
+          <li><a href="contact.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="container">
+        <div class="box-wrapper">
+          <h2><a href="racing.html">Závody</a></h2>
+          <div class="box">
+            <a href="racing.html">
+              <video src="videos/racing_final.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
+            </a>
+          </div>
+        </div>
+        <div class="box-wrapper">
+          <h2><a href="athletics.html">Atletika</a></h2>
+          <div class="box">
+            <a href="athletics.html">
+              <video src="videos/atletika_final.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <section class="about">
+        <h1>TORA – RC modely aut</h1>
+        <p>
+          Už více než 30 let se u nás točí všechno kolem RC aut. Začínalo to s malými opravami a postupně se vybudovalo místo, kde se potkává
+          zkušenost, poctivá práce a vášeň pro modely.
+        </p>
+        <p>
+          Nabízíme <strong>servis všech měřítek</strong>, prodej náhradních dílů i příslušenství, a také <strong>poradenství</strong>, když si nevíte
+          rady s výběrem nebo nastavením. Ať už jste začátečník nebo závodník, postaráme se, aby vaše auto jezdilo tak, jak má.
+        </p>
+        <p>
+          Jsme rodinný podnik – rádi vám poradíme osobně a podělíme se o zkušenosti nasbírané za desítky let praxe. A pokud s RC auty teprve začínáte,
+          <strong>ukážeme vám cestu</strong> a pomůžeme objevit radost z RC aut.
+        </p>
+      </section>
+
+      <script>
+        const videos = document.querySelectorAll(".clip")
+
+        videos.forEach((video) => {
+          // nastavíme pomalou rychlost
+          video.playbackRate = 0.5
+
+          // při najetí myši zrychlit
+          video.addEventListener("mouseenter", () => {
+            video.playbackRate = 1.0
+          })
+
+          // při odjetí myši zpomalit
+          video.addEventListener("mouseleave", () => {
+            video.playbackRate = 0.5
+          })
+        })
+      </script>
+
+      <script>
+        // vyber všechny boxy
+        const boxes = document.querySelectorAll(".box")
+
+        boxes.forEach((box) => {
+          // najdi nadpis uvnitř box-wrapper
+          const h2 = box.closest(".box-wrapper").querySelector("h2")
+
+          // při najetí myší na box
+          box.addEventListener("mouseenter", () => {
+            h2.style.transform = "translateY(-20px)"
+            h2.style.transition = "transform 0.4s"
+          })
+
+          // při opuštění boxu
+          box.addEventListener("mouseleave", () => {
+            h2.style.transform = "translateY(0)"
+          })
+        })
+      </script>
+
+      <!-- PLAY JEN PRI HOVER -->
+      <!-- <script>
+        const clip = document.querySelectorAll(".clip")
+        for (let i = 0; i < clip.length; i++) {
+          clip[i].addEventListener("mouseenter", function (e) {
+            clip[i].play()
+          })
+          clip[i].addEventListener("mouseout", function (e) {
+            clip[i].pause()
+          })
+        }
+      </script> -->
+    </main>
+
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data
+        })
+    </script>
+
+    <script src="carAnimation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+@keyframes throw {
+  0% {
+    opacity: 1;
+    left: -25vw;
+    top: 85px;       /* start */
+    transform: rotate(-18deg) scale(1) rotateX(0deg);
+  }
+  20% {
+    left: 10vw;
+    top: 25px;       /* stoupá nahoru */
+    transform: rotate(-10deg) scale(1.02);
+  }
+  40% {
+    left: 35vw;
+    top: -20px;      /* střední vzestup */
+    transform: rotate(-5deg) scale(1.04);
+  }
+  60% {
+    left: 60vw;
+    top: -30px;      /* vrchol letu */
+    transform: rotate(0deg) scale(1.06);
+  }
+  80% {
+    left: 85vw;
+    top: 20px;       /* klesá dolů */
+    transform: rotate(12deg) scale(1.08);
+  }
+  99.9% {
+    opacity: 1;
+    transform: rotateZ(180deg);
+  }
+  100% {
+    left: 100vw;
+    top: 65px;       /* dopad */
+    transform: rotate(23deg) scale(1.12);
+    opacity: 0;
+  }
+}

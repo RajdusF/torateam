@@ -1,0 +1,1048 @@
+/* MOBIL 1080x2640 */
+/* TABLET 2360 x 1640*/
+
+:root {
+  --main-color: #161616;
+  --background-color: #242323;
+  --text-color: #ffffff;
+  --my-color: #1977f1;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+  background-color: var(--background-color);
+}
+
+body,
+h1,
+h2,
+p,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, Arial, Sans-Serif;
+  display: flex;
+  flex-direction: column;
+  z-index: 3 !important;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-size: 30px;
+  text-align: center;
+}
+
+h3 {
+  font-size: 24px;
+  display: flex;
+  justify-content: center;
+  margin: 4px;
+  color: var(--text-color);
+}
+
+p {
+  line-height: 1.5;
+  color: var(--text-color);
+}
+
+h1, h2, h3, p, ul, li {
+  color: var(--text-color);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--text-color);
+  /*color: inherit; /* zdědí barvu rodiče, např. černou nebo bílou */
+  text-decoration: none; /* odstraní podtržení, pokud nechceš */
+}
+
+a:visited {
+  color: var(--text-color);
+  /*color: inherit; /* zabrání změně barvy po kliknutí */
+}
+
+.logo {
+  position: relative;
+  width: 290px;
+  height: auto;
+  margin-right: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease; /* plynulý efekt */
+  /* filter: brightness(0) saturate(100%) invert(39%) sepia(51%) saturate(5325%) hue-rotate(203deg) brightness(99%) contrast(92%); */
+  z-index: 2 !important;
+  transform: scale(0.95)
+}
+
+@media (max-width: 1080px) {
+  .logo {
+    width: 450px;
+  }
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  /* filter: brightness(0) saturate(100%) invert(39%) sepia(51%) saturate(5325%) hue-rotate(203deg) brightness(99%) contrast(92%); */
+}
+
+main {
+  position: relative;
+  flex: 1; /* roztáhne obsah tak, aby footer byl dole */
+  z-index: 3 !important;
+}
+
+header {
+  position: relative;
+  height: 120px;
+  /* background-color: #333; */
+  background-color: var(--main-color);
+  /* color: var(--background-color); */
+  padding: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* overflow: hidden; */
+  /* border-bottom: 1px solid rgba(253, 253, 253, 0.5); */
+}
+
+.moving-logo-container {
+  position: relative; /* reference pro absolute */
+  height: 120px; /* výška oblasti pro logo */
+  overflow: visible; /* logo může vyjet mimo kontejner */
+}
+
+.moving-logo {
+  position: relative; /* obrázek je nad obsahem */
+  top: 58px; /* vzdálenost od horního okraje 63 */
+  width: 278px; /* velikost obrázku */
+  left: -35vw;
+  /*                                   plynulost    0   koncova plynulost                            */
+  animation-fill-mode: forwards;
+  cursor: pointer;
+  /* transform: scaleX(-1); otočí horizontálně */
+  z-index: 1 !important; /* zajistí, že bude nad ostatním obsahem */
+  pointer-events: auto;
+}
+
+.moving-logo.mirrored {
+  transform: scaleX(-1);
+}
+
+@media screen and (max-width: 1080px) {
+  .moving-logo {
+    top: 117px; /* menší velikost pro mobil */
+  }
+}
+
+/* Animace doprava */
+@keyframes moveRight {
+  from {
+    left: -15vw;
+  }
+  to {
+    left: 100vw;
+  } /* projede přes celou obrazovku */
+}
+
+/* Animace doleva */
+@keyframes moveLeft {
+  from {
+    left: 100vw;
+  }
+  to {
+    left: -15vw;
+  }
+}
+.moving-javelin-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* výška oblasti pro oštěp */
+  overflow: visible; /* oštěp může vyjet mimo kontejner */
+  pointer-events: none; /* zabrání interakci s oštěpem */
+  z-index: 5 !important; /* pod logo a navigaci */
+}
+
+.moving-javelin {
+  position: relative; /* aby šlo animovat přes pozici */
+  left: -35vw; /* start mimo obrazovku */
+  top: 50px; /* výška letu, uprav podle potřeby */
+  width: 230px; /* velikost oštěpu  230 */
+  transform-origin: 81% 50%; /* bod rotace při naklánění */
+  opacity: 0;
+  user-drag: none; /* pro WebKit (Chrome, Safari) */
+  -webkit-user-drag: none;
+  pointer-events: none; /* zabraňuje i klikání, pokud chceš */
+  z-index: 1 !important;
+}
+
+@keyframes throw_javelin {
+  0% {
+    opacity: 1;
+    left: -27vw;
+    top: 5px;
+    transform: scale(1.05);
+    rotate: -25deg;
+  }
+  25% {
+    top: -45px;
+  }
+  50% {
+    top: -55px;
+  }
+  75% {
+    top: -10px;
+  }
+  99.9% {
+    opacity: 1;
+  }
+  100% {
+    left: 85vw;
+    top: 65px;
+    transform: scale(1.05);
+    opacity: 0;
+    rotate: 12deg;
+  }
+}
+
+@keyframes throw_hammer {
+  0% {
+    opacity: 1;
+    left: -25vw;
+    top: 25px;
+    transform: scale(1);
+    rotate: -20deg;
+  }
+  50% {
+    top: -30px;
+  }
+  99.9% {
+    opacity: 1;
+  }
+  100% {
+    left: 85vw;
+    top: 65px;
+    transform: scale(0.9);
+    opacity: 0;
+    rotate: 30deg;
+  }
+}
+
+nav {
+  z-index: 2;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 60px;
+  margin-top: 40px;
+  color: #fff;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+@media (max-width: 1080px) {
+  nav ul li {
+    margin-right: 50px; /* menší mezera pro mobil */
+  }
+}
+
+nav ul li a {
+  position: relative;
+  display: inline-block; /* důležité pro transform */
+  color: #fff;
+  text-decoration: none;
+  font-size: 21px;
+  font-weight: bold;
+  padding: 5px 0;
+  transition: transform 0.5s;
+  transform-origin: bottom; /* zvětšování směrem dolů */
+}
+
+@media (max-width: 1080px) {
+  nav ul li a {
+    font-size: 30px; /* menší písmo pro mobil */
+  }
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0px;
+  height: 2px;
+  width: 0;
+  background-color: var(--my-color);
+  transition: width 0.5s ease;
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+nav ul li a:hover {
+  transform: scale(1.2);
+}
+
+.text {
+  font-size: 18px;
+  padding: 10px;
+  text-align: center; /* centrování textu */
+}
+
+.text ul {
+  list-style: none; /* odstraní tečky před odrážkami */
+  padding-left: 0; /* odstraní odsazení seznamu */
+  margin: 50px 0; /* mezera mezi seznamy */
+}
+
+.text ul li {
+  margin: 20px 0; /* mezera mezi jednotlivými položkami seznamu */
+  color: var(--text-color);
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+/* About sekce */
+.about {
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 2rem;
+  text-align: justify;
+}
+
+.about h1 {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: var(--my-color);
+}
+
+.about p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+strong {
+  font-weight: 700; /* silnější tučné */
+  color: #1977f1; /* zvýrazňovací barva */
+}
+
+/* Video boxy */
+.container {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  width: 750px;
+  gap: 70px;
+  margin-top: 35px;
+}
+
+/* Nadpis se při hoveru boxu posune nahoru */
+.box-wrapper h2 a {
+  position: relative;
+  display: inline-block; /* nutné pro transform */
+  font-size: 1.5rem;
+  color: var(--text-color);
+  transition: transform 0.5s; /* animace pohybu */
+  transform-origin: bottom;
+}
+
+.box-wrapper h2 a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  height: 2px;
+  width: 0;
+  background-color: var(--my-color);
+  transition: width 0.7s ease;
+}
+
+.box-wrapper h2 a:hover::after {
+  width: 100%;
+}
+
+.box-wrapper h2 a:hover {
+  transform: scale(1.2);
+}
+
+/* Box a video */
+.box {
+  width: 100%;
+  height: 250px;
+  border: 4px solid #000;
+  filter: grayscale(1);
+  overflow: hidden;
+  transition: transform 0.4s, filter 0.4s, border-color 0.4s;
+  position: relative;
+  margin-top: 15px;
+}
+
+.box:hover {
+  filter: grayscale(0);
+  transform: scale(1.22);
+  border-color: var(--my-color);
+}
+
+.box video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Slider, obrázky a ostatní zůstává stejné */
+.column,
+.lower-column,
+.athletics_column {
+  display: table-cell;
+}
+
+/* RACING ROW*/
+
+main.photos {
+  margin: 0;
+}
+
+.photos img {
+  height: auto; /* zachování proporcí */
+  image-rendering: auto; /* default interpolace */
+  -ms-interpolation-mode: bicubic; /* pro starší IE */
+}
+
+.photos .row {
+  display: flex;
+  flex-wrap: wrap; /* desktop – více řad */
+  gap: 0px;
+  justify-content: center;
+  align-items: stretch; /* všechny boxy stejné výšky */
+}
+
+.column {
+  flex: 1 1 90px; /* minimální šířka 150px, roste podle dostupného místa */
+  height: 160px; /* jednotná výška všech obrázků */
+  overflow: hidden;
+}
+
+.column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* zachová proporce a ořízne přebytek */
+  display: block;
+}
+
+.photos .column:nth-child(10) img {
+  object-position: center 20%;
+}
+
+/* MOBIL */
+@media (max-width: 1080px) {
+  .photos .row {
+    display: flex;
+    flex-wrap: wrap; /* dovolí zalamování do více řad */
+    gap: 0px; /* mezera mezi obrázky */
+    justify-content: center; /* vycentrování obrázků */
+    overflow-x: hidden; /* žádný scroll */
+  }
+
+  .photos .column {
+    flex: 1 1 calc(18%); /* každý obrázek zabere polovinu řádku minus gap */
+    text-align: center;
+  }
+
+  .photos .column img {
+    width: 100%; /* vyplní sloupec */
+    display: block;
+  }
+
+  .photos .column:nth-child(2) img {
+    object-position: center 40%;
+  }
+
+  .photos .column:nth-child(10) img {
+    object-position: center 15%;
+  }
+
+  .photos .column:nth-child(12) img {
+    object-position: center 60%;
+  }
+
+  .photos .column:nth-child(13) img {
+    object-position: center 20%;
+  }
+}
+
+.lc-racing {
+  width: 100%; /* přizpůsobení šířce sloupce */
+  height: auto; /* zachování proporcí */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: -30px;
+}
+
+.lc-racing img {
+  width: 420px;
+}
+
+.lc-racing-name {
+  display: block;
+  color: var(--text-color);
+  text-align: center;
+  margin-top: 60px;
+  width: 100%;
+}
+
+.slide-container {
+  padding: 1rem 0 1rem 0;
+}
+
+.slider-wrapper {
+  position: relative;
+  max-width: 28vw;
+  margin: 0 auto;
+}
+
+.slider {
+  display: flex;
+  aspect-ratio: 15/9;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+  border-radius: 0.8rem;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider img {
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+
+.slider-nav {
+  display: flex;
+  column-gap: 1.5rem;
+  position: absolute;
+  bottom: 1.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.slider-nav span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #fff; /* bílá tečka */
+  background: #ccc;
+  opacity: 0.9;
+  border: 1px solid rgb(0, 0, 0, 0.4); /* jemný rámeček */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block; /* důležité, aby měly velikost */
+}
+
+.slider-nav span.active {
+  background: var(--my-color); /* svítící kolečko */
+}
+
+.slider-nav a {
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+  opacity: 1;
+}
+.racing-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 100px; /* mezera mezi komponentami */
+  margin-top: 100px;
+}
+
+.racing-row {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: 50vw;
+  margin-left: 20%;
+}
+
+.racing-row.reverse {
+  flex-direction: row-reverse; /* obrátí pořadí video/text */
+  margin-left: auto;
+  margin-right: 20%;
+}
+
+/* PROMO VIDEA LC RACING */
+.video-container {
+  flex: 1;
+  position: relative;
+}
+
+.video-container video {
+  width: 100%;
+  border-radius: 10px;
+  aspect-ratio: 9 / 10;
+  object-fit: cover;
+}
+
+
+.text-container {
+  flex: 1;
+}
+
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  pointer-events: none; /* overlay nebude blokovat kliknutí na video */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.video-overlay.show {
+  opacity: 1;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  width: 90%;
+  height: 6px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.progress {
+  height: 100%;
+  background: #fff;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.logos {
+  display: block;
+  margin: 0 auto;
+  width: 15%;
+  padding-bottom: 2.5rem;
+}
+
+/* SPODNI ZAVODNI LOGA */
+
+.lower-row {
+  display: flex;
+  justify-content: center; /* loga uprostřed */
+  align-items: center;
+  margin-top: 8%;
+  margin-bottom: -20px;
+  flex-wrap: nowrap; /* jedna řada */
+  gap: 10px; /* malá mezera mezi logy */
+  background-color: rgb(255, 255, 255);
+}
+
+.lower-column {
+  flex: 1 1 0; /* každý sloupec se roztáhne podle dostupného místa */
+  text-align: center;
+}
+
+.lower-column img {
+  max-height: 80px; /* max výška */
+  width: 100%; /* obrázek zabere celý sloupec */
+  height: auto; /* zachování proporcí */
+  object-fit: contain;
+  display: block;
+}
+
+/* ATLETIKY LOGA */
+
+.athletics_column:hover,
+.athletics_column_bigger:hover {
+  transform: scale(1.25);
+}
+
+.athletics_row {
+  display: flex;
+  justify-content: center; /* obrázky vycentrované */
+  align-items: center; /* vertikální zarovnání */
+  gap: 10px; /* malá mezera mezi obrázky */
+  flex-wrap: wrap; /* pokud se nevejdou, zalomí se do dalšího řádku */
+  margin: 20px 0;
+}
+
+.athletics_column {
+  flex: 1 1 auto; /* flexibilní velikost, aby se vešly všechny obrázky */
+  text-align: center;
+  transition: transform 0.5s ease; /* plynulá animace při hoveru i při návratu */
+}
+
+@media (max-width: 1080px) {
+  .athletics_column {
+    flex: 0 0 auto; /* každý obrázek zabere cca polovinu řádku */
+  }
+}
+
+.athletics_column img {
+  max-height: 130px; /* nastav výšku obrázků */
+  width: auto; /* zachování poměru stran */
+  object-fit: contain;
+}
+
+@media (max-width: 1080px) {
+  .athletics_column img {
+    margin: 10px;
+  }
+}
+
+.athletics_row_bigger {
+  display: flex;
+  justify-content: center; /* obrázky vycentrované */
+  align-items: center; /* vertikální zarovnání */
+  gap: 10px; /* malá mezera mezi obrázky */
+  flex-wrap: wrap; /* pokud se nevejdou, zalomí se do dalšího řádku */
+  margin: 20px 500px;
+}
+
+.athletics_column_bigger {
+  flex: 1 1 auto; /* flexibilní velikost, aby se vešly všechny obrázky */
+  text-align: center;
+  transition: transform 0.5s ease; /* plynulá animace při hoveru i při návratu */
+}
+
+.athletics_column_bigger img {
+  max-height: 250px; /* nastav výšku obrázků */
+  width: auto; /* zachování poměru stran */
+  object-fit: contain;
+}
+
+/* mobilní verze – jedna řada s horizontálním scroll */
+@media (max-width: 1080px) {
+  .athletics_row_bigger {
+    flex-wrap: nowrap; /* jedna řada */
+    overflow-x: auto; /* horizontální scroll, pokud se nevejdou */
+    gap: 90px; /* menší mezera */
+    margin: 20px; /* menší margin pro mobil */
+  }
+
+  .athletics_column_bigger {
+    flex: 0 0 auto; /* sloupec podle obrázku */
+  }
+
+  .athletics_column_bigger img {
+    height: 200px; /* zmenšení výšky obrázků na mobilu */
+    width: auto; /* zachování proporcí */
+  }
+}
+
+/* FLOTILA */
+
+.flotila_row {
+  display: flex;
+  justify-content: center; /* obrázky vycentrované */
+  align-items: center; /* vertikální zarovnání */
+  gap: 10px; /* malá mezera mezi obrázky */
+  flex-wrap: wrap; /* pokud se nevejdou, zalomí se do dalšího řádku */
+  margin: 20px 0;
+}
+
+.flotila_column {
+  flex: 1 1 auto; /* flexibilní velikost, aby se vešly všechny obrázky */
+  text-align: center;
+}
+
+.flotila_column img {
+  max-width: 700px; /* nastav výšku obrázků */
+  width: auto; /* zachování poměru stran */
+  object-fit: contain;
+}
+
+/* KONTAKT */
+
+.contact-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  margin-right: 40px;
+}
+
+.contact-photo img {
+  display: block;
+  max-width: 340px;
+  width: 100%;
+  height: auto;
+  border-radius: 5%;
+}
+
+.contact-container {
+  display: flex;
+  position: relative;
+  margin-top: 70px;
+  align-items: center;
+  justify-content: center;
+}
+
+.info {
+  padding: 7px;
+  padding-right: 0;
+  margin-left: 30px;
+  width: 250px;
+
+  display: flex; /* enable flex layout */
+  flex-direction: column; /* stack children vertically */
+  justify-content: space-between; /* top items at top, bottom items at bottom */
+  height: 100%; /* make it fill the parent container */
+}
+
+.info p {
+  font-size: 18px;
+  margin: 6px 0;
+  transition: font-size 0.3s ease, color 0.3s ease;
+  display: inline-block;
+  transform-origin: center;
+}
+
+.info p:hover {
+  font-size: 20px; /* plynulé zvětšení */
+  color: var(--my-color); /* tmavší barva */
+}
+
+.click-to-copy {
+  position: relative; /* pro pseudo-element */
+  font-size: 18px;
+  text-decoration: none;
+  transition: font-size 0.3s ease, color 0.3s ease;
+  cursor: pointer; /* ukazatel při hover */
+  text-decoration: underline; /* podtržení */
+  text-underline-offset: 8px; /* odsazení od textu */
+}
+
+.click-to-copy::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px; /* vzdálenost pod textem */
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: currentColor; /* stejná barva jako text */
+  transition: width 0.3s ease;
+}
+
+.click-to-copy:hover {
+  font-size: 20px; /* plynulé zvětšení textu */
+  color: #000000; /* tmavší barva při hover */
+}
+
+.click-to-copy:hover::after {
+  width: 100%; /* rozvinutí linky pod textem */
+}
+
+.phone-link {
+  color: inherit;
+  text-decoration: none;
+  position: relative; /* potřebné pro ::after */
+  transition: transform 0.3s ease;
+  text-decoration: underline; /* podtržení */
+  text-underline-offset: 4px; /* odsazení od textu */
+}
+
+.phone-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px; /* vzdálenost pod textem */
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: currentColor; /* stejná barva jako text */
+  transition: width 0.3s ease;
+}
+
+.phone-link:hover {
+  transform: scale(1.1);
+}
+
+.phone-link:hover::after {
+  width: 100%;
+}
+
+.fb-sites-wrapper {
+  margin-top: 80px; /* or whatever space you want */
+}
+
+.fb-sites {
+  position: relative; /* základ pro ::after */
+  display: inline-block; /* aby linka seděla přímo pod textem */
+  transition: transform 0.3s ease;
+  margin-bottom: 5px;
+}
+
+.fb-sites::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0px; /* zmenšená vzdálenost od textu */
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: var(--my-color);
+  transition: width 0.3s ease;
+}
+
+.fb-sites:hover {
+  transform: scale(1.05);
+}
+
+.fb-sites:hover::after {
+  width: 100%; /* linka se roztáhne */
+}
+
+.fb-sites img {
+  filter: brightness(0) saturate(100%) invert(39%) sepia(51%) saturate(5325%) hue-rotate(203deg) brightness(99%) contrast(92%);
+}
+
+#toast {
+  visibility: hidden;
+  min-width: 120px;
+  background-color: var(--my-color);
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  padding: 8px;
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 14px;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s;
+}
+
+#toast.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+.map {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: 5%;
+  margin-top: 80px;
+}
+
+.map iframe {
+  border-radius: 5%; /* zaoblení rohů */
+}
+
+.bottom-text {
+  font-size: 18px;
+  text-align: center;
+  margin: 80px 0;
+}
+
+.index-foot,
+.foot {
+  position: relative;
+  margin-top: 20px;
+  font-size: 14px;
+  background-color: var(--main-color);
+  color: var(--text-color);
+  padding: 12px;
+  text-align: center;
+  width: 100%;
+}
+
+.platba {
+  display: flex;
+  flex-direction: column; /* pod sebou */
+  align-items: center; /* horizontální centrování */
+}
+
+.platba img {
+  width: 350px;
+  height: auto;
+}
+
+.platba p {
+  z-index: 1000;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+img[src="photos/atletika_flotila/3.jpg"] {
+  position: absolute;
+  right: 200px;
+  width: 500px; /* šířka obrázku */
+  height: auto; /* zachování proporcí */
+  border-radius: 12px; /* zakulacené rohy */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* jemný stín */
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+img[src="photos/ja.jpeg"] {
+  position: absolute;
+  left: 200px;
+  top: 190px;
+  width: 400px; /* šířka obrázku */
+  height: auto; /* zachování proporcí */
+  border-radius: 12px; /* zakulacené rohy */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* jemný stín */
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
+
+.logo_easter {
+  width: 290px;
+  height: auto;
+  margin-right: 10px;
+  transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 20px;
+}
+
+.logo_easter:hover {
+  transform: scale(1.1);
+}
