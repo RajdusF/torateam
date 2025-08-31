@@ -1,24 +1,24 @@
 const logo = document.querySelector(".moving-logo")
 const projectile = document.querySelector(".moving-javelin")
-const min = 7 // 7
-const max = 12 // 12
+const min = 0 // 7
+const max = 0 // 12
 const duration = 6.7 // délka animace v sekundách
 const projectileDuration = 4.5 // 4.5
-const delayBack = 2000 // fixní zpoždění při návratu 2000
+const delayBack = 0 // fixní zpoždění při návratu 2000
 
 let direction = "right" // aktuální směr
 let firstDelay = 0 // 4
 
 const variants = [
   {
-    right: "photos/siluety/final/javelin_car.png",
-    left: "photos/siluety/final/javelin_car_equipment.png",
-    projectile: "photos/siluety/javelin.png",
+    right: "../photos/siluety/final/javelin_car.png",
+    left: "../photos/siluety/final/javelin_car_equipment.png",
+    projectile: "../photos/siluety/javelin.png",
   },
   {
-    right: "photos/siluety/final/hammer_car.png",
-    left: "photos/siluety/final/hammer_car_equipment.png",
-    projectile: "photos/siluety/white_hammer.png",
+    right: "../photos/siluety/final/hammer_car.png",
+    left: "../photos/siluety/final/hammer_car_equipment.png",
+    projectile: "../photos/siluety/white_hammer.png",
   },
 ]
 
