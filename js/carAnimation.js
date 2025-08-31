@@ -39,14 +39,16 @@ function chooseVariant() {
 
   currentVariant = newVariant*/
 
+  /*
   if (currentVariant === variants[0]) {
     currentVariant = variants[1]
   } else if (currentVariant === variants[1]) {
     currentVariant = variants[0]
   }
+    */
 
-  // TESTING
-  // currentVariant = variants[0]
+  //  TESTING
+   currentVariant = variants[0]
 }
 
 function startAnimation(delay) {

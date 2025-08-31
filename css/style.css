@@ -92,7 +92,7 @@ a:visited {
 
 @media (max-width: 1080px) {
   .logo {
-    width: 450px;
+    width: 280px;
   }
 }
 
@@ -104,7 +104,7 @@ a:visited {
 main {
   position: relative;
   flex: 1; /* roztáhne obsah tak, aby footer byl dole */
-  z-index: 3 !important;
+  z-index: 4 !important;
 }
 
 header {
@@ -131,7 +131,7 @@ header {
   position: relative; /* obrázek je nad obsahem */
   top: 58px; /* vzdálenost od horního okraje 63 */
   width: 278px; /* velikost obrázku */
-  left: -35vw;
+  left: 0vw;
   /*                                   plynulost    0   koncova plynulost                            */
   animation-fill-mode: forwards;
   cursor: pointer;
@@ -140,14 +140,14 @@ header {
   pointer-events: auto;
 }
 
-.moving-logo.mirrored {
-  transform: scaleX(-1);
+@screen (max-width: 1080px) {
+  .moving-logo {
+    left: -80vw; /* menší velikost pro mobil */
+  }
 }
 
-@media screen and (max-width: 1080px) {
-  .moving-logo {
-    top: 117px; /* menší velikost pro mobil */
-  }
+.moving-logo.mirrored {
+  transform: scaleX(-1);
 }
 
 /* Animace doprava */
@@ -169,6 +169,28 @@ header {
     left: -15vw;
   }
 }
+
+/* Mobilní animace */
+@media (max-width: 1080px) {
+  @keyframes moveRight {
+    from {
+      left: calc(0vw - 278px);
+    } /* start mimo obrazovku */
+    to {
+      left: 100vw;
+    }
+  }
+
+  @keyframes moveLeft {
+    from {
+      left: 100vw;
+    }
+    to {
+      left: calc(0vw - 278px);
+    }
+  }
+}
+
 .moving-javelin-wrapper {
   position: absolute;
   top: 0;
@@ -222,6 +244,38 @@ header {
   }
 }
 
+/* Mobilní animace */
+@media (max-width: 1080px) {
+  @keyframes throw_javelin {
+    0% {
+      opacity: 1;
+      left: -52vw;
+      top: 5px;
+      transform: scale(1.05);
+      rotate: -25deg;
+    }
+    25% {
+      top: -45px;
+    }
+    50% {
+      top: -55px;
+    }
+    75% {
+      top: -10px;
+    }
+    99.9% {
+      opacity: 1;
+    }
+    100% {
+      left: 85vw;
+      top: 65px;
+      transform: scale(1.05);
+      opacity: 0;
+      rotate: 12deg;
+    }
+  }
+}
+
 @keyframes throw_hammer {
   0% {
     opacity: 1;
@@ -242,6 +296,31 @@ header {
     transform: scale(0.9);
     opacity: 0;
     rotate: 30deg;
+  }
+}
+
+@media (max-width: 1080px) {
+  @keyframes throw_hammer {
+    0% {
+      opacity: 1;
+      left: -52vw;
+      top: 25px;
+      transform: scale(1);
+      rotate: -20deg;
+    }
+    50% {
+      top: -30px;
+    }
+    99.9% {
+      opacity: 1;
+    }
+    100% {
+      left: 85vw;
+      top: 65px;
+      transform: scale(0.9);
+      opacity: 0;
+      rotate: 30deg;
+    }
   }
 }
 
@@ -284,7 +363,7 @@ nav ul li a {
 
 @media (max-width: 1080px) {
   nav ul li a {
-    font-size: 30px; /* menší písmo pro mobil */
+    font-size: 21px; /* menší písmo pro mobil */
   }
 }
 
@@ -340,14 +419,26 @@ ul {
 .about h1 {
   text-align: center;
   font-size: 2.2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.7rem;
   color: var(--my-color);
+}
+
+@media (max-width: 1080px) {
+  .about h1 {
+    font-size: 2rem;
+  }
 }
 
 .about p {
   font-size: 1.1rem;
   margin-bottom: 1rem;
   color: var(--text-color);
+}
+
+@media (max-width: 1080px) {
+  .about p {
+    font-size: 0.7rem;
+  }
 }
 
 strong {
@@ -1051,7 +1142,6 @@ img[src="../photos/atletika_flotila/3.jpg"] {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* jemný stín */
   transition: transform 0.4s ease, filter 0.4s ease;
 }
-
 
 .logo_easter {
   width: 290px;
