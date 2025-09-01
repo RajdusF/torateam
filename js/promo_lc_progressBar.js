@@ -1,3 +1,6 @@
+const racingRows = document.querySelectorAll(".racing-row")
+const bottomText = document.querySelector(".bottom-text")
+
 document.querySelectorAll(".video-container").forEach((container) => {
   const video = container.querySelector("video")
   const progressBar = container.querySelector(".progress-bar")
@@ -48,17 +51,20 @@ document.querySelectorAll(".video-container").forEach((container) => {
   })
 
   // --- Intersection Observer pro lazy play ---
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        video.play()
-      } else {
-        video.pause()
-      }
-    })
-  }, {
-    threshold: 0.75 // spustí, když je alespoň 50% videa viditelné
-  })
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          video.play()
+        } else {
+          video.pause()
+        }
+      })
+    },
+    {
+      threshold: 0.6, // spustí, když je alespoň 50% videa viditelné
+    }
+  )
 
   observer.observe(video)
 })
@@ -68,3 +74,22 @@ if (/Mobi|Android/i.test(navigator.userAgent)) {
   const videos = document.querySelectorAll("video")
   videos.forEach((video) => video.pause())
 }
+
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible")
+        // Pokud chceme animovat jen jednou:
+        observer.unobserve(entry.target)
+      }
+    })
+  },
+  {
+    threshold: 0.3, // spustí když je 20% elementu ve viewportu
+  }
+)
+
+racingRows.forEach((row) => observer.observe(row))
+
+if (bottomText) observer.observe(bottomText)

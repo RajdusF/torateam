@@ -51,7 +51,9 @@
 .car-text {
   opacity: 0; /* start neviditelný */
   transition: opacity 1.3s ease-out 1.4s;
-  font-size: 24px;
+  display: flex;
+  flex-direction: column; /* nadpis nad textem */
+  font-size: 20px;
   text-transform: uppercase; /* všechno velkými písmeny */
   font-family: "Bebas Neue", sans-serif;
   font-size: 1.3vw; /* velikost podle šířky obrazovky */
@@ -71,18 +73,24 @@
   margin-right: 12px;
 }
 
-/* Text se zviditelní po příjezdu auta */
+.car-block.hide-left .car-name,
+.car-block.hide-left .car-text,
+.car-block.hide-right .car-name,
+.car-block.hide-right .car-text {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+}
+
+.car-block.show .car-name,
 .car-block.show .car-text {
   opacity: 1;
 }
 
-.car-block.hide-left .car-text,
-.car-block.hide-right .car-text {
-  opacity: 0;
-  transition: opacity 0.8s ease-out; /* bez delay, aby zmizel hned s autem */
-}
-
 .car-name {
   font-weight: bold;
+  font-size: 30px;
   color: var(--my-color);
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  transition: opacity 1.3s ease-out 1.4s;
 }
