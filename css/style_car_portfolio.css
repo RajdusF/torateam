@@ -37,6 +37,7 @@
 
 .car-block.right {
   flex-direction: row-reverse; /* auto z pravé strany, text vlevo */
+  text-align: right;
 }
 
 .car-block.right img {
@@ -47,30 +48,27 @@
   transform: translateX(0) scale(1); /* jen příjezd auta */
 }
 
+.car-text-wrapper {
+  display: flex;
+  flex-direction: column; /* název nad textem */
+  gap: 0.5rem; /* mezera mezi názvem a textem */
+  max-width: 520px;
+}
+
 /* Text vedle auta */
 .car-text {
   opacity: 0; /* start neviditelný */
   transition: opacity 1.3s ease-out 1.4s;
   display: flex;
   flex-direction: column; /* nadpis nad textem */
-  font-size: 20px;
   text-transform: uppercase; /* všechno velkými písmeny */
   font-family: "Bebas Neue", sans-serif;
-  font-size: 1.3vw; /* velikost podle šířky obrazovky */
+  font-size: 22px; /* velikost podle šířky obrazovky */
   font-weight: 700; /* tučné písmo */
   letter-spacing: 2px; /* mezery mezi písmeny */
-  max-width: 480px;
   color: var(--text-color); /* barva textu */
-  /* -webkit-text-stroke: 0.60px black; černý obrys 2px */
-  /* text-shadow: 1px 1px 5px rgba(0.5,0.5,0.5,0.5); */
-  /* text-shadow:
-  0.8px 0.8px 0 rgb(0, 0, 0),
- -0.8px 0.8px 0 black,
-  0.8px -0.8px 0 black,
- -0.8px -0.8px 0 black; */
-
-  margin-left: 12px;
-  margin-right: 12px;
+  line-height: 1.5;
+  margin-bottom: 50px;
 }
 
 .car-block.hide-left .car-name,
@@ -88,9 +86,10 @@
 
 .car-name {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 32px;
   color: var(--my-color);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.55rem;
   opacity: 0;
   transition: opacity 1.3s ease-out 1.4s;
+  text-transform: uppercase;
 }
