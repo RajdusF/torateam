@@ -35,7 +35,7 @@ body {
   font-family: Helvetica, Arial, Sans-Serif;
   display: flex;
   flex-direction: column;
-  z-index: 3 !important;
+  z-index: 10 !important;
 }
 
 h1 {
@@ -92,7 +92,7 @@ a:visited {
   margin-right: 10px;
   transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease; /* plynulý efekt */
   /* filter: brightness(0) saturate(100%) invert(39%) sepia(51%) saturate(5325%) hue-rotate(203deg) brightness(99%) contrast(92%); */
-  z-index: 2 !important;
+  z-index: 5 !important;
   transform: scale(0.95);
 }
 
@@ -110,7 +110,7 @@ a:visited {
 main {
   position: relative;
   flex: 1; /* roztáhne obsah tak, aby footer byl dole */
-  z-index: 4 !important;
+  z-index: 20 !important;
 }
 
 header {
@@ -137,7 +137,7 @@ header {
   position: relative; /* obrázek je nad obsahem */
   top: 58px; /* vzdálenost od horního okraje 63 */
   width: 278px; /* velikost obrázku */
-  left: 0vw;
+  left: -30vw;
   /*                                   plynulost    0   koncova plynulost                            */
   animation-fill-mode: forwards;
   cursor: pointer;
@@ -159,7 +159,7 @@ header {
 /* Animace doprava */
 @keyframes moveRight {
   from {
-    left: -15vw;
+    left: calc(0vw - 278px);
   }
   to {
     left: 100vw;
@@ -172,7 +172,7 @@ header {
     left: 100vw;
   }
   to {
-    left: -15vw;
+    left: calc(0vw - 278px);
   }
 }
 
@@ -205,7 +205,15 @@ header {
   height: 120px; /* výška oblasti pro oštěp */
   overflow: visible; /* oštěp může vyjet mimo kontejner */
   pointer-events: none; /* zabrání interakci s oštěpem */
-  z-index: 5 !important; /* pod logo a navigaci */
+  z-index: 6 !important; /* pod logo a navigaci */
+  margin: 0;
+  padding: 0;
+}
+
+.moving-javelin-wrapper img {
+  display: block; /* odstraní inline mezeru */
+  margin: 0;
+  padding: 0;
 }
 
 .moving-javelin {
@@ -218,14 +226,14 @@ header {
   user-drag: none; /* pro WebKit (Chrome, Safari) */
   -webkit-user-drag: none;
   pointer-events: none; /* zabraňuje i klikání, pokud chceš */
-  z-index: 1 !important;
+  z-index: -1 !important;
 }
 
 @keyframes throw_javelin {
   0% {
     opacity: 1;
-    left: -27vw;
-    top: 5px;
+    left: calc(0vw - 230px);    /* left: calc(0vw - 230px); */
+    top: 5px;                   /* 5 */
     transform: scale(1.05);
     rotate: -25deg;
   }
@@ -233,7 +241,7 @@ header {
     top: -45px;
   }
   50% {
-    top: -55px;
+    top: -75px;
   }
   75% {
     top: -10px;
@@ -242,11 +250,11 @@ header {
     opacity: 1;
   }
   100% {
-    left: 85vw;
-    top: 65px;
+    left: 100vw;
+    top: 65px;  
     transform: scale(1.05);
     opacity: 0;
-    rotate: 12deg;
+    rotate: 14deg;
   }
 }
 
@@ -255,7 +263,7 @@ header {
   @keyframes throw_javelin {
     0% {
       opacity: 1;
-      left: -52vw;
+      left: calc(0vw - 230px);
       top: 5px;
       transform: scale(1.05);
       rotate: -25deg;
@@ -264,7 +272,7 @@ header {
       top: -45px;
     }
     50% {
-      top: -55px;
+      top: -75px;
     }
     75% {
       top: -10px;
@@ -273,11 +281,11 @@ header {
       opacity: 1;
     }
     100% {
-      left: 85vw;
+      left: 100vw;
       top: 65px;
       transform: scale(1.05);
       opacity: 0;
-      rotate: 12deg;
+      rotate: 14deg;
     }
   }
 }
@@ -369,7 +377,7 @@ nav ul li a {
 
 @media (max-width: 1080px) {
   nav ul li a {
-    font-size: 21px; /* menší písmo pro mobil */
+    font-size: 1rem; /* menší písmo pro mobil */
   }
 }
 
@@ -540,6 +548,7 @@ main.photos {
   gap: 0px;
   justify-content: center;
   align-items: stretch; /* všechny boxy stejné výšky */
+  z-index: 6 !important;
 }
 
 .column {
@@ -780,7 +789,7 @@ main.photos {
 @media screen and (max-width: 1080px) {
   .racing-row.reverse {
     width: 95vw;
-    margin-right: 3vw;
+    margin-right: 3vw !important;
   }
 }
 
