@@ -232,8 +232,8 @@ header {
 @keyframes throw_javelin {
   0% {
     opacity: 1;
-    left: calc(0vw - 230px);    /* left: calc(0vw - 230px); */
-    top: 5px;                   /* 5 */
+    left: calc(0vw - 230px); /* left: calc(0vw - 230px); */
+    top: 5px; /* 5 */
     transform: scale(1.05);
     rotate: -25deg;
   }
@@ -251,7 +251,7 @@ header {
   }
   100% {
     left: 100vw;
-    top: 65px;  
+    top: 65px;
     transform: scale(1.05);
     opacity: 0;
     rotate: 14deg;
@@ -404,6 +404,14 @@ nav ul li a:hover {
   font-size: 18px;
   margin: 3% auto;
   text-align: center; /* centrování textu */
+  max-width: 45vw;
+  line-height: 1.3;
+}
+
+.lc-highlight {
+  color: rgb(247, 10, 10);
+  font-weight: 550;
+  -webkit-text-stroke: 0.6px #000000d3;
 }
 
 .text ul {
@@ -547,14 +555,21 @@ main.photos {
   flex-wrap: wrap; /* desktop – více řad */
   gap: 0px;
   justify-content: center;
-  align-items: stretch; /* všechny boxy stejné výšky */
+  align-items: center; /* všechny boxy stejné výšky */
   z-index: 6 !important;
 }
 
 .column {
-  flex: 1 1 90px; /* minimální šířka 150px, roste podle dostupného místa */
-  height: 160px; /* jednotná výška všech obrázků */
+  flex: 1 1 70px; /* minimální šířka 150px, roste podle dostupného místa */
+  /* height: 160px; */
+  height: 10vw;
   overflow: hidden;
+}
+
+@media screen and (max-width: 1080px) {
+  .column {
+    height: 160px;
+  }
 }
 
 .column img {
@@ -591,9 +606,19 @@ main.photos {
   .photos .column:nth-child(2) img {
     object-position: center 40%;
   }
+  .photos .column:nth-child(7) img {
+    object-position: center 30%;
+  }
+  .photos .column:nth-child(8) img {
+    object-position: center 5%;
+  }
 
   .photos .column:nth-child(10) img {
     object-position: center 15%;
+  }
+
+  .photos .column:nth-child(11) img {
+    object-position: center 20%;
   }
 
   .photos .column:nth-child(12) img {
@@ -601,7 +626,7 @@ main.photos {
   }
 
   .photos .column:nth-child(13) img {
-    object-position: center 20%;
+    object-position: center 12%;
   }
 }
 
@@ -918,6 +943,10 @@ main.photos {
 
 .athletic_logos {
   margin-top: 2%;
+}
+
+img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
+  padding: 15px;
 }
 
 .athletics_column:hover,
@@ -1281,3 +1310,4 @@ img[src="../photos/atletika_flotila/3.jpg"] {
 .logo_easter:hover {
   transform: scale(1.1);
 }
+

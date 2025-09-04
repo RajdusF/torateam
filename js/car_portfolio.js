@@ -17,7 +17,7 @@ const observer = new IntersectionObserver(
       }
     })
   },
-  { threshold: 0.72 } // můžeš zkusit 0.1, aby auta mizela dříve
+  { threshold: 0.65 } // 0.72
 )
 
 blocks.forEach((block) => observer.observe(block))
