@@ -17,79 +17,76 @@
   gap: 2rem;
   position: relative;
   margin: 4% 17%;
+
+  /* start animace */
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 2.4s ease-out, transform 2.4s ease-out;
+}
+
+/* když se zobrazí */
+.car-block.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* Auto samotné */
 .car-block img {
   width: 400px;
-  aspect-ratio: 1 / 1; /* poměr stran 1:1 */
-  object-fit: cover; /* aby se obrázek nevykreslil deformovaný, ořízne se */
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transform: translateX(-230%) scale(1); /* start mimo obrazovku */
-  transition: transform 2s ease-out, box-shadow 0.3s ease;
+  transition: transform 0.7s ease-out, box-shadow 0.3s ease;
 }
 
-.car-block:hover img {
-  transform: translateX(0) scale(1.05); /* auto už je na místě, zvětší se */
+.car-block img:hover {
+  transform: scale(1.15);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
-.car-block.right {
-  flex-direction: row-reverse; /* auto z pravé strany, text vlevo */
-  text-align: right;
-}
-
-.car-block.right img {
-  transform: translateX(230%) scale(1);
-}
-
-.car-block.show img {
-  transform: translateX(0) scale(1); /* jen příjezd auta */
-}
-
+/* text */
 .car-text-wrapper {
   display: flex;
-  flex-direction: column; /* název nad textem */
-  gap: 0.5rem; /* mezera mezi názvem a textem */
+  flex-direction: column;
+  gap: 0.5rem;
   max-width: 520px;
-}
-
-/* Text vedle auta */
-.car-text {
-  opacity: 0; /* start neviditelný */
-  transition: opacity 1.3s ease-out 1.4s;
-  display: flex;
-  flex-direction: column; /* nadpis nad textem */
-  text-transform: uppercase; /* všechno velkými písmeny */
-  font-family: "Bebas Neue", sans-serif;
-  font-size: 22px; /* velikost podle šířky obrazovky */
-  font-weight: 700; /* tučné písmo */
-  letter-spacing: 2px; /* mezery mezi písmeny */
-  color: var(--text-color); /* barva textu */
-  line-height: 1.5;
-  margin-bottom: 50px;
-}
-
-.car-block.hide-left .car-name,
-.car-block.hide-left .car-text,
-.car-block.hide-right .car-name,
-.car-block.hide-right .car-text {
-  opacity: 0;
-  transition: opacity 0.8s ease-out;
-}
-
-.car-block.show .car-name,
-.car-block.show .car-text {
-  opacity: 1;
 }
 
 .car-name {
   font-weight: bold;
   font-size: 32px;
   color: var(--my-color);
-  margin-bottom: 0.55rem;
-  opacity: 0;
-  transition: opacity 1.3s ease-out 1.4s;
   text-transform: uppercase;
+}
+
+/* pravý blok */
+.car-block.right {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+
+.car-text {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  line-height: 1.5;
+  color: var(--text-color);
+  text-transform: uppercase;
+  margin-bottom: 50px;
+}
+
+/* obrázek vlevo → text doprava */
+.car-block.from-left img:hover + .car-text-wrapper {
+  transform: translateX(40px);
+}
+
+/* obrázek vpravo → text doleva */
+.car-block.from-right img:hover + .car-text-wrapper {
+  transform: translateX(-40px);
+}
+
+.car-text-wrapper {
+  transition: transform 0.7s ease;
 }
