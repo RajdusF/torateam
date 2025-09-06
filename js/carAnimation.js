@@ -48,7 +48,7 @@ function chooseVariant() {
     */
 
   //  TESTING
-   currentVariant = variants[0]
+   currentVariant = variants[1]
 }
 
 function startAnimation(delay) {

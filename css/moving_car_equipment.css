@@ -1,0 +1,211 @@
+.moving-logo-container {
+  position: relative; /* reference pro absolute */
+  height: 120px; /* výška oblasti pro logo */
+  overflow: visible; /* logo může vyjet mimo kontejner */
+}
+
+.moving-logo {
+  position: relative; /* obrázek je nad obsahem */
+  top: 58px; /* vzdálenost od horního okraje 63 */
+  width: 278px; /* velikost obrázku */
+  left: -30vw;
+  /*                                   plynulost    0   koncova plynulost                            */
+  animation-fill-mode: forwards;
+  cursor: pointer;
+  /* transform: scaleX(-1); otočí horizontálně */
+  z-index: 1 !important; /* zajistí, že bude nad ostatním obsahem */
+  pointer-events: auto;
+}
+
+@media (max-width: 1080px) {
+  .moving-logo {
+    left: -80vw; /* menší velikost pro mobil */
+  }
+}
+
+.moving-logo.mirrored {
+  transform: scaleX(-1);
+}
+
+/* Animace doprava */
+@keyframes moveRight {
+  from {
+    left: calc(0vw - 278px);
+  }
+  to {
+    left: 100vw;
+  } /* projede přes celou obrazovku */
+}
+
+/* Animace doleva */
+@keyframes moveLeft {
+  from {
+    left: 100vw;
+  }
+  to {
+    left: calc(0vw - 278px);
+  }
+}
+
+/* Mobilní animace */
+@media (max-width: 1080px) {
+  @keyframes moveRight {
+    from {
+      left: calc(0vw - 278px);
+    } /* start mimo obrazovku */
+    to {
+      left: 100vw;
+    }
+  }
+
+  @keyframes moveLeft {
+    from {
+      left: 100vw;
+    }
+    to {
+      left: calc(0vw - 278px);
+    }
+  }
+}
+
+.moving-javelin-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* výška oblasti pro oštěp */
+  overflow: visible; /* oštěp může vyjet mimo kontejner */
+  pointer-events: none; /* zabrání interakci s oštěpem */
+  z-index: 6 !important; /* pod logo a navigaci */
+  margin: 0;
+  padding: 0;
+}
+
+.moving-javelin-wrapper img {
+  display: block; /* odstraní inline mezeru */
+  margin: 0;
+  padding: 0;
+}
+
+.moving-javelin {
+  position: relative; /* aby šlo animovat přes pozici */
+  left: -35vw; /* start mimo obrazovku */
+  top: 50px; /* výška letu, uprav podle potřeby */
+  width: 230px; /* velikost oštěpu  230 */
+  transform-origin: 81% 50%; /* bod rotace při naklánění */
+  opacity: 0;
+  user-drag: none; /* pro WebKit (Chrome, Safari) */
+  -webkit-user-drag: none;
+  pointer-events: none; /* zabraňuje i klikání, pokud chceš */
+  z-index: -1 !important;
+}
+
+@keyframes throw_javelin {
+  0% {
+    opacity: 1;
+    left: calc(0vw - 230px); /* left: calc(0vw - 230px); */
+    top: 5px; /* 5 */
+    transform: scale(1.05);
+    rotate: -25deg;
+  }
+  25% {
+    top: -45px;
+  }
+  50% {
+    top: -75px;
+  }
+  75% {
+    top: -10px;
+  }
+  99.9% {
+    opacity: 1;
+  }
+  100% {
+    left: 100vw;
+    top: 65px;
+    transform: scale(1.05);
+    opacity: 0;
+    rotate: 14deg;
+  }
+}
+
+/* Mobilní animace */
+@media (max-width: 1080px) {
+  @keyframes throw_javelin {
+    0% {
+      opacity: 1;
+      left: calc(0vw - 230px);
+      top: 5px;
+      transform: scale(1.05);
+      rotate: -25deg;
+    }
+    25% {
+      top: -45px;
+    }
+    50% {
+      top: -75px;
+    }
+    75% {
+      top: -10px;
+    }
+    99.9% {
+      opacity: 1;
+    }
+    100% {
+      left: 100vw;
+      top: 65px;
+      transform: scale(1.05);
+      opacity: 0;
+      rotate: 14deg;
+    }
+  }
+}
+
+@keyframes throw_hammer {
+  0% {
+    opacity: 1;
+    left: calc(0vw - 230px);
+    /* left: 10vw; */
+    top: 25px;
+    transform: scale(1);
+    rotate: -20deg;
+  }
+  50% {
+    top: -70px;
+  }
+  99.9% {
+    opacity: 1;
+  }
+  100% {
+    left: 100vw;
+    top: 65px;
+    transform: scale(0.9);
+    opacity: 0;
+    rotate: 30deg;
+  }
+}
+
+@media (max-width: 1080px) {
+  @keyframes throw_hammer {
+    0% {
+      opacity: 1;
+      left: calc(0vw - 230px);
+      top: 25px;
+      transform: scale(1);
+      rotate: -20deg;
+    }
+    50% {
+      top: -70px;
+    }
+    99.9% {
+      opacity: 1;
+    }
+    100% {
+      left: 100vw;
+      top: 65px;
+      transform: scale(0.9);
+      opacity: 0;
+      rotate: 30deg;
+    }
+  }
+}

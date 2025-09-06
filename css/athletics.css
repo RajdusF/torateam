@@ -1,0 +1,136 @@
+/* ATLETIKY LOGA */
+
+/* Slider, obrázky a ostatní zůstává stejné */
+.column,
+.lower-column,
+.athletics_column {
+  display: table-cell;
+}
+
+.upper-text {
+  margin-top: 3%;
+}
+
+.athletic_logos {
+  margin-top: 2%;
+}
+
+img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
+  padding: 15px;
+}
+
+.athletics_column:hover,
+.athletics_column_bigger:hover {
+  transform: scale(1.25);
+}
+
+.athletics_row {
+  display: flex;
+  justify-content: center; /* obrázky vycentrované */
+  align-items: center; /* vertikální zarovnání */
+  gap: 10px; /* malá mezera mezi obrázky */
+  flex-wrap: wrap; /* pokud se nevejdou, zalomí se do dalšího řádku */
+  margin: 35px 0;
+}
+
+.athletics_column {
+  flex: 1 1 auto; /* flexibilní velikost, aby se vešly všechny obrázky */
+  text-align: center;
+  transition: transform 0.5s ease; /* plynulá animace při hoveru i při návratu */
+}
+
+@media (max-width: 1080px) {
+  .athletics_column {
+    flex: 0 0 auto; /* každý obrázek zabere cca polovinu řádku */
+  }
+}
+
+.athletics_column img {
+  max-height: 130px; /* nastav výšku obrázků */
+  width: auto; /* zachování poměru stran */
+  object-fit: contain;
+}
+
+@media (max-width: 1080px) {
+  .athletics_column img {
+    margin: 10px;
+  }
+}
+
+.athletics_row_bigger {
+  display: flex;
+  justify-content: center; /* obrázky vycentrované */
+  align-items: center; /* vertikální zarovnání */
+  gap: 10px; /* malá mezera mezi obrázky */
+  flex-wrap: wrap; /* pokud se nevejdou, zalomí se do dalšího řádku */
+  margin: 35px 10vw;
+}
+
+.athletics_column_bigger {
+  flex: 1 1 auto; /* flexibilní velikost, aby se vešly všechny obrázky */
+  text-align: center;
+  transition: transform 0.5s ease; /* plynulá animace při hoveru i při návratu */
+}
+
+.athletics_column_bigger img {
+  max-height: 250px; /* nastav výšku obrázků */
+  width: auto; /* zachování poměru stran */
+  object-fit: contain;
+}
+
+/* mobilní verze – jedna řada s horizontálním scroll */
+@media (max-width: 1080px) {
+  .athletics_row_bigger {
+    flex-wrap: nowrap; /* jedna řada */
+    overflow-x: auto; /* horizontální scroll, pokud se nevejdou */
+    gap: 90px; /* menší mezera */
+    margin: 20px; /* menší margin pro mobil */
+  }
+
+  .athletics_column_bigger {
+    flex: 0 0 auto; /* sloupec podle obrázku */
+  }
+
+  .athletics_column_bigger img {
+    height: 200px; /* zmenšení výšky obrázků na mobilu */
+    width: auto; /* zachování proporcí */
+  }
+}
+
+/* FLOTILA */
+
+.our-fleet {
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.flotila_row {
+  display: flex;
+  justify-content: center; /* obrázky vycentrované */
+  align-items: center; /* vertikální zarovnání */
+  gap: 10px; /* malá mezera mezi obrázky */
+  flex-wrap: wrap; /* pokud se nevejdou, zalomí se do dalšího řádku */
+  margin: 20px 0;
+}
+
+.flotila_column {
+  flex: 1 1 auto; /* flexibilní velikost, aby se vešly všechny obrázky */
+  text-align: center;
+}
+
+.flotila_column img {
+  max-width: 700px; /* nastav výšku obrázků */
+  width: auto; /* zachování poměru stran */
+  object-fit: contain;
+}
+
+img[src="../photos/atletika_flotila/3.jpg"] {
+  position: absolute;
+  right: 200px;
+  width: 450px; /* šířka obrázku */
+  margin-top: 60px;
+  height: auto; /* zachování proporcí */
+  border-radius: 12px; /* zakulacené rohy */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* jemný stín */
+  transition: transform 0.4s ease, filter 0.4s ease;
+}

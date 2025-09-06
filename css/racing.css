@@ -1,0 +1,396 @@
+/* RACING ROW*/
+
+main.photos {
+  margin: 0;
+}
+
+.photos img {
+  height: auto; /* zachování proporcí */
+  image-rendering: auto; /* default interpolace */
+  -ms-interpolation-mode: bicubic; /* pro starší IE */
+}
+
+.photos .row {
+  display: flex;
+  flex-wrap: wrap; /* desktop – více řad */
+  gap: 0px;
+  justify-content: center;
+  align-items: center; /* všechny boxy stejné výšky */
+  z-index: 6 !important;
+}
+
+.column {
+  flex: 1 1 70px; /* minimální šířka 150px, roste podle dostupného místa */
+  /* height: 160px; */
+  height: 10vw;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 1080px) {
+  .column {
+    height: 160px;
+  }
+}
+
+.column img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* zachová proporce a ořízne přebytek */
+  display: block;
+}
+
+.photos .column:nth-child(10) img {
+  object-position: center 20%;
+}
+
+/* MOBIL */
+@media (max-width: 1080px) {
+  .photos .row {
+    display: flex;
+    flex-wrap: wrap; /* dovolí zalamování do více řad */
+    gap: 0px; /* mezera mezi obrázky */
+    justify-content: center; /* vycentrování obrázků */
+    overflow-x: hidden; /* žádný scroll */
+  }
+
+  .photos .column {
+    flex: 1 1 calc(18%); /* každý obrázek zabere polovinu řádku minus gap */
+    text-align: center;
+  }
+
+  .photos .column img {
+    width: 100%; /* vyplní sloupec */
+    display: block;
+  }
+
+  .photos .column:nth-child(2) img {
+    object-position: center 40%;
+  }
+  .photos .column:nth-child(7) img {
+    object-position: center 30%;
+  }
+  .photos .column:nth-child(8) img {
+    object-position: center 5%;
+  }
+
+  .photos .column:nth-child(10) img {
+    object-position: center 15%;
+  }
+
+  .photos .column:nth-child(11) img {
+    object-position: center 20%;
+  }
+
+  .photos .column:nth-child(12) img {
+    object-position: center 60%;
+  }
+
+  .photos .column:nth-child(13) img {
+    object-position: center 12%;
+  }
+}
+
+.lc-racing {
+  width: 100%; /* přizpůsobení šířce sloupce */
+  height: auto; /* zachování proporcí */
+  display: block;
+}
+
+.lc-racing img {
+  width: 420px;
+  margin: 4% auto;
+}
+
+.lc-racing-name {
+  display: block;
+  color: var(--text-color);
+  text-align: center;
+  margin-bottom: 8px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1080px) {
+  .lc-racing-name h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+}
+
+.slide-container {
+  padding: 1rem 0 1rem 0;
+}
+
+.slider-wrapper {
+  position: relative;
+  max-width: 32vw;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1080px) {
+  .slider-wrapper {
+    max-width: 80%;
+  }
+}
+
+.slider {
+  display: flex;
+  aspect-ratio: 15/9;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
+  border-radius: 0.8rem;
+}
+
+.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider img {
+  flex: 1 0 100%;
+  scroll-snap-align: start;
+  object-fit: cover;
+}
+
+.slider-nav {
+  display: flex;
+  column-gap: 1.5rem;
+  position: absolute;
+  bottom: 1.15rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.slider-nav span {
+  display: block;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: #fff; /* bílá tečka */
+  background: #ccc;
+  opacity: 0.9;
+  border: 1px solid rgb(0, 0, 0, 0.4); /* jemný rámeček */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: inline-block; /* důležité, aby měly velikost */
+}
+
+.slider-nav span.active {
+  background: var(--my-color); /* svítící kolečko */
+}
+
+.slider-nav a {
+  width: 0.72rem;
+  height: 0.72rem;
+  border-radius: 50%;
+  background-color: #fff;
+  opacity: 0.75;
+  transition: opacity ease 250ms;
+}
+
+.slider-nav a:hover {
+  opacity: 1;
+}
+
+/* Šipky */
+.slider-arrow {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 55px;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background: transparent;
+}
+
+.slider-arrow::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -1;
+  transition: opacity 0.3s;
+  opacity: 0.4;
+}
+
+.slider-arrow.left::before {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+
+.slider-arrow.right::before {
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+}
+
+.slider-arrow:hover::before {
+  opacity: 0.7;
+}
+
+.slider-arrow.left {
+  left: 0;
+}
+
+.slider-arrow.right {
+  right: 0;
+}
+
+.racing-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.racing-row {
+  display: flex;
+  align-items: center;
+  width: 50vw;
+  margin-left: 20%;
+  margin-top: 7%;
+  opacity: 0;
+  transform: translateY(100px); /* začíná zespoda */
+  transition: all 1.5s ease-out;
+}
+
+.racing-row.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 1080px) {
+  .racing-row {
+    width: 95vw;
+    margin-left: 3vw;
+    margin-top: 200px;
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .racing-row.reverse {
+    width: 95vw;
+    margin-right: 3vw !important;
+  }
+}
+
+.racing-row.reverse {
+  flex-direction: row-reverse; /* obrátí pořadí video/text */
+  margin-left: auto;
+  margin-right: 20%;
+}
+
+/* PROMO VIDEA LC RACING */
+.video-container {
+  flex: 1;
+  position: relative;
+  margin: 0 20px;
+}
+
+.video-container video {
+  width: 100%;
+  border-radius: 10px;
+  aspect-ratio: 9 / 10;
+  object-fit: cover;
+}
+
+.text-container {
+  flex: 1;
+}
+
+@media screen and (max-width: 1080px) {
+  .text-container {
+    max-width: 40vw;
+  }
+  .text-container h3 {
+    font-size: 1.8rem;
+  }
+}
+
+.video-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  pointer-events: none; /* overlay nebude blokovat kliknutí na video */
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.video-overlay.show {
+  opacity: 1;
+}
+
+.progress-bar {
+  position: absolute;
+  bottom: 26px;
+  left: 50%;
+  width: 90%;
+  height: 6px;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.progress {
+  height: 100%;
+  background: #fff;
+  width: 0%;
+  border-radius: 2px;
+  transition: width 0.1s linear;
+}
+
+.logos {
+  display: block;
+  margin: 0 auto;
+  width: 15%;
+}
+
+.bottom-text {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin: 80px 0;
+  opacity: 0;
+  transform: translateY(100px); /* začne zespoda */
+  transition: all 1.5s ease-out;
+}
+
+.bottom-text.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* SPODNI ZAVODNI LOGA */
+
+.lower-row {
+  display: flex;
+  justify-content: center; /* loga uprostřed */
+  align-items: center;
+  margin-top: 8%;
+  margin-bottom: -20px;
+  flex-wrap: nowrap; /* jedna řada */
+  gap: 10px; /* malá mezera mezi logy */
+  background-color: rgb(255, 255, 255);
+}
+
+.lower-column {
+  flex: 1 1 0; /* každý sloupec se roztáhne podle dostupného místa */
+  text-align: center;
+}
+
+.lower-column img {
+  max-height: 80px; /* max výška */
+  width: 100%; /* obrázek zabere celý sloupec */
+  height: auto; /* zachování proporcí */
+  object-fit: contain;
+  display: block;
+}
