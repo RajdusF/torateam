@@ -12,7 +12,7 @@
         <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
       </a>
       <div class="moving-javelin-wrapper">
-        <a href="easter.html" id="moving-logo-link">
+        <a href="easter.html">
           <img src="../photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
         </a>
         <img src="../photos/siluety/javelin.png" class="moving-javelin" />
@@ -34,29 +34,29 @@
         <img src="../photos/ja.jpeg" alt="Logo" class="logo_easter" />
         <img src="../photos/atletika_flotila/3.jpg" alt="Logo" class="logo_easter" />
       </div>
-    </main>
-
-    <script>
-      const clip = document.querySelectorAll(".clip")
-      for (let i = 0; i < clip.length; i++) {
-        clip[i].addEventListener("mouseenter", function (e) {
-          clip[i].play()
-        })
-        clip[i].addEventListener("mouseout", function (e) {
-          clip[i].pause()
-        })
-      }
-    </script>
-
-    <div id="footer-placeholder"></div>
-    <script>
-      fetch("footer.html")
+      
+      <script>
+        const clip = document.querySelectorAll(".clip")
+        for (let i = 0; i < clip.length; i++) {
+          clip[i].addEventListener("mouseenter", function (e) {
+            clip[i].play()
+          })
+          clip[i].addEventListener("mouseout", function (e) {
+            clip[i].pause()
+          })
+        }
+      </script>
+      
+      <div id="footer-placeholder"></div>
+      <script>
+        fetch("footer.html")
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("footer-placeholder").innerHTML = data
         })
-    </script>
-
-    <script src="../js/carAnimation.js"></script>
+      </script>
+      
+      <script src="../js/carAnimation.js"></script>
+    </main>
   </body>
 </html>

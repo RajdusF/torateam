@@ -1,21 +1,13 @@
-const logo = document.querySelector(".moving-logo")
+const logo = document.querySelector(".moving-racing")
 const min = 0 // 7
 const max = 0 // 12
-const duration = 6.7 // délka animace v sekundách
-const projectileDuration = 4.5 // 4.5
+const duration = 7.3 // délka animace v sekundách
 const delayBack = 0 // fixní zpoždění při návratu 2000
 
 let direction = "right" // aktuální směr
 let firstDelay = 0 // 4
 
-const variants = [
-  {
-    right: "../photos/siluety/porsche.png",
-    left: "../photos/siluety/porsche.png",
-    projectile: "../photos/siluety/javelin.png",
-  }
-]
-
+const variants = ["../photos/siluety/final/onroad.png", "../photos/siluety/final/offroad.png"]
 let currentVariant = variants[0]
 
 let lastVariants = []
@@ -33,30 +25,29 @@ function chooseVariant() {
 
   currentVariant = newVariant*/
 
-  /*
+  
   if (currentVariant === variants[0]) {
     currentVariant = variants[1]
   } else if (currentVariant === variants[1]) {
     currentVariant = variants[0]
   }
-    */
+    
 
   //  TESTING
-   currentVariant = variants[0]
+  //  currentVariant = variants[0]
 }
 
 function startAnimation(delay) {
   setTimeout(() => {
     if (direction === "right") {
       chooseVariant() // 🎯 při startu doprava vybereme variantu
-      logo.src = currentVariant.right
+      logo.src = currentVariant
 
       logo.classList.remove("mirrored") // auto kouká doprava
       logo.style.animation = `moveRight ${duration}s cubic-bezier(0.4,0,0.40,0) forwards`
-      startProjectile()
       direction = "left"
     } else {
-      logo.src = currentVariant.left
+      logo.src = currentVariant
       logo.classList.add("mirrored") // otočení doleva
       logo.style.animation = `moveLeft ${duration}s cubic-bezier(0.4,0,0.40,0) forwards`
       direction = "right"
@@ -78,18 +69,3 @@ logo.addEventListener("animationend", () => {
   }
   startAnimation(nextDelay)
 })
-
-const logoLink = document.getElementById("moving-logo-link")
-
-
-function startProjectile() {
-  setTimeout(() => {
-    projectile.style.animation = "none"
-    projectile.offsetHeight // reset
-    if (currentVariant === variants[0]) {
-      projectile.style.animation = `throw_javelin ${projectileDuration}s linear forwards`
-    } else if (currentVariant === variants[1]) {
-      projectile.style.animation = `throw_hammer ${projectileDuration}s linear forwards`
-    }
-  }, 1600) // <<< zpoždění v ms (1s)
-}

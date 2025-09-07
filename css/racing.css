@@ -358,7 +358,8 @@ main.photos {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
-  margin: 80px 0;
+  margin-top: 90px;
+  margin-bottom: 300px;
   opacity: 0;
   transform: translateY(100px); /* začne zespoda */
   transition: all 1.5s ease-out;
@@ -375,8 +376,6 @@ main.photos {
   display: flex;
   justify-content: center; /* loga uprostřed */
   align-items: center;
-  margin-top: 8%;
-  margin-bottom: -20px;
   flex-wrap: nowrap; /* jedna řada */
   gap: 10px; /* malá mezera mezi logy */
   background-color: rgb(255, 255, 255);
@@ -393,4 +392,10 @@ main.photos {
   height: auto; /* zachování proporcí */
   object-fit: contain;
   display: block;
+}
+
+img[src="../photos/siluety/onroad.png"] {
+  position: absolute;
+  width: 110px; /* šířka obrázku */
+  height: auto; /* zachování proporcí */
 }

@@ -14,7 +14,7 @@
         <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
       </a>
       <div class="moving-javelin-wrapper">
-        <a href="easter.html" id="moving-logo-link">
+        <a href="easter.html">
           <img src="../photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
         </a>
         <img src="../photos/siluety/javelin.png" class="moving-javelin" />
@@ -66,31 +66,31 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-    </main>
-
-    <div id="toast"></div>
-
-    <script>
-      function copyText(element, message) {
-        navigator.clipboard.writeText(element.textContent).then(() => {
-          const toast = document.getElementById("toast")
-          toast.textContent = message // nastavíme text podle kliknutí
-          toast.classList.add("show")
-          setTimeout(() => {
-            toast.classList.remove("show")
-          }, 2000) // zmizí po 2s
-        })
-      }
-    </script>
-
-    <div id="footer-placeholder" style="margin-top: 80px"></div>
-    <script>
-      fetch("footer.html")
+      
+      <div id="toast"></div>
+      
+      <script>
+        function copyText(element, message) {
+          navigator.clipboard.writeText(element.textContent).then(() => {
+            const toast = document.getElementById("toast")
+            toast.textContent = message // nastavíme text podle kliknutí
+            toast.classList.add("show")
+            setTimeout(() => {
+              toast.classList.remove("show")
+            }, 2000) // zmizí po 2s
+          })
+        }
+      </script>
+      
+      <div id="footer-placeholder" style="margin-top: 80px"></div>
+      <script>
+        fetch("footer.html")
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("footer-placeholder").innerHTML = data
         })
-    </script>
-    <script src="../js/carAnimation.js"></script>
+      </script>
+      <script src="../js/carAnimation.js"></script>
+    </main>
   </body>
 </html>

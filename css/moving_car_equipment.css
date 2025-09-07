@@ -1,9 +1,3 @@
-.moving-logo-container {
-  position: relative; /* reference pro absolute */
-  height: 120px; /* výška oblasti pro logo */
-  overflow: visible; /* logo může vyjet mimo kontejner */
-}
-
 .moving-logo {
   position: relative; /* obrázek je nad obsahem */
   top: 58px; /* vzdálenost od horního okraje 63 */

@@ -333,7 +333,7 @@ strong {
 .index-foot,
 .foot {
   position: relative;
-  margin-top: 20px;
+  padding-top: 20px;
   font-size: 14px;
   background-color: var(--main-color);
   color: var(--text-color);

@@ -15,7 +15,7 @@
         <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
       </a>
       <div class="moving-javelin-wrapper">
-        <a href="easter.html" id="moving-logo-link">
+        <a href="easter.html">
           <img src="../photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
         </a>
         <img src="../photos/siluety/javelin.png" class="moving-javelin" />
@@ -144,18 +144,18 @@
         </div>
 
       </div>
-    </main>
-
-    <div style="height: 100px"></div>
-    <div id="footer-placeholder"></div>
-    <script>
-      fetch("footer.html")
+      
+      <div style="height: 100px"></div>
+      <div id="footer-placeholder"></div>
+      <script>
+        fetch("footer.html")
         .then((response) => response.text())
         .then((data) => {
           document.getElementById("footer-placeholder").innerHTML = data
         })
-    </script>
-    <script src="../js/carAnimation.js"></script>
-    <script src="../js/car_portfolio.js"></script>
+      </script>
+      <script src="../js/carAnimation.js"></script>
+      <script src="../js/car_portfolio.js"></script>
+    </main>
   </body>
 </html>
