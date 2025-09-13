@@ -4,23 +4,21 @@
     <meta charset="UTF-8" />
     <title>TORA - Tomáš Rajdus</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../css/moving_car_equipment.css" />
+    <link rel="stylesheet" type="text/css" href="../css/moving_car.css" />
     <link rel="icon" href="../photos/favicon.png" type="image/x-icon" />
   </head>
-  <body>
+  <body data-mode="both">
     <header>
       <a href="index.html">
         <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
       </a>
 
-      <div class="moving-javelin-wrapper">
-        <a href="easter.html">
+      <div class="moving-car-wrapper">
+        <a href="easter.html" id="moving-logo-link">
           <img src="../photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
         </a>
         <img src="../photos/siluety/javelin.png" class="moving-javelin" />
       </div>
-
-      
 
       <nav>
         <ul>
@@ -54,7 +52,8 @@
       <section class="about">
         <h1>TORA – RC modely aut</h1>
         <p>
-          Už přes 30 let pomáháme začátečníkům i závodníkům, aby jejich RC auta jezdila tak, jak mají. Díky zkušenostem nasbíraným během tří desetiletí víme, co funguje – a rádi to předáme dál. U nás se potkává zkušenost, poctivá práce a opravdová vášeň.
+          Už přes 30 let pomáháme začátečníkům i závodníkům, aby jejich RC auta jezdila tak, jak mají. Díky zkušenostem nasbíraným během tří
+          desetiletí víme, co funguje – a rádi to předáme dál. U nás se potkává zkušenost, poctivá práce a opravdová vášeň.
         </p>
         <p>
           Nabízíme <strong>servis všech měřítek</strong>, prodej náhradních dílů i příslušenství, a také <strong>poradenství</strong>, když si nevíte
@@ -118,16 +117,16 @@
           })
         }
       </script> -->
-      
+
       <div id="footer-placeholder"></div>
       <script>
         fetch("footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer-placeholder").innerHTML = data
-        })
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("footer-placeholder").innerHTML = data
+          })
       </script>
-      
+
       <script src="../js/carAnimation.js"></script>
     </main>
   </body>

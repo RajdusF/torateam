@@ -128,8 +128,6 @@ header {
   /* border-bottom: 1px solid rgba(253, 253, 253, 0.5); */
 }
 
-
-
 nav {
   z-index: 2;
 }
@@ -324,12 +322,6 @@ strong {
   object-fit: cover;
 }
 
-
-
-
-
-
-
 .index-foot,
 .foot {
   position: relative;
@@ -383,7 +375,16 @@ img[src="../photos/platba.jpeg"] {
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
-
+img[src="../photos/atletika_flotila/3.jpg"] {
+  position: absolute;
+  right: 200px;
+  width: 430px; /* šířka obrázku */
+  margin-top: 60px;
+  height: auto; /* zachování proporcí */
+  border-radius: 12px; /* zakulacené rohy */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* jemný stín */
+  transition: transform 0.4s ease, filter 0.4s ease;
+}
 
 .logo_easter {
   width: 290px;
@@ -396,4 +397,3 @@ img[src="../photos/platba.jpeg"] {
 .logo_easter:hover {
   transform: scale(1.1);
 }
-

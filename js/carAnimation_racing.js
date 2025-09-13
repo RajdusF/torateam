@@ -25,13 +25,11 @@ function chooseVariant() {
 
   currentVariant = newVariant*/
 
-  
   if (currentVariant === variants[0]) {
     currentVariant = variants[1]
   } else if (currentVariant === variants[1]) {
     currentVariant = variants[0]
   }
-    
 
   //  TESTING
   //  currentVariant = variants[0]
@@ -44,12 +42,12 @@ function startAnimation(delay) {
       logo.src = currentVariant
 
       logo.classList.remove("mirrored") // auto kouká doprava
-      logo.style.animation = `moveRight ${duration}s cubic-bezier(0.4,0,0.40,0) forwards`
+      logo.style.animation = `moveRight ${duration}s cubic-bezier(.39,-0.01,.83,.99) forwards`
       direction = "left"
     } else {
       logo.src = currentVariant
       logo.classList.add("mirrored") // otočení doleva
-      logo.style.animation = `moveLeft ${duration}s cubic-bezier(0.4,0,0.40,0) forwards`
+      logo.style.animation = `moveLeft ${duration}s cubic-bezier(.39,-0.01,.83,.99) forwards`
       direction = "right"
     }
   }, delay)

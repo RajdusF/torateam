@@ -393,9 +393,3 @@ main.photos {
   object-fit: contain;
   display: block;
 }
-
-img[src="../photos/siluety/onroad.png"] {
-  position: absolute;
-  width: 110px; /* šířka obrázku */
-  height: auto; /* zachování proporcí */
-}

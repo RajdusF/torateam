@@ -5,16 +5,16 @@
     <title>TORA - Tomáš Rajdus</title>
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/contact.css" />
-    <link rel="stylesheet" type="text/css" href="../css/moving_car_equipment.css" />
+    <link rel="stylesheet" type="text/css" href="../css/moving_car.css" />
     <link rel="icon" href="../photos/favicon.png" type="image/x-icon" />
   </head>
-  <body>
+  <body data-mode="both">
     <header>
       <a href="index.html">
         <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
       </a>
-      <div class="moving-javelin-wrapper">
-        <a href="easter.html">
+      <div class="moving-car-wrapper">
+        <a href="easter.html" id="moving-logo-link">
           <img src="../photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
         </a>
         <img src="../photos/siluety/javelin.png" class="moving-javelin" />
@@ -66,9 +66,9 @@
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
       </div>
-      
+
       <div id="toast"></div>
-      
+
       <script>
         function copyText(element, message) {
           navigator.clipboard.writeText(element.textContent).then(() => {
@@ -81,14 +81,14 @@
           })
         }
       </script>
-      
+
       <div id="footer-placeholder" style="margin-top: 80px"></div>
       <script>
         fetch("footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer-placeholder").innerHTML = data
-        })
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("footer-placeholder").innerHTML = data
+          })
       </script>
       <script src="../js/carAnimation.js"></script>
     </main>

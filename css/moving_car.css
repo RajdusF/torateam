@@ -1,7 +1,13 @@
+:root {
+  --atletic-car-width: 250px;
+  --equipment-width: 220px;
+  --racing-car-width: 105px;
+}
+
 .moving-logo {
   position: relative; /* obrázek je nad obsahem */
-  top: 58px; /* vzdálenost od horního okraje 63 */
-  width: 278px; /* velikost obrázku */
+  top: 65px; /* vzdálenost od horního okraje 63 */
+  width: var(--atletic-car-width); /* velikost obrázku */
   left: -30vw;
   /*                                   plynulost    0   koncova plynulost                            */
   animation-fill-mode: forwards;
@@ -24,7 +30,7 @@
 /* Animace doprava */
 @keyframes moveRight {
   from {
-    left: calc(0vw - 278px);
+    left: calc(0vw - var(--atletic-car-width));
   }
   to {
     left: 100vw;
@@ -37,7 +43,27 @@
     left: 100vw;
   }
   to {
-    left: calc(0vw - 278px);
+    left: calc(0vw - var(--atletic-car-width));
+  }
+}
+
+/* Závodní animace doprava */
+@keyframes raceRight {
+  from {
+    left: calc(0vw - var(--racing-car-width));
+  }
+  to {
+    left: 100vw;
+  } /* projede přes celou obrazovku */
+}
+
+
+@keyframes raceLeft {
+  from {
+    left: 100vw;
+  }
+  to {
+    left: calc(0vw - var(--racing-car-width));
   }
 }
 
@@ -45,7 +71,7 @@
 @media (max-width: 1080px) {
   @keyframes moveRight {
     from {
-      left: calc(0vw - 278px);
+      left: calc(0vw - var(--atletic-car-width));
     } /* start mimo obrazovku */
     to {
       left: 100vw;
@@ -57,12 +83,12 @@
       left: 100vw;
     }
     to {
-      left: calc(0vw - 278px);
+      left: calc(0vw - var(--atletic-car-width));
     }
   }
 }
 
-.moving-javelin-wrapper {
+.moving-car-wrapper {
   position: absolute;
   top: 0;
   left: 0;
@@ -75,7 +101,7 @@
   padding: 0;
 }
 
-.moving-javelin-wrapper img {
+.moving-car-wrapper img {
   display: block; /* odstraní inline mezeru */
   margin: 0;
   padding: 0;
@@ -85,7 +111,7 @@
   position: relative; /* aby šlo animovat přes pozici */
   left: -35vw; /* start mimo obrazovku */
   top: 50px; /* výška letu, uprav podle potřeby */
-  width: 230px; /* velikost oštěpu  230 */
+  width: var(--equipment-width); /* velikost oštěpu  230 */
   transform-origin: 81% 50%; /* bod rotace při naklánění */
   opacity: 0;
   user-drag: none; /* pro WebKit (Chrome, Safari) */
@@ -97,7 +123,7 @@
 @keyframes throw_javelin {
   0% {
     opacity: 1;
-    left: calc(0vw - 230px); /* left: calc(0vw - 230px); */
+    left: calc(0vw - var(--equipment-width));
     top: 5px; /* 5 */
     transform: scale(1.05);
     rotate: -25deg;
@@ -128,7 +154,7 @@
   @keyframes throw_javelin {
     0% {
       opacity: 1;
-      left: calc(0vw - 230px);
+      left: calc(0vw - var(--equipment-width));
       top: 5px;
       transform: scale(1.05);
       rotate: -25deg;
@@ -158,7 +184,7 @@
 @keyframes throw_hammer {
   0% {
     opacity: 1;
-    left: calc(0vw - 230px);
+    left: calc(0vw - var(--equipment-width));
     /* left: 10vw; */
     top: 25px;
     transform: scale(1);
@@ -183,7 +209,7 @@
   @keyframes throw_hammer {
     0% {
       opacity: 1;
-      left: calc(0vw - 230px);
+      left: calc(0vw - var(--equipment-width));
       top: 25px;
       transform: scale(1);
       rotate: -20deg;
@@ -202,4 +228,12 @@
       rotate: 30deg;
     }
   }
+}
+
+img[src="../photos/siluety/final/onroad.png"],
+img[src="../photos/siluety/final/offroad.png"] {
+  position: absolute;
+  width: var(--racing-car-width); /* šířka obrázku */
+  height: auto; /* zachování proporcí */
+  top: 78px;
 }
