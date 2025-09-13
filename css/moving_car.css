@@ -1,12 +1,12 @@
 :root {
-  --atletic-car-width: 250px;
+  --atletic-car-width: 235px;
   --equipment-width: 220px;
-  --racing-car-width: 105px;
+  --racing-car-width: 90px;
 }
 
 .moving-logo {
   position: relative; /* obrázek je nad obsahem */
-  top: 65px; /* vzdálenost od horního okraje 63 */
+  top: 68px; /* vzdálenost od horního okraje 63 */
   width: var(--atletic-car-width); /* velikost obrázku */
   left: -30vw;
   /*                                   plynulost    0   koncova plynulost                            */
@@ -235,5 +235,5 @@ img[src="../photos/siluety/final/offroad.png"] {
   position: absolute;
   width: var(--racing-car-width); /* šířka obrázku */
   height: auto; /* zachování proporcí */
-  top: 78px;
+  top: 84px;
 }

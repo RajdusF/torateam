@@ -258,6 +258,23 @@ strong {
   color: #1977f1; /* zvýrazňovací barva */
 }
 
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80vw; /* zmenšíme šířku divu, vznikne pruh po stranách */
+  height: 100%;
+  margin: 0 10vw; /* vycentruje div horizontálně */
+  background-image: url("../photos/background.jpg");
+  background-size: cover; /* celý obrázek se vejde do divu */
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  z-index: -1;
+  opacity: 0.13; /* sníží viditelnost obrázku */
+  filter: grayscale(1) brightness(60%); /* černobílý efekt */
+}
+
 /* Video boxy */
 .container {
   display: flex;

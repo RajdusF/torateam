@@ -1,15 +1,15 @@
 const mode = document.body.dataset.mode // "car", "racing" nebo "both"
 const projectile = document.querySelector(".moving-javelin")
-const min = 0 // 7
-const max = 0 // 12
-const duration = 5 // délka animace v sekundách
+const min = 3000 // 7
+const max = 6000 // 12
+const duration = 5.1 // délka animace v sekundách
 const projectileDuration = 4.5 // 4.5
-const racingDuration = 5 // délka animace v sekundách
-const delayBack = 0 // fixní zpoždění při návratu 2000
+const racingDuration = 4.5 // délka animace v sekundách
+const delayBack = 1500 // fixní zpoždění při návratu 2000
 const carLogo = document.querySelector(".moving-logo")
 
 let direction = "right" // aktuální směr
-let firstDelay = 0 // 4
+let firstDelay = 3000 // 4
 let nextMode = Math.random() < 0.5 ? "athletic" : "racing"
 let carDirection = "right"
 let racingDirection = Math.random() < 0.5 ? "right" : "left"
@@ -32,35 +32,51 @@ const racingVariants = ["../photos/siluety/final/onroad.png", "../photos/siluety
 let currentRacingVariant = racingVariants[0]
 
 if (mode === "athletic") {
-  startCarAnimation()
+  setTimeout(() => {
+    startCarAnimation()
+  }, firstDelay)
 
   carLogo.addEventListener("animationend", (e) => {
     if (e.animationName === "moveLeft") {
-      startCarAnimation() // spustíme další cyklus
+      setTimeout(() => {
+        startCarAnimation()
+      }, Math.random() * (max - min) + min)
     }
   })
 } else if (mode === "racing") {
-  startRacingAnimation()
+  setTimeout(() => {
+    startRacingAnimation()
+  }, firstDelay)
 
   carLogo.addEventListener("animationend", (e) => {
     if (e.animationName === "raceLeft" || e.animationName === "raceRight") {
-      startRacingAnimation() // spustíme další cyklus
+      setTimeout(() => {
+        startRacingAnimation() // spustíme další cyklus
+      }, Math.random() * (max - min) + min)
     }
   })
 } else if (mode === "both") {
   if (nextMode === "athletic") {
-    startCarAnimation()
+    setTimeout(() => {
+      startCarAnimation()
+    }, firstDelay)
   } else {
-    startRacingAnimation()
+    setTimeout(() => {
+      startRacingAnimation()
+    }, firstDelay)
   }
 
   carLogo.addEventListener("animationend", (e) => {
     if (nextMode === "athletic" && e.animationName === "moveLeft") {
       nextMode = "racing" // nejdřív nastavíme, pak spustíme
-      startRacingAnimation()
+      setTimeout(() => {
+        startRacingAnimation()
+      }, Math.random() * (max - min) + min)
     } else if (nextMode === "racing" && (e.animationName === "raceLeft" || e.animationName === "raceRight")) {
       nextMode = "athletic"
-      startCarAnimation()
+      setTimeout(() => {
+        startCarAnimation()
+      }, Math.random() * (max - min) + min)
     }
   })
 }
@@ -79,7 +95,7 @@ function startCarAnimation(delay = 0) {
     // start right
     carLogo.src = currentCarVariant.right
     carLogo.classList.remove("mirrored")
-    carLogo.style.animation = `moveRight ${duration}s cubic-bezier(.39,-0.01,.83,.99) forwards`
+    carLogo.style.animation = `moveRight ${duration}s linear forwards`
     startProjectile(0)
 
     // posluchač na dokončení moveRight → spustí moveLeft
@@ -87,14 +103,16 @@ function startCarAnimation(delay = 0) {
       if (e.animationName === "moveRight") {
         carLogo.removeEventListener("animationend", rightHandler)
 
-        // reset pozice na left
-        carLogo.style.animation = "none"
-        carLogo.offsetHeight
+        setTimeout(() => {
+          // reset pozice na left
+          carLogo.style.animation = "none"
+          carLogo.offsetHeight
 
-        // start left
-        carLogo.src = currentCarVariant.left
-        carLogo.classList.add("mirrored")
-        carLogo.style.animation = `moveLeft ${duration}s cubic-bezier(.39,-0.01,.83,.99) forwards`
+          // start left
+          carLogo.src = currentCarVariant.left
+          carLogo.classList.add("mirrored")
+          carLogo.style.animation = `moveLeft ${duration}s linear forwards`
+        }, delayBack)
       }
     }
     carLogo.addEventListener("animationend", rightHandler)
@@ -126,12 +144,12 @@ function startRacingAnimation() {
   if (racingDirection === "right") {
     carLogo.src = currentRacingVariant
     carLogo.classList.remove("mirrored")
-    carLogo.style.animation = `raceRight ${racingDuration}s cubic-bezier(.39,-0.01,.83,.99) forwards`
+    carLogo.style.animation = `raceRight ${racingDuration}s linear forwards`
     racingDirection = "left"
   } else {
     carLogo.src = currentRacingVariant
     carLogo.classList.add("mirrored")
-    carLogo.style.animation = `raceLeft ${racingDuration}s cubic-bezier(.39,-0.01,.83,.99) forwards`
+    carLogo.style.animation = `raceLeft ${racingDuration}s linear forwards`
     racingDirection = "right"
   }
 }
