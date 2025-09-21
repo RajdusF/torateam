@@ -58,6 +58,7 @@
   font-size: 32px;
   color: var(--my-color);
   text-transform: uppercase;
+  letter-spacing: 3px;
 }
 
 /* pravý blok */

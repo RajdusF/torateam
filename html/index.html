@@ -11,6 +11,13 @@
   </head>
   <body data-mode="both">
     <header>
+      <div class="lang-menu">
+        <div class="selected-lang" id="selected-lang">Čeština</div>
+        <ul>
+          <li><a href="#" class="pl">Polski</a></li>
+          <li><a href="#" class="en">English</a></li>
+        </ul>
+      </div>
       <a href="index.html">
         <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
       </a>
@@ -24,7 +31,7 @@
 
       <nav>
         <ul>
-          <li><a href="index.html">Hlavní strana</a></li>
+          <li data-i18n="main_page"><a href="index.html">Hlavní strana</a></li>
           <li><a href="racing.html">Závody</a></li>
           <li><a href="athletics.html">Atletika</a></li>
           <li><a href="contact.html">Kontakt</a></li>
@@ -35,7 +42,7 @@
       <!-- <div class="background-image"></div> -->
       <div class="container">
         <div class="box-wrapper">
-          <h2><a href="racing.html">Závody</a></h2>
+          <h2 data-18n="racing"><a href="racing.html">Závody</a></h2>
           <div class="box">
             <a href="racing.html">
               <video src="../videos/racing_test-2x-RIFE-RIFE3.1-60fps.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
@@ -43,7 +50,7 @@
           </div>
         </div>
         <div class="box-wrapper">
-          <h2><a href="athletics.html">Atletika</a></h2>
+          <h2 data-i18n="athletics"><a href="athletics.html">Atletika</a></h2>
           <div class="box">
             <a href="athletics.html">
               <video src="../videos/atletika_test-2x-RIFE-RIFE3.1-59.94006fps.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
@@ -90,6 +97,8 @@
           </div>
         </div>
       </section>
+
+      <!-- SCRIPTS -->
 
       <script>
         const videos = document.querySelectorAll(".clip")
@@ -156,6 +165,7 @@
       <script src="../js/backgroundSelector.js"></script>
       <script src="../js/carAnimation.js"></script>
       <script src="../js/slider_index.js"></script>
+      <script src="../js/language.js"></script>
     </main>
   </body>
 </html>

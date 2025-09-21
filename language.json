@@ -1,0 +1,18 @@
+{
+  "cs": {
+    "main_page": "Hlavní strana",
+    "racing": "Závody",
+    "athletics": "Atletika",
+    "contact": "Kontakt"
+  },
+  "en": {
+    "main_page": "Main page",
+    "racing": "Racing",
+    "athletics": "Athletics"
+  },
+  "pl": {
+    "main_page": "Strona główna",
+    "racing": "Wyścigi",
+    "athletics": "Lekkoatletyka"
+  }
+}

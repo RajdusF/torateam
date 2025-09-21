@@ -226,6 +226,29 @@ main.photos {
   transition: width 0.1s linear;
 }
 
+.lc-racing-boxes {
+  opacity: 0;
+  transform: translateY(100px); /* začne zespoda */
+  transition: all 1.5s ease-out;
+}
+
+.lc-racing-boxes img {
+  width: 31vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7%;
+  margin-bottom: 100px;
+  border-radius: 10px;
+}
+
+.lc-racing-boxes.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
 .logos {
   display: block;
   margin: 0 auto;

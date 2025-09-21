@@ -1,3 +1,23 @@
+.text-block {
+  max-width: 720px;       /* ne přes celou obrazovku, omezení šířky */
+  margin: 2.5% auto 2rem;    /* zarovnat na střed, přidat spodní mezeru */
+  line-height: 1.6;       /* vyšší řádkování pro lepší čitelnost */
+  font-size: 1.1rem;      /* o něco větší písmo než default */
+  color: #333;            /* ne úplně černá, ale tmavě šedá */
+}
+
+/* Odstavce od sebe trochu oddělit */
+.text-block p {
+  margin-bottom: 1rem;
+}
+
+.text-block img {
+  max-width: 100%;        /* obrázky nepřesáhnou šířku textového bloku */
+  height: auto;           /* zachování poměru stran */
+  display: block;         /* odstraní spodní mezeru pod obrázkem */
+  margin: 1rem auto;      /* obrázky na střed s mezerou nahoře a dole */
+}
+
 /* ATLETIKY LOGA */
 
 /* Slider, obrázky a ostatní zůstává stejné */

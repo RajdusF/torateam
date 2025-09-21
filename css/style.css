@@ -1,6 +1,9 @@
 /* MOBIL 1080x2640 */
 /* TABLET 2360 x 1640*/
 
+@import url(https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap);
+@import url(https://necolas.github.io/normalize.css/8.0.1/normalize.css);
+
 :root {
   --main-color: #161616;
   --background-color: #242323;
@@ -83,6 +86,88 @@ a {
 a:visited {
   color: var(--text-color);
   /*color: inherit; /* zabrání změně barvy po kliknutí */
+}
+
+/* LANGUAGE MENU */
+
+.lang-menu {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--text-color);
+  position: absolute;
+  top: 0;
+  right: 45px;
+  margin-top: 15px;
+  z-index: 30;
+}
+
+.selected-lang {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  line-height: 2;
+  width: 100px;
+  color: white;
+}
+
+.selected-lang:before {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-image: url("https://flagsapi.com/CZ/flat/32.png");
+}
+
+.lang-menu ul {
+  padding: 0;
+  padding-top: 8px;
+  list-style: none;
+  margin: 0;
+  background-color: var(--main-color);
+  border: 0px solid #747474;
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  top: 32px;
+  right: -20px;
+}
+
+.lang-menu:hover ul {
+  display: block;
+}
+
+.lang-menu ul li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.lang-menu ul li a {
+  width: 140px;
+  display: block;
+  padding: 5px 10px;
+  color: var(--text-color);
+}
+
+.lang-menu ul li a:hover {
+  background-color: var(--background-color);
+}
+.lang-menu ul li a:before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  margin-right: 10px;
+  vertical-align: middle;
+  /* background-image: url("https://flagsapi.com/CZ/flat/32.png"); */
+}
+
+.pl:before {
+  background-image: url("https://flagsapi.com/PL/flat/32.png");
+}
+
+.en:before {
+  background-image: url("https://flagsapi.com/GB/flat/32.png");
 }
 
 .logo {
@@ -339,8 +424,6 @@ strong {
   object-fit: cover;
 }
 
-
-
 .index-foot,
 .foot {
   position: relative;
@@ -418,4 +501,3 @@ img[src="../photos/atletika_flotila/3.jpg"] {
 .logo_easter:hover {
   transform: scale(1.1);
 }
-

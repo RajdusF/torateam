@@ -1,5 +1,6 @@
 const racingRows = document.querySelectorAll(".racing-row")
 const bottomText = document.querySelector(".bottom-text")
+const lcRacingBoxes = document.querySelectorAll(".lc-racing-boxes")
 
 document.querySelectorAll(".video-container").forEach((container) => {
   const video = container.querySelector("video")
@@ -93,3 +94,5 @@ const observer = new IntersectionObserver(
 racingRows.forEach((row) => observer.observe(row))
 
 if (bottomText) observer.observe(bottomText)
+
+lcRacingBoxes.forEach((box) => observer.observe(box))
