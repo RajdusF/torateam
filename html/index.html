@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <title>TORA - Tomáš Rajdus</title>
+    <link rel="stylesheet" type="text/css" href="../css/slider.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/moving_car.css" />
     <link rel="icon" href="../photos/favicon.png" type="image/x-icon" />
@@ -30,7 +32,7 @@
       </nav>
     </header>
     <main>
-      <div class="background-image"></div>
+      <!-- <div class="background-image"></div> -->
       <div class="container">
         <div class="box-wrapper">
           <h2><a href="racing.html">Závody</a></h2>
@@ -64,6 +66,29 @@
           Jsme rodinný podnik – rádi vám poradíme osobně a podělíme se o nasbírané zkušenosti. A pokud s RC auty teprve začínáte,
           <strong>ukážeme vám cestu</strong> a pomůžeme objevit radost z RC aut.
         </p>
+      </section>
+
+      <section class="slide-container">
+        <div class="slider-wrapper">
+          <div class="slider">
+            <img src="../photos/slider_index_photos/1.jpg" alt="1" />
+            <img src="../photos/slider_index_photos/2.jpg" alt="2" />
+            <img src="../photos/slider_index_photos/4.jpg" alt="3" />
+            <img src="../photos/slider_index_photos/5.jpg" alt="4" />
+            <img src="../photos/slider_index_photos/6.jpg" alt="5" />
+          </div>
+
+          <!-- šipky -->
+          <button class="slider-arrow left">&#10094;</button>
+          <button class="slider-arrow right">&#10095;</button>
+          <div class="slider-nav">
+            <span data-slide="0"></span>
+            <span data-slide="1"></span>
+            <span data-slide="2"></span>
+            <span data-slide="3"></span>
+            <span data-slide="4"></span>
+          </div>
+        </div>
       </section>
 
       <script>
@@ -130,6 +155,7 @@
 
       <script src="../js/backgroundSelector.js"></script>
       <script src="../js/carAnimation.js"></script>
+      <script src="../js/slider_index.js"></script>
     </main>
   </body>
 </html>

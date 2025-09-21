@@ -80,7 +80,7 @@ slider.addEventListener("touchend", () => {
 
 // klikání na tečky
 navDots.forEach((dot) => {
-  dot.addEventListener("click", () => {
+  dot.addEventListener("mouseenter", () => {
     currentIndex = parseInt(dot.getAttribute("data-slide"))
     goToSlide(currentIndex)
     resetAutoplay()

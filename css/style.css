@@ -339,6 +339,8 @@ strong {
   object-fit: cover;
 }
 
+
+
 .index-foot,
 .foot {
   position: relative;
@@ -350,6 +352,8 @@ strong {
   text-align: center;
   width: 100%;
 }
+
+/* EASTER */
 
 .platba {
   display: flex;
@@ -414,3 +418,4 @@ img[src="../photos/atletika_flotila/3.jpg"] {
 .logo_easter:hover {
   transform: scale(1.1);
 }
+
