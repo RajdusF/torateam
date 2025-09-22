@@ -1,57 +1,91 @@
-// DOM elementy
-const selectedLang = document.getElementById("selected-lang");
-const langOptions = document.querySelectorAll(".lang-menu ul li a");
+const selectedLang = document.getElementById("selected-lang")
+const langMenu = document.querySelector(".lang-menu ul")
+const langOptions = document.querySelectorAll(".lang-menu ul li a")
+let lang = localStorage.getItem("lang") || "cs"
+console.log("Selected language:", lang)
+let texts = {}
 
-// Defaultní jazyk
-let lang = localStorage.getItem("lang") || "cs";
-let texts = {};
-
-// Mapa vlajek
 const flags = {
   cs: "https://flagsapi.com/CZ/flat/32.png",
   pl: "https://flagsapi.com/PL/flat/32.png",
-  en: "https://flagsapi.com/GB/flat/32.png"
-};
+  en: "https://flagsapi.com/GB/flat/32.png",
+}
 
-// Načtení JSON souboru s překlady
+const languages = [
+  { code: "cs", name: "Čeština" },
+  { code: "pl", name: "Polski" },
+  { code: "en", name: "English" },
+]
+
+// Načtení JSON
 fetch("../language.json")
-  .then(res => res.json())
-  .then(data => {
-    texts = data;
-    renderText();
-    updateSelectedLang();
+  .then((res) => res.json())
+  .then((data) => {
+    texts = data
+    renderText()
+    initSelectedLang()
   })
-  .catch(err => console.error("Chyba při načítání JSON:", err));
 
-// Funkce pro vykreslení textů podle jazyka
+// Funkce pro vykreslení textů
 function renderText() {
-  document.querySelectorAll("[data-i18n]").forEach(el => {
-    const key = el.getAttribute("data-i18n");
-    el.textContent = texts[lang][key] || key;
-  });
+  document.querySelectorAll("[data-i18n]").forEach((el) => {
+    const key = el.getAttribute("data-i18n")
+    if (texts[lang] && texts[lang][key]) {
+      el.innerHTML = texts[lang][key] // umožní HTML tagy, např. <strong>
+    }
+  })
 }
 
-// Funkce pro aktualizaci textu a vlajky v hlavičce
-function updateSelectedLang() {
-  const option = document.querySelector(`.lang-menu ul li.${lang}`);
-  if (option) {
-    selectedLang.textContent = option.textContent;
-    // změna vlajky v ::before
-    selectedLang.style.setProperty(
-      "background-image",
-      `url(${flags[lang]})`
-    );
-  }
+getLanguageName = (code) => {
+  if (code === "cs") return "Čeština"
+  if (code === "pl") return "Polski"
+  if (code === "en") return "English"
+  return code
 }
 
-// Klik na jazyk v menu
-langOptions.forEach(option => {
-  option.addEventListener("click", e => {
-    e.preventDefault();
-    lang = option.className;       // cs / pl / en
-    localStorage.setItem("lang", lang);
-    updateSelectedLang();          // změní text i vlajku
-    renderText();                  // přepíše texty podle JSON
-    // console.log("Jazyk změněn na:", lang);
-  });
-});
+// Inicializace vybraného jazyka v hlavičce
+function initSelectedLang() {
+  const selectedLangSpan = selectedLang.querySelector(".flag-text")
+
+  // Default nebo uložený jazyk
+  lang = localStorage.getItem("lang") || "cs"
+  selectedLangSpan.textContent = getLanguageName(lang)
+  selectedLang.style.setProperty("--flag-url", `url(${flags[lang]})`)
+
+  // Skryj aktuálně vybraný jazyk z dropdownu
+  langOptions.forEach((option) => {
+    option.style.display = option.className === lang ? "none" : "block"
+  })
+}
+
+// Funkce pro kliknutí
+function clickLang(option) {
+  const oldLang = lang
+  const oldText = selectedLang.querySelector(".flag-text").textContent
+
+  console.log("Old language:", oldLang)
+  console.log("Old text:", oldText)
+
+  // nový jazyk
+  lang = option.className
+  localStorage.setItem("lang", lang)
+
+  // aktualizace hlavičky
+  selectedLang.querySelector(".flag-text").textContent = option.textContent
+  selectedLang.style.setProperty("--flag-url", `url(${flags[lang]})`)
+
+  // aktualizace menu – vložíme starý jazyk zpět
+  option.textContent = oldText
+  option.className = oldLang
+
+  renderText()
+}
+
+// Přidání kliků
+document.querySelectorAll(".lang-menu ul li a").forEach((option) => {
+  option.addEventListener("click", (e) => {
+    e.preventDefault()
+    clickLang(option)
+    console.log("Language changed to:", lang)
+  })
+})

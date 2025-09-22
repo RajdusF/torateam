@@ -103,7 +103,7 @@ a:visited {
 .selected-lang {
   cursor: pointer;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-around; */
   line-height: 2;
   width: 100px;
   color: white;
@@ -114,7 +114,11 @@ a:visited {
   display: block;
   width: 32px;
   height: 32px;
-  background-image: url("https://flagsapi.com/CZ/flat/32.png");
+  background-image: var(--flag-url, url("https://flagsapi.com/CZ/flat/32.png"));
+}
+
+.flag-text {
+  margin-left: 10px;
 }
 
 .lang-menu ul {
@@ -168,6 +172,10 @@ a:visited {
 
 .en:before {
   background-image: url("https://flagsapi.com/GB/flat/32.png");
+}
+
+.cs:before {
+  background-image: url("https://flagsapi.com/CZ/flat/32.png");
 }
 
 .logo {

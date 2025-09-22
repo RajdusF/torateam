@@ -12,8 +12,11 @@
   <body data-mode="both">
     <header>
       <div class="lang-menu">
-        <div class="selected-lang" id="selected-lang">Čeština</div>
+        <div class="selected-lang" id="selected-lang">
+          <span class="flag-text">Čeština</span>
+        </div>
         <ul>
+          <li><a href="#" class="cs">Čeština</a></li>
           <li><a href="#" class="pl">Polski</a></li>
           <li><a href="#" class="en">English</a></li>
         </ul>
@@ -31,10 +34,10 @@
 
       <nav>
         <ul>
-          <li data-i18n="main_page"><a href="index.html">Hlavní strana</a></li>
-          <li><a href="racing.html">Závody</a></li>
-          <li><a href="athletics.html">Atletika</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="index.html" data-i18n="main_page">Hlavní strana</a></li>
+          <li><a href="racing.html" data-i18n="racing">Závody</a></li>
+          <li><a href="athletics.html" data-i18n="athletics">Atletika</a></li>
+          <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
         </ul>
       </nav>
     </header>
@@ -42,7 +45,7 @@
       <!-- <div class="background-image"></div> -->
       <div class="container">
         <div class="box-wrapper">
-          <h2 data-18n="racing"><a href="racing.html">Závody</a></h2>
+          <h2><a href="racing.html" data-i18n="racing">Závody</a></h2>
           <div class="box">
             <a href="racing.html">
               <video src="../videos/racing_test-2x-RIFE-RIFE3.1-60fps.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
@@ -50,7 +53,7 @@
           </div>
         </div>
         <div class="box-wrapper">
-          <h2 data-i18n="athletics"><a href="athletics.html">Atletika</a></h2>
+          <h2><a href="athletics.html" data-i18n="athletics">Atletika</a></h2>
           <div class="box">
             <a href="athletics.html">
               <video src="../videos/atletika_test-2x-RIFE-RIFE3.1-59.94006fps.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
@@ -60,16 +63,16 @@
       </div>
 
       <section class="about">
-        <h1>TORA – RC modely aut</h1>
-        <p>
+        <h1 data-i18n="about_title">TORA – RC modely aut</h1>
+        <p data-i18n="about_text_0">
           Už přes 30 let pomáháme začátečníkům i závodníkům, aby jejich RC auta jezdila tak, jak mají. Díky zkušenostem nasbíraným během tří
           desetiletí víme, co funguje – a rádi to předáme dál. U nás se potkává zkušenost, poctivá práce a opravdová vášeň.
         </p>
-        <p>
+        <p data-i18n="about_text_1">
           Nabízíme <strong>servis všech měřítek</strong>, prodej náhradních dílů i příslušenství, a také <strong>poradenství</strong>, když si nevíte
           rady s výběrem nebo nastavením. Ať už jste začátečník nebo závodník, postaráme se, aby vaše auto jezdilo tak, jak má.
         </p>
-        <p>
+        <p data-i18n="about_text_2">
           Jsme rodinný podnik – rádi vám poradíme osobně a podělíme se o nasbírané zkušenosti. A pokud s RC auty teprve začínáte,
           <strong>ukážeme vám cestu</strong> a pomůžeme objevit radost z RC aut.
         </p>
