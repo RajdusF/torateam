@@ -17,7 +17,7 @@
   pointer-events: auto;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1000px) {
   .moving-logo {
     left: -80vw; /* menší velikost pro mobil */
   }
@@ -68,7 +68,7 @@
 }
 
 /* Mobilní animace */
-@media (max-width: 1080px) {
+@media (max-width: 1000px) {
   @keyframes moveRight {
     from {
       left: calc(0vw - var(--atletic-car-width));
@@ -150,7 +150,7 @@
 }
 
 /* Mobilní animace */
-@media (max-width: 1080px) {
+@media (max-width: 1000px) {
   @keyframes throw_javelin {
     0% {
       opacity: 1;
@@ -205,7 +205,7 @@
   }
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1000px) {
   @keyframes throw_hammer {
     0% {
       opacity: 1;

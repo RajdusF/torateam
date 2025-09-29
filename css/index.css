@@ -3,6 +3,12 @@
   margin-bottom: 100px;
 }
 
+@media screen and (max-width: 1000px) {
+  .slider-wrapper {
+    max-width: 85vw;
+  }
+}
+
 .slider img:nth-child(1) {
   object-position: center 80%; /* nebo center 20%, atd. */
 }

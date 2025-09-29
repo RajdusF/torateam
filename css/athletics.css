@@ -59,7 +59,7 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
   transition: transform 0.5s ease; /* plynulá animace při hoveru i při návratu */
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1000px) {
   .athletics_column {
     flex: 0 0 auto; /* každý obrázek zabere cca polovinu řádku */
   }
@@ -71,7 +71,7 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
   object-fit: contain;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1000px) {
   .athletics_column img {
     margin: 10px;
   }
@@ -99,7 +99,7 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
 }
 
 /* mobilní verze – jedna řada s horizontálním scroll */
-@media (max-width: 1080px) {
+@media (max-width: 1000px) {
   .athletics_row_bigger {
     flex-wrap: nowrap; /* jedna řada */
     overflow-x: auto; /* horizontální scroll, pokud se nevejdou */

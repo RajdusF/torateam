@@ -35,7 +35,7 @@ main.photos {
   overflow: hidden;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1000px) {
   .column {
     height: 160px;
   }
@@ -53,7 +53,7 @@ main.photos {
 }
 
 /* MOBIL */
-@media (max-width: 1080px) {
+@media (max-width: 1000px) {
   .photos .row {
     display: flex;
     flex-wrap: wrap; /* dovolí zalamování do více řad */
@@ -118,7 +118,7 @@ main.photos {
   width: 100%;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1000px) {
   .lc-racing-name h2 {
     font-size: 2.5rem;
     margin-bottom: 15px;
@@ -159,7 +159,7 @@ main.photos {
   transform: translateY(0);
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1000px) {
   .racing-row {
     width: 95vw;
     margin-left: 3vw;
@@ -167,7 +167,7 @@ main.photos {
   }
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1000px) {
   .racing-row.reverse {
     width: 95vw;
     margin-right: 3vw !important;
@@ -198,7 +198,7 @@ main.photos {
   flex: 1;
 }
 
-@media screen and (max-width: 1080px) {
+@media screen and (max-width: 1000px) {
   .text-container {
     max-width: 40vw;
   }
