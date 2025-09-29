@@ -1,9 +1,15 @@
 .text-block {
-  max-width: 720px;       /* ne přes celou obrazovku, omezení šířky */
-  margin: 2.5% auto 2rem;    /* zarovnat na střed, přidat spodní mezeru */
-  line-height: 1.6;       /* vyšší řádkování pro lepší čitelnost */
-  font-size: 1.1rem;      /* o něco větší písmo než default */
-  color: #333;            /* ne úplně černá, ale tmavě šedá */
+  max-width: 720px; /* ne přes celou obrazovku, omezení šířky */
+  margin: 2.5% auto 2rem; /* zarovnat na střed, přidat spodní mezeru */
+  line-height: 1.6; /* vyšší řádkování pro lepší čitelnost */
+  font-size: 1.1rem; /* o něco větší písmo než default */
+  color: #333; /* ne úplně černá, ale tmavě šedá */
+}
+
+@media screen and (max-width: 1000px) {
+  .text-block {
+    margin-top: 70px;
+  }
 }
 
 /* Odstavce od sebe trochu oddělit */
@@ -12,10 +18,10 @@
 }
 
 .text-block img {
-  max-width: 100%;        /* obrázky nepřesáhnou šířku textového bloku */
-  height: auto;           /* zachování poměru stran */
-  display: block;         /* odstraní spodní mezeru pod obrázkem */
-  margin: 1rem auto;      /* obrázky na střed s mezerou nahoře a dole */
+  max-width: 100%; /* obrázky nepřesáhnou šířku textového bloku */
+  height: auto; /* zachování poměru stran */
+  display: block; /* odstraní spodní mezeru pod obrázkem */
+  margin: 1rem auto; /* obrázky na střed s mezerou nahoře a dole */
 }
 
 /* ATLETIKY LOGA */
@@ -31,7 +37,30 @@
   margin-top: 3%;
 }
 
-.athletic_logos {
+@media screen and (max-width: 1000px) {
+  .upper-text {
+    margin-top: 70px;
+    margin-bottom: 10px;
+  }
+}
+
+.athletic_logos_desktop {
+  display: block;
+}
+.athletic_logos_mobile {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .athletic_logos_desktop {
+    display: none;
+  }
+  .athletic_logos_mobile {
+    display: block;
+  }
+}
+
+.athletic_logos_desktop {
   margin-top: 2%;
 }
 
@@ -59,22 +88,10 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
   transition: transform 0.5s ease; /* plynulá animace při hoveru i při návratu */
 }
 
-@media (max-width: 1000px) {
-  .athletics_column {
-    flex: 0 0 auto; /* každý obrázek zabere cca polovinu řádku */
-  }
-}
-
 .athletics_column img {
   max-height: 130px; /* nastav výšku obrázků */
   width: auto; /* zachování poměru stran */
   object-fit: contain;
-}
-
-@media (max-width: 1000px) {
-  .athletics_column img {
-    margin: 10px;
-  }
 }
 
 .athletics_row_bigger {
@@ -97,23 +114,32 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
   width: auto; /* zachování poměru stran */
   object-fit: contain;
 }
+/* MOBILE */
 
-/* mobilní verze – jedna řada s horizontálním scroll */
-@media (max-width: 1000px) {
-  .athletics_row_bigger {
-    flex-wrap: nowrap; /* jedna řada */
-    overflow-x: auto; /* horizontální scroll, pokud se nevejdou */
-    gap: 90px; /* menší mezera */
-    margin: 20px; /* menší margin pro mobil */
+@media screen and (max-width: 1000px) {
+  .athletic_logos_mobile {
+    display: inline-block;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: center; /* vycentruje loga horizontálně */
+    /* padding: 30px 30px; */
   }
 
-  .athletics_column_bigger {
-    flex: 0 0 auto; /* sloupec podle obrázku */
+  .athletic_logos_mobile img {
+    transition: transform 0.5s ease; /* plynulá animace při hoveru i při návratu */
+    height: 95px; /* základní výška pro mobil */
+    width: auto; /* zachová poměr stran */
+    object-fit: contain;
+    margin: 18px 15px;
+    /* flex: 1 1 auto; */
   }
 
-  .athletics_column_bigger img {
-    height: 200px; /* zmenšení výšky obrázků na mobilu */
-    width: auto; /* zachování proporcí */
+  .bigger_logos img {
+    height: 250px;
+  }
+
+  .athletic_logos_mobile img:hover {
+    transform: scale(1.25);
   }
 }
 
@@ -122,6 +148,13 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
 .our-fleet {
   margin-top: 5%;
   margin-bottom: 2%;
+}
+
+@media screen {
+ .our-fleet {
+    margin-top: 70px;
+    margin-bottom: 10px;
+  } 
 }
 
 .flotila_row {

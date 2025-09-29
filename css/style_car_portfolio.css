@@ -24,6 +24,12 @@
   transition: opacity 2.4s ease-out, transform 2.4s ease-out;
 }
 
+@media screen and (max-width: 1000px) {
+  .car-block {
+    margin: 4% 6vw;
+  }
+}
+
 /* když se zobrazí */
 .car-block.show {
   opacity: 1;
@@ -50,7 +56,8 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  max-width: 520px;
+  /* max-width: 520px; */
+  max-width: 25vw;
 }
 
 .car-name {
@@ -59,6 +66,13 @@
   color: var(--my-color);
   text-transform: uppercase;
   letter-spacing: 3px;
+}
+
+@media screen and (max-width: 1000px) {
+  .car-name {
+    font-size: 34px;
+    margin-bottom: 15px;
+  }
 }
 
 /* pravý blok */
@@ -70,12 +84,19 @@
 .car-text {
   font-family: "Bebas Neue", sans-serif;
   font-size: 22px;
+  font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
   line-height: 1.5;
   color: var(--text-color);
   text-transform: uppercase;
   margin-bottom: 50px;
+}
+
+@media screen and (max-width: 1000px) {
+  .car-text {
+    font-size: 18px;
+  }  
 }
 
 /* obrázek vlevo → text doprava */
