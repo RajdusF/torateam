@@ -19,6 +19,15 @@ main.photos {
   z-index: 6 !important;
 }
 
+.row img {
+  user-drag: none; /* starší WebKit */
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none; /* zablokuje i výběr textu u inline img */
+  pointer-events: auto; /* pokud je potřeba zachovat hover / kliky */
+}
+
 .column {
   flex: 1 1 70px; /* minimální šířka 150px, roste podle dostupného místa */
   /* height: 160px; */
@@ -118,6 +127,15 @@ main.photos {
 
 .slider-wrapper {
   max-width: 32vw;
+}
+
+.slider-wrapper img {
+  user-drag: none; /* starší WebKit */
+  -webkit-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-select: none; /* zablokuje i výběr textu u inline img */
+  pointer-events: auto; /* pokud je potřeba zachovat hover / kliky */
 }
 
 .racing-wrapper {
@@ -247,7 +265,6 @@ main.photos {
   opacity: 1;
   transform: translateY(0);
 }
-
 
 .logos {
   display: block;

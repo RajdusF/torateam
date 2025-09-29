@@ -10,6 +10,16 @@
   </head>
   <body data-mode="both">
     <header>
+      <div class="lang-menu">
+        <div class="selected-lang" id="selected-lang">
+          <span class="flag-text">Čeština</span>
+        </div>
+        <ul>
+          <li><a href="#" class="cs">Čeština</a></li>
+          <li><a href="#" class="pl">Polski</a></li>
+          <li><a href="#" class="en">English</a></li>
+        </ul>
+      </div>
       <a href="index.html">
         <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
       </a>
@@ -22,15 +32,15 @@
 
       <nav>
         <ul>
-          <li><a href="index.html">Hlavní strana</a></li>
-          <li><a href="racing.html">Závody</a></li>
-          <li><a href="athletics.html">Atletika</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="index.html" data-i18n="main_page">Hlavní strana</a></li>
+          <li><a href="racing.html" data-i18n="racing">Závody</a></li>
+          <li><a href="athletics.html" data-i18n="athletics">Atletika</a></li>
+          <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
         </ul>
       </nav>
     </header>
     <main>
-      <div class="background-image"></div>
+      <!-- <div class="background-image"></div>
       <div class="contact-container">
         <div class="contact-photo">
           <img src="../photos/tomas_edited.jpg" alt="Kontakt" />
@@ -66,9 +76,35 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
-      </div>
+      </div> -->
 
       <div id="toast"></div>
+
+      <div class="contact-form">
+        <div class="flow">
+          <h1>Kontaktní formulář</h1>
+        </div>
+        <form>
+          <div class="form-group">
+            <label for="name">Celé jméno</label>
+            <input type="text" id="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefon (nepovinné)</label>
+            <input type="tel" id="phone" />
+          </div>
+          <div class="form-group">
+            <label for="message">Zpráva</label>
+            <textarea id="message" required></textarea>
+          </div>
+
+          <button>Odeslat zprávu</button>
+        </form>
+      </div>
 
       <script>
         function copyText(element, message) {
@@ -83,7 +119,11 @@
         }
       </script>
 
-      <div id="footer-placeholder" style="margin-top: 80px"></div>
+      <script src="../js/carAnimation.js"></script>
+      <script src="../js/backgroundSelector.js"></script>
+      <script src="../js/language.js"></script>
+    </main>
+    <div id="footer-placeholder" style="margin-top: 80px">
       <script>
         fetch("footer.html")
           .then((response) => response.text())
@@ -91,8 +131,6 @@
             document.getElementById("footer-placeholder").innerHTML = data
           })
       </script>
-      <script src="../js/carAnimation.js"></script>
-      <script src="../js/backgroundSelector.js"></script>
-    </main>
+    </div>
   </body>
 </html>

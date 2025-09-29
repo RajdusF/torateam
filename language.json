@@ -1,5 +1,6 @@
 {
   "cs": {
+    "logo_src": "../photos/tora_logo.png",
     "main_page": "Hlavní strana",
     "racing": "Závody",
     "athletics": "Atletika",
@@ -7,16 +8,50 @@
     "about_title": "TORA – RC modely aut",
     "about_text_0": "Už přes 30 let pomáháme začátečníkům i závodníkům, aby jejich RC auta jezdila tak, jak mají. Díky zkušenostem nasbíraným během tří desetiletí víme, co funguje – a rádi to předáme dál. U nás se potkává zkušenost, poctivá práce a opravdová vášeň.",
     "about_text_1": "Nabízíme <strong>servis všech měřítek</strong>, prodej náhradních dílů i příslušenství, a také <strong>poradenství</strong>, když si nevíte rady s výběrem nebo nastavením. Ať už jste začátečník nebo závodník, postaráme se, aby vaše auto jezdilo tak, jak má.",
-    "about_text_2": "Jsme rodinný podnik – rádi vám poradíme osobně a podělíme se o nasbírané zkušenosti. A pokud s RC auty teprve začínáte, <strong>ukážeme vám cestu</strong> a pomůžeme objevit radost z RC aut."
+    "about_text_2": "Jsme rodinný podnik – rádi vám poradíme osobně a podělíme se o nasbírané zkušenosti. A pokud s RC auty teprve začínáte, <strong>ukážeme vám cestu</strong> a pomůžeme objevit radost z RC aut.",
+    "racing_text_0": "Zabýváme se servisem, prodejem a poradenstvím široké škály RC modelů aut.",
+    "racing_text_1": "Závodíme a staráme se o modely již desítky let.",
+    "racing_text_2": "Aut máme spoustu, ale rádi vám představujeme náš nejoblíbenější model – <span class=\"lc-highlight\">LC RACING</span>. Posledních 10 let nás doslova baví svou všestranností: je to ideální první auto díky své odolnosti, a zároveň dokáže překvapit svou lehkostí, hbitostí a proporcionálním ovládáním, které ocení i zkušení jezdci.",
+    "athletics_text_0": "Na atletických závodech se staráme o přepravu náčiní pomocí speciálně upravených RC modelů aut. Naše auta převážejí <strong>oštěpy</strong>, <strong>kladiva</strong>, <strong>disky</strong> a <strong>koule</strong> přímo z místa dopadu zpět k závodníkům.",
+    "athletics_text_1": "Tuto činnost zajišťujeme už více než 10 let a během té doby jsme se podíleli na řadě menších i větších atletických podniků. Naším cílem je zpříjemnit průběh závodů, <strong>urychlit jejich organizaci</strong> a také zajistit větší <strong>bezpečnost</strong>. Zároveň divákům přinášíme netradiční zpestření, které vždy vzbudí pozornost.",
+    "athletics_our_footprint": "Naše atletická stopa",
+    "athletics_our_fleet": "Naše flotila"
   },
   "en": {
+    "logo_src": "../photos/tora_logo_en.png",
     "main_page": "Main page",
     "racing": "Racing",
-    "athletics": "Athletics"
+    "athletics": "Athletics",
+    "contact": "Contact",
+    "about_title": "TORA – RC car models",
+    "about_text_0": "For over 30 years, we have been helping beginners and racers alike to get their RC cars running as they should. Thanks to the experience we’ve gathered over three decades, we know what works – and we’re happy to share it. Here, experience, honest work, and true passion come together.",
+    "about_text_1": "We offer <strong>service for all scales</strong>, sale of spare parts and accessories, and also <strong>consulting</strong> when you need advice on selection or setup. Whether you’re a beginner or a racer, we make sure your car runs the way it should.",
+    "about_text_2": "We are a family business – we’re happy to advise you personally and share our accumulated experience. And if you are just starting with RC cars, <strong>we’ll show you the way</strong> and help you discover the joy of RC cars.",
+    "racing_text_0": "We specialize in servicing, selling, and providing consulting for a wide range of RC car models.",
+    "racing_text_1": "We have been racing and taking care of models for decades.",
+    "racing_text_2": "We have many cars, but we are happy to present our favorite model – <span class=\"lc-highlight\">LC RACING</span>. For the past 10 years it has truly fascinated us with its versatility: it is an ideal first car due to its durability, and at the same time it can surprise with its lightness, agility, and proportional control, which even experienced drivers will appreciate.",
+    "athletics_text_0": "At athletics competitions, we handle the transport of equipment using specially modified RC car models. Our cars carry <strong>javelins</strong>, <strong>hammers</strong>, <strong>discs</strong>, and <strong>shots</strong> directly from the landing area back to the athletes.",
+    "athletics_text_1": "We have been performing this activity for over 10 years, and during that time we have participated in numerous smaller and larger athletic events. Our goal is to make the competitions more enjoyable, <strong>speed up their organization</strong>, and also ensure greater <strong>safety</strong>. At the same time, we provide spectators with an unusual attraction that always draws attention.",
+    "athletics_our_footprint": "Our athletic footprint",
+    "athletics_our_fleet": "Our fleet"
+
   },
   "pl": {
+    "logo_src": "../photos/tora_logo_pl.png",
     "main_page": "Strona główna",
     "racing": "Wyścigi",
-    "athletics": "Lekkoatletyka"
+    "athletics": "Lekkoatletyka",
+    "contact": "Kontakt",
+    "about_title": "TORA – modele samochodów RC",
+    "about_text_0": "Od ponad 30 lat pomagamy zarówno początkującym, jak i zawodnikom, aby ich samochody RC jeździły tak, jak powinny. Dzięki doświadczeniu zdobytemu przez trzy dekady wiemy, co działa – i chętnie się tym dzielimy. U nas spotykają się doświadczenie, rzetelna praca i prawdziwa pasja.",
+    "about_text_1": "Oferujemy <strong>serwis wszystkich skali</strong>, sprzedaż części zamiennych i akcesoriów, a także <strong>doradztwo</strong>, gdy potrzebujesz pomocy przy wyborze lub ustawieniach. Niezależnie od tego, czy jesteś początkującym, czy zawodnikiem, zadbamy, aby Twój samochód jeździł tak, jak powinien.",
+    "about_text_2": "Jesteśmy firmą rodzinną – chętnie doradzimy osobiście i podzielimy się zebranym doświadczeniem. A jeśli dopiero zaczynasz przygodę z samochodami RC, <strong>pokażemy Ci drogę</strong> i pomożemy odkryć radość z RC.",
+    "racing_text_0": "Specjalizujemy się w serwisie, sprzedaży i doradztwie w zakresie szerokiej gamy modeli samochodów RC.",
+    "racing_text_1": "Od dziesięcioleci ścigamy się i dbamy o modele.",
+    "racing_text_2": "Mamy wiele samochodów, ale chętnie przedstawiamy nasz ulubiony model – <span class=\"lc-highlight\">LC RACING</span>. Przez ostatnie 10 lat zachwyca nas swoją wszechstronnością: jest idealnym pierwszym autem dzięki wytrzymałości, a jednocześnie potrafi zaskoczyć lekkością, zwinnością i proporcjonalnym sterowaniem, które docenią nawet doświadczeni kierowcy.",
+    "athletics_text_0": "Na zawodach lekkoatletycznych zajmujemy się transportem sprzętu za pomocą specjalnie zmodyfikowanych modeli samochodów RC. Nasze auta przewożą <strong>oszczepy</strong>, <strong>młoty</strong>, <strong>dyski</strong> i <strong>kulę</strong> bezpośrednio z miejsca lądowania z powrotem do zawodników.",
+    "athletics_text_1": "Tę działalność prowadzimy od ponad 10 lat i w tym czasie braliśmy udział w wielu mniejszych i większych imprezach lekkoatletycznych. Naszym celem jest uprzyjemnienie przebiegu zawodów, <strong>przyspieszenie ich organizacji</strong> oraz zapewnienie większego <strong>bezpieczeństwa</strong>. Jednocześnie dostarczamy widzom nietypową atrakcję, która zawsze przyciąga uwagę.",
+    "athletics_our_footprint": "Nasz lekkoatletyczny ślad",
+    "athletics_our_fleet": "Nasz tabor"
   }
 }

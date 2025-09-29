@@ -11,6 +11,16 @@
   </head>
   <body data-mode="athletic">
     <header>
+      <div class="lang-menu">
+        <div class="selected-lang" id="selected-lang">
+          <span class="flag-text">Čeština</span>
+        </div>
+        <ul>
+          <li><a href="#" class="cs">Čeština</a></li>
+          <li><a href="#" class="pl">Polski</a></li>
+          <li><a href="#" class="en">English</a></li>
+        </ul>
+      </div>
       <a href="index.html">
         <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
       </a>
@@ -23,10 +33,10 @@
 
       <nav>
         <ul>
-          <li><a href="index.html">Hlavní strana</a></li>
-          <li><a href="racing.html">Závody</a></li>
-          <li><a href="athletics.html">Atletika</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="index.html" data-i18n="main_page">Hlavní strana</a></li>
+          <li><a href="racing.html" data-i18n="racing">Závody</a></li>
+          <li><a href="athletics.html" data-i18n="athletics">Atletika</a></li>
+          <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
         </ul>
       </nav>
     </header>
@@ -34,7 +44,7 @@
       <!-- <div class="background-image"></div> -->
 
       <div class="text-block">
-        <p>
+        <p data-i18n="athletics_text_0">
   Na atletických závodech se staráme o přepravu náčiní pomocí speciálně upravených RC modelů aut. 
   Naše auta převážejí <strong>oštěpy</strong>, <strong>kladiva</strong>, <strong>disky</strong> a <strong>koule</strong> 
   přímo z místa dopadu zpět k závodníkům.
@@ -42,14 +52,14 @@
 
 <img src="../photos/atletika_dalsi_fotky/chorzow_edited.jpg"/>
 
-<p>
+<p data-i18n="athletics_text_1">
   Tuto činnost zajišťujeme už více než 10 let a během té doby jsme se podíleli na řadě menších i větších atletických podniků. 
   Naším cílem je zpříjemnit průběh závodů, <strong>urychlit jejich organizaci</strong> a také zajistit větší <strong>bezpečnost</strong>. 
   Zároveň divákům přinášíme netradiční zpestření, které vždy vzbudí pozornost.
 </p>
       </div>
 
-      <h3 class="upper-text">Naše atletická stopa</h3>
+      <h3 class="upper-text" data-i18n="athletics_our_footprint">Naše atletická stopa</h3>
 
       <div class="athletic_logos">
         <div class="athletics_row">
@@ -105,7 +115,7 @@
         </div>
       </div>
 
-      <h3 class="our-fleet">Naše flotila</h3>
+      <h3 class="our-fleet" data-i18n="athletics_our_fleet">Naše flotila</h3>
 
       <div class="flotila_row">
         <div class="flotila_column">
@@ -175,17 +185,20 @@
       </div>
       
       <div style="height: 100px"></div>
-      <div id="footer-placeholder"></div>
-      <script>
-        fetch("footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer-placeholder").innerHTML = data
-        })
-      </script>
       <script src="../js/carAnimation.js"></script>
       <script src="../js/car_portfolio.js"></script>
       <script src="../js/backgroundSelector.js"></script>
+      <script src="../js/language.js"></script>
+      
     </main>
+    <div id="footer-placeholder">
+    <script>
+      fetch("footer.html")
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer-placeholder").innerHTML = data
+      })
+    </script>
+    </div>
   </body>
 </html>

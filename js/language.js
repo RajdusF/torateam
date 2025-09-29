@@ -22,6 +22,7 @@ fetch("../language.json")
   .then((res) => res.json())
   .then((data) => {
     texts = data
+    renderLogo()
     renderText()
     initSelectedLang()
   })
@@ -34,6 +35,13 @@ function renderText() {
       el.innerHTML = texts[lang][key] // umožní HTML tagy, např. <strong>
     }
   })
+}
+
+function renderLogo() {
+  const logo = document.querySelector(".logo")
+  if (texts[lang] && texts[lang].logo_src) {
+    logo.src = texts[lang].logo_src
+  }
 }
 
 getLanguageName = (code) => {
@@ -78,6 +86,7 @@ function clickLang(option) {
   option.textContent = oldText
   option.className = oldLang
 
+  renderLogo()
   renderText()
 }
 

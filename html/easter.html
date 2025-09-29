@@ -48,7 +48,9 @@
         }
       </script>
 
-      <div id="footer-placeholder" style="margin-top: 700px;"></div>
+      <script src="../js/carAnimation.js"></script>
+    </main>
+    <div id="footer-placeholder" style="margin-top: 700px">
       <script>
         fetch("footer.html")
           .then((response) => response.text())
@@ -56,8 +58,6 @@
             document.getElementById("footer-placeholder").innerHTML = data
           })
       </script>
-
-      <script src="../js/carAnimation.js"></script>
-    </main>
+    </div>
   </body>
 </html>

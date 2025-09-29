@@ -22,7 +22,7 @@
         </ul>
       </div>
       <a href="index.html">
-        <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
+        <img src="../photos/tora_logo.png" alt="Logo" class="logo" data-i18n="logo_src" />
       </a>
 
       <div class="moving-car-wrapper">
@@ -42,11 +42,15 @@
       </nav>
     </header>
     <main>
-      <!-- <div class="background-image"></div> -->
+      <div class="background-wrapper">
+        <div class="background-image" id="bg1" style="background-image: url('../photos/backgrounds/4_edited.jpg')"></div>
+        <div class="background-image" id="bg2" style="background-image: url('../photos/backgrounds/8_edited.jpg')"></div>
+      </div>
+
       <div class="container">
         <div class="box-wrapper">
           <h2><a href="racing.html" data-i18n="racing">Závody</a></h2>
-          <div class="box">
+          <div class="box" data-bg="bg1">
             <a href="racing.html">
               <video src="../videos/racing_test-2x-RIFE-RIFE3.1-60fps.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
             </a>
@@ -54,7 +58,7 @@
         </div>
         <div class="box-wrapper">
           <h2><a href="athletics.html" data-i18n="athletics">Atletika</a></h2>
-          <div class="box">
+          <div class="box" data-bg="bg2">
             <a href="athletics.html">
               <video src="../videos/atletika_test-2x-RIFE-RIFE3.1-59.94006fps.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
             </a>
@@ -143,20 +147,30 @@
         })
       </script>
 
-      <!-- PLAY JEN PRI HOVER -->
-      <!-- <script>
-        const clip = document.querySelectorAll(".clip")
-        for (let i = 0; i < clip.length; i++) {
-          clip[i].addEventListener("mouseenter", function (e) {
-            clip[i].play()
-          })
-          clip[i].addEventListener("mouseout", function (e) {
-            clip[i].pause()
-          })
-        }
-      </script> -->
+      <script>
+        //const boxes = document.querySelectorAll(".box")
 
-      <div id="footer-placeholder"></div>
+        boxes.forEach((box) => {
+          const targetId = box.dataset.bg
+          const targetBg = document.getElementById(targetId)
+
+          box.addEventListener("mouseenter", () => {
+            document.querySelectorAll(".background-image").forEach((bg) => bg.classList.remove("active"))
+            targetBg.classList.add("active")
+          })
+
+          box.addEventListener("mouseleave", () => {
+            targetBg.classList.remove("active")
+          })
+        })
+      </script>
+
+      <!-- <script src="../js/backgroundSelector.js"></script> -->
+      <script src="../js/carAnimation.js"></script>
+      <script src="../js/slider_index.js"></script>
+      <script src="../js/language.js"></script>
+    </main>
+    <div id="footer-placeholder">
       <script>
         fetch("footer.html")
           .then((response) => response.text())
@@ -164,11 +178,6 @@
             document.getElementById("footer-placeholder").innerHTML = data
           })
       </script>
-
-      <script src="../js/backgroundSelector.js"></script>
-      <script src="../js/carAnimation.js"></script>
-      <script src="../js/slider_index.js"></script>
-      <script src="../js/language.js"></script>
-    </main>
+    </div>
   </body>
 </html>

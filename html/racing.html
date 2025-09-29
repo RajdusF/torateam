@@ -11,6 +11,16 @@
   </head>
   <body data-mode="racing">
     <header>
+      <div class="lang-menu">
+        <div class="selected-lang" id="selected-lang">
+          <span class="flag-text">Čeština</span>
+        </div>
+        <ul>
+          <li><a href="#" class="cs">Čeština</a></li>
+          <li><a href="#" class="pl">Polski</a></li>
+          <li><a href="#" class="en">English</a></li>
+        </ul>
+      </div>
       <a href="index.html">
         <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
       </a>
@@ -23,10 +33,10 @@
 
       <nav>
         <ul>
-          <li><a href="index.html">Hlavní strana</a></li>
-          <li><a href="racing.html">Závody</a></li>
-          <li><a href="athletics.html">Atletika</a></li>
-          <li><a href="contact.html">Kontakt</a></li>
+          <li><a href="index.html" data-i18n="main_page">Hlavní strana</a></li>
+          <li><a href="racing.html" data-i18n="racing">Závody</a></li>
+          <li><a href="athletics.html" data-i18n="athletics">Atletika</a></li>
+          <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
         </ul>
       </nav>
     </header>
@@ -89,9 +99,9 @@
 
       <div class="text">
         <ul>
-          <li>Zabýváme se servisem, prodejem a poradenstvím široké škály RC modelů aut.</li>
-          <li>Závodíme a staráme se o modely již desítky let.</li>
-          <li>
+          <li data-i18n="racing_text_0">Zabýváme se servisem, prodejem a poradenstvím široké škály RC modelů aut.</li>
+          <li data-i18n="racing_text_1">Závodíme a staráme se o modely již desítky let.</li>
+          <li data-i18n="racing_text_2">
             Aut máme spoustu, ale rádi vám představujeme náš nejoblíbenější model – <span class="lc-highlight">LC RACING</span>. Posledních 10 let nás
             doslova baví svou všestranností: je to ideální první auto díky své odolnosti, a zároveň dokáže překvapit svou lehkostí, hbitostí a
             proporcionálním ovládáním, které ocení i zkušení jezdci.
@@ -200,7 +210,12 @@
         </div>
       </div>
 
-      <div id="footer-placeholder"></div>
+      <script src="../js/slider.js"></script>
+      <script src="../js/carAnimation.js"></script>
+      <script src="../js/promo_lc_progressBar.js"></script>
+      <script src="../js/language.js"></script>
+    </main>
+    <div id="footer-placeholder">
       <script>
         fetch("footer.html")
           .then((response) => response.text())
@@ -208,11 +223,6 @@
             document.getElementById("footer-placeholder").innerHTML = data
           })
       </script>
-
-      <script src="../js/slider.js"></script>
-      <script src="../js/carAnimation.js"></script>
-      <script src="../js/promo_lc_progressBar.js"></script>
-      <script src="../js/backgroundSelector.js"></script>
-    </main>
+    </div>
   </body>
 </html>
