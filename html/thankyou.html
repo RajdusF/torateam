@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TORA - Tomáš Rajdus</title>
+    <link rel="stylesheet" type="text/css" href="../css/slider.css" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/moving_car.css" />
+    <link rel="icon" href="../photos/favicon.png" type="image/x-icon" />
+  </head>
+  <body data-mode="both">
+    <header>
+      <div class="lang-menu">
+        <div class="selected-lang" id="selected-lang">
+          <span class="flag-text">Čeština</span>
+        </div>
+        <ul>
+          <li><a href="#" class="cs">Čeština</a></li>
+          <li><a href="#" class="pl">Polski</a></li>
+          <li><a href="#" class="en">English</a></li>
+        </ul>
+      </div>
+      <a href="index.html">
+        <img src="../photos/tora_logo.png" alt="Logo" class="logo" data-i18n="logo_src" />
+      </a>
+
+      <div class="moving-car-wrapper">
+        <a href="easter.html" id="moving-logo-link">
+          <img src="../photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
+        </a>
+        <img src="../photos/siluety/javelin.png" class="moving-javelin" />
+      </div>
+
+      <nav>
+        <ul>
+          <li><a href="index.html" data-i18n="main_page">Hlavní strana</a></li>
+          <li><a href="racing.html" data-i18n="racing">Závody</a></li>
+          <li><a href="athletics.html" data-i18n="athletics">Atletika</a></li>
+          <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <div class="thankyou-container">
+        <h1 data-i18n="thankyou_title">Děkujeme!</h1>
+        <p data-i18n="thankyou_text">Vaše zpráva byla úspěšně odeslána! Brzy Vás budeme kontaktovat.</p>
+      </div>
+
+      <!-- SCRIPTS -->
+      <script src="../js/carAnimation.js"></script>
+      <script src="../js/language.js"></script>
+    </main>
+    <div id="footer-placeholder">
+      <script>
+        fetch("footer.html")
+          .then((response) => response.text())
+          .then((data) => {
+            document.getElementById("footer-placeholder").innerHTML = data
+          })
+      </script>
+    </div>
+  </body>
+</html>

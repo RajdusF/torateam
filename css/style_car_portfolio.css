@@ -46,6 +46,13 @@
   transition: transform 0.7s ease-out, box-shadow 0.3s ease;
 }
 
+@media screen  and (max-width: 1000px) {
+  .car-block img {
+    width: 370px;
+  }
+  
+}
+
 .car-block img:hover {
   transform: scale(1.15);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
@@ -57,7 +64,13 @@
   flex-direction: column;
   gap: 0.5rem;
   /* max-width: 520px; */
-  max-width: 25vw;
+  max-width: 30vw;
+}
+
+@media screen and (max-width: 1000px) {
+  .car-text-wrapper {
+    max-width: 40vw;
+  }
 }
 
 .car-name {
@@ -66,6 +79,7 @@
   color: var(--my-color);
   text-transform: uppercase;
   letter-spacing: 3px;
+  margin-bottom: 18px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -83,19 +97,19 @@
 
 .car-text {
   font-family: "Bebas Neue", sans-serif;
-  font-size: 22px;
+  /* font-size: 22px; */
   font-size: 1rem;
   font-weight: 700;
   letter-spacing: 2px;
-  line-height: 1.5;
+  line-height: 1.6;
   color: var(--text-color);
   text-transform: uppercase;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
 }
 
 @media screen and (max-width: 1000px) {
   .car-text {
-    font-size: 18px;
+    font-size: 16px;
   }  
 }
 

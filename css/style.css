@@ -512,3 +512,23 @@ img[src="../photos/atletika_flotila/3.jpg"] {
 .logo_easter:hover {
   transform: scale(1.1);
 }
+
+.thankyou-container {
+  text-align: left;      /* vycentrování textu */
+  max-width: 600px;        /* omezení šířky pro lepší čitelnost */
+  margin: 2rem auto;       /* mezery nahoře a dole, vycentrováno horizontálně */
+  padding: 2rem;
+  color: var(--text-1);    /* využití tvé barevné proměnné */
+}
+
+.thankyou-container h1 {
+  font-size: 2.1rem;       /* hlavní nadpis */
+  font-weight: 400;
+  margin-bottom: 1rem;     /* mezera pod nadpisem */
+}
+
+.thankyou-container p {
+  font-size: 1rem;     /* stejná velikost jako body text */
+  line-height: 1.6;        /* lepší čitelnost */
+  margin: 0;
+}

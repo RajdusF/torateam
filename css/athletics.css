@@ -79,7 +79,7 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
   align-items: center; /* vertikální zarovnání */
   gap: 10px; /* malá mezera mezi obrázky */
   flex-wrap: wrap; /* pokud se nevejdou, zalomí se do dalšího řádku */
-  margin: 35px 0;
+  margin: 35px 40px;
 }
 
 .athletics_column {
@@ -89,7 +89,7 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
 }
 
 .athletics_column img {
-  max-height: 130px; /* nastav výšku obrázků */
+  max-height: 110px; /* nastav výšku obrázků */
   width: auto; /* zachování poměru stran */
   object-fit: contain;
 }
