@@ -37,7 +37,7 @@ main.photos {
 
 @media screen and (max-width: 1000px) {
   .column {
-    height: 160px;
+    height: 130px;
   }
 }
 
@@ -73,7 +73,10 @@ main.photos {
   }
 
   .photos .column:nth-child(2) img {
-    object-position: center 40%;
+    object-position: center 25%;
+  }
+  .photos .column:nth-child(3) img {
+    object-position: center 15%;
   }
   .photos .column:nth-child(7) img {
     object-position: center 30%;
@@ -83,11 +86,11 @@ main.photos {
   }
 
   .photos .column:nth-child(10) img {
-    object-position: center 15%;
+    object-position: center 5%;
   }
 
   .photos .column:nth-child(11) img {
-    object-position: center 20%;
+    object-position: center 30%;
   }
 
   .photos .column:nth-child(12) img {
@@ -95,7 +98,7 @@ main.photos {
   }
 
   .photos .column:nth-child(13) img {
-    object-position: center 12%;
+    object-position: center 13%;
   }
 }
 
@@ -109,7 +112,7 @@ main.photos {
 
 @media screen and (max-width: 1000px) {
   .text {
-    font-size: 16px;
+    font-size: 23px;
     max-width: 90vw;
     margin: 4% auto;
     line-height: 1.4;

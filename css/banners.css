@@ -1,0 +1,131 @@
+:root {
+  --main-color: #161616;
+  --background-color: #242323;
+  --text-color: #ffffff;
+  --my-color: #1977f1;
+}
+
+/* Kontejner pro všechny statistiky */
+.stats_1,
+.stats_2 {
+  display: flex;
+  gap: 90px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 95%;
+  margin: 40px auto;
+}
+
+/* Jednotlivá kartička */
+.stat {
+  background: rgba(15, 15, 15, 0.8);
+  padding: 0px 0px;
+  border-radius: 12px; /* Méně zaoblené rohy */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  /* flex: 1 1 0; */
+  width: 310px;
+  height: 160px;
+  padding-top: 4px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border-left: 7px solid var(--my-color); /* Barevný pruh na levé straně */
+  display: flex; /* Přidáno pro lepší uspořádání */
+  flex-direction: column;
+  align-items: center; /* Vycentrovat obsah */
+  justify-content: center;
+}
+
+/* Hover efekt */
+.stat:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(16, 70, 170, 0.4);
+  background: rgba(27, 27, 27, 0.9);
+}
+
+/* Číslo a jednotka */
+.stat .number {
+  width: auto; /* Změna na auto místo 100% */
+  font-size: 3rem;
+  font-weight: 800;
+  background: var(--my-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 8px;
+  line-height: 1.3;
+  height: auto; /* Odstraněna pevná výška */
+  transition: transform 0.3s ease;
+  display: inline-block; /* Přidáno pro správné zobrazení */
+  text-align: center; /* Zajistit centrování */
+  white-space: nowrap; /* Zabránit zalomení mezi číslem a jednotkou */
+}
+
+/* .stats_1 .stat:nth-child(1) .number {
+  position: relative;
+  left: 5px;
+}
+
+.stats_1 .stat:nth-child(2) .number {
+  position: relative;
+  left: 16px;
+} */
+
+/* Jednotka menší, stále součást barvy */
+.stat .number .unit {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 1.8rem;
+  font-weight: 600;
+  opacity: 0.9;
+  background: var(--my-color);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 5px; /* Přidáno pro mezeru mezi číslem a jednotkou */
+}
+
+/* Hover efekt – zvětšení celé number (včetně jednotky) */
+.stat:hover .number {
+  transform: scale(1.15);
+}
+
+/* Popisek */
+.stat .label {
+  font-size: 1.1rem;
+  color: #e0e0e0;
+  font-weight: 400;
+  letter-spacing: 0.5x;
+  line-height: 1.4;
+  position: relative;
+  width: 100%; /* Zajistí, že popisek využívá plnou šířku */
+  text-align: center;
+  height: 50px;
+}
+
+/* Media queries pro lepší responzivitu */
+@media (max-width: 1000px) {
+  .stats_1,
+  .stats_2 {
+    gap: 50px;
+  }
+
+  .stat {
+    width: 270px;
+    height: 150px;
+    padding-top: 3px;
+  }
+
+  .stat .number {
+    font-size: 42px;
+  }
+
+  .stat .number .unit {
+    font-size: 26px;
+  }
+
+  .stat .label {
+    font-size: 18px;
+  }
+}

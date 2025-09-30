@@ -9,6 +9,7 @@
 @media screen and (max-width: 1000px) {
   .text-block {
     margin-top: 70px;
+    max-width: 90vw;
   }
 }
 
@@ -17,11 +18,24 @@
   margin-bottom: 1rem;
 }
 
+@media screen and (max-width: 1000px) {
+  .text-block p {
+    text-align: justify;
+    font-size: 23px;
+  }
+}
+
 .text-block img {
   max-width: 100%; /* obrázky nepřesáhnou šířku textového bloku */
   height: auto; /* zachování poměru stran */
   display: block; /* odstraní spodní mezeru pod obrázkem */
   margin: 1rem auto; /* obrázky na střed s mezerou nahoře a dole */
+}
+
+@media screen and (max-width: 1000px) {
+  .text-block img {
+    margin: 20px auto;
+  }
 }
 
 /* ATLETIKY LOGA */
@@ -62,6 +76,7 @@
 
 .athletic_logos_desktop {
   margin-top: 2%;
+  margin-bottom: 4%;
 }
 
 img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
@@ -151,10 +166,10 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
 }
 
 @media screen {
- .our-fleet {
+  .our-fleet {
     margin-top: 70px;
     margin-bottom: 10px;
-  } 
+  }
 }
 
 .flotila_row {

@@ -84,7 +84,7 @@
 
 @media screen and (max-width: 1000px) {
   .car-name {
-    font-size: 34px;
+    font-size: 40px;
     margin-bottom: 15px;
   }
 }
@@ -109,7 +109,7 @@
 
 @media screen and (max-width: 1000px) {
   .car-text {
-    font-size: 16px;
+    font-size: 20px;
   }  
 }
 

@@ -10,9 +10,8 @@
 
 .contact-photo img {
   display: block;
-  max-width: 340px;
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 420px;
   border-radius: 5%;
 }
 
@@ -22,6 +21,7 @@
   margin-top: 70px;
   align-items: center;
   justify-content: center;
+  margin-bottom: 100px;
 }
 
 .info {
@@ -47,6 +47,13 @@
 .info p:hover {
   font-size: 20px; /* plynulé zvětšení */
   color: var(--my-color); /* tmavší barva */
+}
+
+@media screen and (max-width: 1000px) {
+  .info p:hover {
+    font-size: 30px;
+  }
+  
 }
 
 .click-to-copy {
@@ -172,11 +179,82 @@
   display: flex;
   justify-content: center;
   border-radius: 5%;
-  margin-top: 80px;
+  /* margin-top: 80px; */
+  margin-left: 100px;
 }
 
 .map iframe {
   border-radius: 5%; /* zaoblení rohů */
+  height: 350px;
+  width: 420px;
+}
+
+@media (max-width: 1000px) {
+  .contact-container {
+    flex-direction: row; /* Keep items in a row on mobile */
+    margin-top: 50px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    flex-wrap: wrap; /* Allow items to wrap if needed */
+    justify-content: center;
+  }
+
+  .contact-photo {
+    margin: 0 20px 50px 0;
+  }
+
+  .contact-photo img {
+    height: 450px;
+    width: auto;
+  }
+
+  .info {
+    padding: 7px;
+    padding-right: 0;
+    margin-left: 20px;
+    width: 320px;
+
+    display: flex; /* enable flex layout */
+    flex-direction: column; /* stack children vertically */
+    justify-content: space-between; /* top items at top, bottom items at bottom */
+    height: 100%; /* make it fill the parent container */
+  }
+
+  .info p {
+    font-size: 24px;
+  }
+
+  .top-info {
+    display: flex;
+    flex-direction: column; /* stack items vertically */
+    gap: 6px; /* space between items */
+  }
+
+  /* ... existing code ... */
+
+  .fb-sites-wrapper {
+    margin-top: 40px; /* or whatever space you want */
+    display: flex;
+    flex-direction: column; /* stack fb links vertically */
+    gap: 10px; /* space between fb links */
+  }
+
+  .fb-sites {
+    position: relative; /* základ pro ::after */
+    display: inline-block; /* aby linka seděla přímo pod textem */
+    transition: transform 0.3s ease;
+  }
+
+  .map {
+    margin: 0 0 50px 0;
+    width: 100%;
+  }
+
+  .map iframe {
+    width: 650px; /* plná šířka s malým okrajem */
+    height: 500px; /* upravená výška pro lepší poměr stran */
+  }
 }
 
 /* FORMULÁŘ */
@@ -192,6 +270,29 @@
   --border: 1px solid hsl(229, 22%, 19%);
 }
 
+.contact-form {
+  display: grid;
+  gap: 1rem;
+
+  background-color: var(--surface-1);
+  /* background-color: rgba(10, 51, 104, 0.39); */
+
+
+  /* (25,119,241) */
+  padding: 3rem;
+  border-radius: 24px;
+  width: 40vw;
+  margin-inline: auto;
+  color: var(--text-1);
+}
+
+@media screen and (max-width: 1000px) {
+  .contact-form {
+    width: 85vw;
+    padding: 2.5rem;
+  }
+}
+
 h1 {
   font-size: 3rem;
   font-weight: 300;
@@ -199,17 +300,17 @@ h1 {
   text-align: center;
 }
 
+form {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
 input,
 button,
 select,
 textarea {
   font-size: 14px;
-}
-
-form {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: 1fr;
 }
 
 textarea {
@@ -223,10 +324,24 @@ textarea {
   resize: vertical; /* uživatel může měnit výšku */
 }
 
+@media screen and (max-width: 1000px) {
+  textarea {
+    font-size: 28px;
+    min-height: 250px;
+  }
+}
+
 .form-group {
   display: grid;
   gap: 0.5cap;
   margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1000px) {
+  .form-group {
+    gap: 18px;
+    margin-bottom: 30px;
+  }
 }
 
 label {
@@ -236,6 +351,12 @@ label {
 
   text-box-trim: trim-both;
   text-box-edge: cap alphabetic;
+}
+
+@media screen and (max-width: 1000px) {
+  label {
+    font-size: 28px;
+  }
 }
 
 input {
@@ -251,6 +372,15 @@ input:not([type="checkbox"], [type="radio"]) {
   width: 36%;
 }
 
+@media screen and (max-width: 1000px) {
+  input:not([type="checkbox"], [type="radio"]) {
+    width: 100%;
+    font-size: 28px;
+    padding: 1.5ex 2ex;
+  }
+  
+}
+
 .form-group:has(.fine-print) {
   grid-column: 1 / -1;
 
@@ -262,22 +392,11 @@ input:not([type="checkbox"], [type="radio"]) {
   justify-self: start;
 }
 
-
 * {
   box-sizing: border-box;
   margin: 0;
 }
 
-body {
-  font-family: "Radio Canada", sans-serif;
-  font-size: 1.125rem;
-  line-height: 1.6;
-
-  background-color: var(--surface-0);
-  color: var(--text-1);
-
-  padding-block-start: 10vb;
-}
 
 a {
   color: hsl(from var(--accent) h s 80%);
@@ -287,17 +406,6 @@ a {
   font-size: 0.925rem;
   text-transform: revert;
   line-height: 1.4;
-}
-
-.contact-form {
-  display: grid;
-  gap: 1rem;
-
-  background-color: var(--surface-1);
-  padding: 3rem;
-  border-radius: 24px;
-  width: 40vw;
-  margin-inline: auto;
 }
 
 button {
@@ -311,5 +419,11 @@ button {
   &:hover,
   &:focus-visible {
     background-color: hsl(from var(--accent) h s 30%);
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  button {
+    font-size: 21px;
   }
 }

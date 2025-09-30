@@ -5,11 +5,41 @@ let lang = localStorage.getItem("lang") || "cs"
 console.log("Selected language:", lang)
 let texts = {}
 
-const flags = {
-  cs: "https://flagsapi.com/CZ/flat/32.png",
-  pl: "https://flagsapi.com/PL/flat/32.png",
-  en: "https://flagsapi.com/GB/flat/32.png",
+let flags = {}
+
+// Změna vlajky pro mobilní zobrazení
+function updateFlagForScreenSize() {
+  if (window.matchMedia("(max-width: 1000px)").matches) {
+    flags = {
+      cs: "https://flagsapi.com/CZ/flat/64.png",
+      pl: "https://flagsapi.com/PL/flat/64.png",
+      en: "https://flagsapi.com/GB/flat/64.png",
+    }
+  } else {
+    flags = {
+      cs: "https://flagsapi.com/CZ/flat/32.png",
+      pl: "https://flagsapi.com/PL/flat/32.png",
+      en: "https://flagsapi.com/GB/flat/32.png",
+    }
+  }
+  selectedLang.style.setProperty("--flag-url", `url(${flags})`)
 }
+
+// Sleduj změnu velikosti okna
+window.addEventListener("resize", updateFlagForScreenSize)
+window.addEventListener("DOMContentLoaded", updateFlagForScreenSize)
+
+// const flags = {
+//   cs: "https://flagsapi.com/CZ/flat/32.png",
+//   pl: "https://flagsapi.com/PL/flat/32.png",
+//   en: "https://flagsapi.com/GB/flat/32.png",
+// }
+
+// const flags_mobile = {
+//   cs: "https://flagsapi.com/CZ/flat/42.png",
+//   pl: "https://flagsapi.com/PL/flat/42.png",
+//   en: "https://flagsapi.com/GB/flat/42.png",
+// }
 
 const languages = [
   { code: "cs", name: "Čeština" },

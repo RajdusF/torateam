@@ -106,6 +106,13 @@ a:visited {
   color: white;
 }
 
+@media screen and (max-width: 1000px) {
+  .selected-lang {
+    font-size: 22px;
+    width: 180px;
+  }
+}
+
 .selected-lang:before {
   content: "";
   display: block;
@@ -114,8 +121,23 @@ a:visited {
   background-image: var(--flag-url, url("https://flagsapi.com/CZ/flat/32.png"));
 }
 
+@media screen and (max-width: 1000px) {
+  .selected-lang:before {
+    width: 50px;
+    height: 50px;
+    background-image: var(--flag-url, url("https://flagsapi.com/CZ/flat/64.png"));
+    background-size: 50px 50px;
+  }
+}
+
 .flag-text {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 1000px) {
+  .flag-text {
+    font-size: 22px;
+  }
 }
 
 .lang-menu ul {
@@ -131,6 +153,13 @@ a:visited {
   position: absolute;
   top: 32px;
   right: -20px;
+}
+
+@media screen and (max-width: 1000px) {
+  .lang-menu ul {
+    top: 50px;
+    right: 0px;
+  }
 }
 
 .lang-menu:hover ul {
@@ -163,6 +192,20 @@ a:visited {
   /* background-image: url("https://flagsapi.com/CZ/flat/32.png"); */
 }
 
+@media screen and (max-width: 1000px) {
+  .lang-menu ul li a {
+    width: 180px;
+    font-size: 22px;
+    padding: 10px 15px;
+  }
+  .lang-menu ul li a:before {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    /* background-image: url("https://flagsapi.com/CZ/flat/64.png"); */
+  }
+}
+
 .pl:before {
   background-image: url("https://flagsapi.com/PL/flat/32.png");
 }
@@ -173,6 +216,23 @@ a:visited {
 
 .cs:before {
   background-image: url("https://flagsapi.com/CZ/flat/32.png");
+}
+
+@media screen and (max-width: 1000px) {
+  .pl:before {
+    background-image: url("https://flagsapi.com/PL/flat/64.png");
+    background-size: 50px 50px;
+  }
+
+  .en:before {
+    background-image: url("https://flagsapi.com/GB/flat/64.png");
+    background-size: 50px 50px;
+  }
+
+  .cs:before {
+    background-image: url("https://flagsapi.com/CZ/flat/64.png");
+    background-size: 50px 50px;
+  }
 }
 
 .logo {
@@ -188,7 +248,7 @@ a:visited {
 
 @media (max-width: 1000px) {
   .logo {
-    width: 280px;
+    width: 340px;
   }
 }
 
@@ -212,13 +272,19 @@ main {
 
 header {
   position: relative;
-  height: 120px;
+  /* height: 120px; */
   background-color: var(--main-color);
   padding: 6px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 20;
+}
+
+@media screen and (max-width: 1000px) {
+  header {
+    /* height: 155px; */
+  }
 }
 
 nav {
@@ -242,7 +308,8 @@ nav ul li {
 
 @media (max-width: 1000px) {
   nav ul li {
-    margin-right: 50px; /* menší mezera pro mobil */
+    margin-right: 35px;
+    margin-top: 65px;
   }
 }
 
@@ -260,7 +327,7 @@ nav ul li a {
 
 @media (max-width: 1000px) {
   nav ul li a {
-    font-size: 1rem; /* menší písmo pro mobil */
+    font-size: 23px; /* menší písmo pro mobil */
   }
 }
 
@@ -283,8 +350,6 @@ nav ul li a:hover {
   transform: scale(1.2);
 }
 
-
-
 /* About sekce */
 .about {
   position: relative;
@@ -303,7 +368,7 @@ nav ul li a:hover {
 
 @media screen and (max-width: 1000px) {
   .about {
-    max-width: 85vw;
+    max-width: 87vw;
   }
 }
 
@@ -317,7 +382,7 @@ nav ul li a:hover {
 
 @media (max-width: 1000px) {
   .about h1 {
-    font-size: 2rem;
+    font-size: 46px;
   }
 }
 
@@ -330,7 +395,7 @@ nav ul li a:hover {
 
 @media (max-width: 1000px) {
   .about p {
-    font-size: 0.7rem;
+    font-size: 23px;
   }
 }
 
@@ -386,6 +451,12 @@ strong {
   color: var(--text-color);
   transition: transform 0.5s; /* animace pohybu */
   transform-origin: bottom;
+}
+
+@media screen and (max-width: 1000px) {
+  .box-wrapper h2 a {
+    font-size: 30px;
+  }
 }
 
 .box-wrapper h2 a::after {
@@ -514,21 +585,21 @@ img[src="../photos/atletika_flotila/3.jpg"] {
 }
 
 .thankyou-container {
-  text-align: left;      /* vycentrování textu */
-  max-width: 600px;        /* omezení šířky pro lepší čitelnost */
-  margin: 2rem auto;       /* mezery nahoře a dole, vycentrováno horizontálně */
+  text-align: left; /* vycentrování textu */
+  max-width: 600px; /* omezení šířky pro lepší čitelnost */
+  margin: 2rem auto; /* mezery nahoře a dole, vycentrováno horizontálně */
   padding: 2rem;
-  color: var(--text-1);    /* využití tvé barevné proměnné */
+  color: var(--text-1); /* využití tvé barevné proměnné */
 }
 
 .thankyou-container h1 {
-  font-size: 2.1rem;       /* hlavní nadpis */
+  font-size: 2.1rem; /* hlavní nadpis */
   font-weight: 400;
-  margin-bottom: 1rem;     /* mezera pod nadpisem */
+  margin-bottom: 1rem; /* mezera pod nadpisem */
 }
 
 .thankyou-container p {
-  font-size: 1rem;     /* stejná velikost jako body text */
-  line-height: 1.6;        /* lepší čitelnost */
+  font-size: 1rem; /* stejná velikost jako body text */
+  line-height: 1.6; /* lepší čitelnost */
   margin: 0;
 }

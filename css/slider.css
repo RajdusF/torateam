@@ -94,6 +94,13 @@
   background: transparent;
 }
 
+@media screen and (max-width: 1000px) {
+  .slider-arrow {
+    width: 90px;
+    font-size: 46px;
+  }
+}
+
 .slider-arrow::before {
   content: "";
   position: absolute;
