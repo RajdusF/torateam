@@ -148,21 +148,24 @@
       </script>
 
       <script>
-        //const boxes = document.querySelectorAll(".box")
+        // Spustí se jen když zařízení není "malé" (mobil)
+        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+          // const boxes = document.querySelectorAll(".box")
 
-        boxes.forEach((box) => {
-          const targetId = box.dataset.bg
-          const targetBg = document.getElementById(targetId)
+          boxes.forEach((box) => {
+            const targetId = box.dataset.bg
+            const targetBg = document.getElementById(targetId)
 
-          box.addEventListener("mouseenter", () => {
-            document.querySelectorAll(".background-image").forEach((bg) => bg.classList.remove("active"))
-            targetBg.classList.add("active")
+            box.addEventListener("mouseenter", () => {
+              document.querySelectorAll(".background-image").forEach((bg) => bg.classList.remove("active"))
+              targetBg.classList.add("active")
+            })
+
+            box.addEventListener("mouseleave", () => {
+              targetBg.classList.remove("active")
+            })
           })
-
-          box.addEventListener("mouseleave", () => {
-            targetBg.classList.remove("active")
-          })
-        })
+        }
       </script>
 
       <script src="../js/carAnimation.js"></script>

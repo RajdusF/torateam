@@ -271,7 +271,7 @@ main {
 }
 
 header {
-  position: relative;
+  position: sticky;
   /* height: 120px; */
   background-color: var(--main-color);
   padding: 6px;
@@ -368,7 +368,7 @@ nav ul li a:hover {
 
 @media screen and (max-width: 1000px) {
   .about {
-    max-width: 87vw;
+    max-width: 90vw;
   }
 }
 
@@ -395,7 +395,7 @@ nav ul li a:hover {
 
 @media (max-width: 1000px) {
   .about p {
-    font-size: 23px;
+    font-size: 27px;
   }
 }
 
