@@ -128,3 +128,9 @@ document.querySelectorAll(".lang-menu ul li a").forEach((option) => {
     console.log("Language changed to:", lang)
   })
 })
+
+// Toggle menu on click bcs Iphone suck's
+selectedLang.addEventListener("click", (e) => {
+  e.preventDefault()
+  langMenu.classList.toggle("open")
+})

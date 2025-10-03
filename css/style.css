@@ -141,6 +141,7 @@ a:visited {
 }
 
 .lang-menu ul {
+  display: none;
   padding: 0;
   padding-top: 8px;
   list-style: none;
@@ -164,6 +165,16 @@ a:visited {
 
 .lang-menu:hover ul {
   display: block;
+}
+
+.lang-menu ul.open {
+  display: block;
+}
+
+@media (hover: hover) {
+  .lang-menu:hover ul {
+    display: block;
+  }
 }
 
 .lang-menu ul li {
