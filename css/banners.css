@@ -102,6 +102,7 @@
   width: 100%; /* Zajistí, že popisek využívá plnou šířku */
   text-align: center;
   height: 50px;
+  padding: 0 10px;
 }
 
 /* Media queries pro lepší responzivitu */

@@ -290,6 +290,11 @@ header {
   justify-content: space-between;
   align-items: center;
   z-index: 20;
+
+  /* To not hide on iOS */
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 @media screen and (max-width: 1000px) {
@@ -398,10 +403,11 @@ nav ul li a:hover {
 }
 
 .about p {
-  font-size: 1.1rem;
+  font-size: 18px;
   margin-bottom: 1rem;
   color: var(--text-color);
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  text-align: justify;
 }
 
 @media (max-width: 1000px) {

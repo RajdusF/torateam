@@ -112,7 +112,7 @@ main.photos {
 
 @media screen and (max-width: 1000px) {
   .text {
-    font-size: 23px;
+    font-size: 27px;
     max-width: 90vw;
     margin: 4% auto;
     line-height: 1.4;

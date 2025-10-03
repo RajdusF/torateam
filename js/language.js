@@ -134,3 +134,17 @@ selectedLang.addEventListener("click", (e) => {
   e.preventDefault()
   langMenu.classList.toggle("open")
 })
+
+// zavřít při kliknutí na položku menu
+langMenu.querySelectorAll("a").forEach((link) => {
+  link.addEventListener("click", () => {
+    langMenu.classList.remove("open")
+  })
+})
+
+// zavřít při kliknutí mimo menu
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".lang-menu")) {
+    langMenu.classList.remove("open")
+  }
+})

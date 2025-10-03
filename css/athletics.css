@@ -2,8 +2,9 @@
   max-width: 720px; /* ne přes celou obrazovku, omezení šířky */
   margin: 2.5% auto 2rem; /* zarovnat na střed, přidat spodní mezeru */
   line-height: 1.6; /* vyšší řádkování pro lepší čitelnost */
-  font-size: 1.1rem; /* o něco větší písmo než default */
+  font-size: 17px;
   color: #333; /* ne úplně černá, ale tmavě šedá */
+  text-align: justify;
 }
 
 @media screen and (max-width: 1000px) {
@@ -21,7 +22,7 @@
 @media screen and (max-width: 1000px) {
   .text-block p {
     text-align: justify;
-    font-size: 23px;
+    font-size: 27px;
   }
 }
 
