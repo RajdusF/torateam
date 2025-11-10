@@ -233,7 +233,7 @@ ul {
 .video-container {
   flex: 1;
   position: relative;
-  margin: 0 20px;
+  margin: 0 25px;
 }
 
 .video-container video {
@@ -245,6 +245,11 @@ ul {
 
 .text-container {
   flex: 1;
+}
+
+.text-container h3 {
+    font-size: 22px;
+    line-height: 1.4;
 }
 
 @media screen and (max-width: 1000px) {

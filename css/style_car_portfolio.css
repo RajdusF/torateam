@@ -7,13 +7,13 @@
 
 .car-container {
   margin-top: 100px;
-  margin-bottom: 300px;
+  margin-bottom: 150px;
 }
 
 /* CAR-BLOCK */
 .car-block {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 2rem;
   position: relative;
   margin: 4% 17%;
@@ -64,7 +64,7 @@
   flex-direction: column;
   gap: 0.5rem;
   /* max-width: 520px; */
-  max-width: 30vw;
+  max-width: 25vw;
 }
 
 @media screen and (max-width: 1000px) {
@@ -74,12 +74,13 @@
 }
 
 .car-name {
+  margin-top: 8%;
+  margin-bottom: 7%;
   font-weight: bold;
   font-size: 32px;
   color: var(--my-color);
   text-transform: uppercase;
   letter-spacing: 3px;
-  margin-bottom: 18px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -104,7 +105,7 @@
   line-height: 1.6;
   color: var(--text-color);
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 @media screen and (max-width: 1000px) {

@@ -1,4 +1,5 @@
 const blocks = document.querySelectorAll(".car-block")
+const bottomTextAthletics = document.querySelector(".bottom-text-athletics")
 
 const observer = new IntersectionObserver(
   (entries, observer) => {
@@ -6,7 +7,7 @@ const observer = new IntersectionObserver(
       if (entry.isIntersecting) {
         entry.target.classList.add("show")
         entry.target.classList.remove("hide-left", "hide-right")
-        
+
         observer.unobserve(entry.target)
       }
     })
@@ -15,3 +16,21 @@ const observer = new IntersectionObserver(
 )
 
 blocks.forEach((block) => observer.observe(block))
+
+if (bottomTextAthletics) {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible")
+          // Pokud chceme animovat jen jednou:
+          observer.unobserve(entry.target)
+        }
+      })
+    },
+    {
+      threshold: 0.2, // spustí když je 20% elementu ve viewportu
+    }
+  )
+  observer.observe(bottomTextAthletics)
+}

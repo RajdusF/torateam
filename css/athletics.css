@@ -203,3 +203,18 @@ img[src="../photos/atletika_flotila/3.jpg"] {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* jemný stín */
   transition: transform 0.4s ease, filter 0.4s ease;
 }
+
+.bottom-text-athletics {
+  font-size: 22px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 100px;
+  opacity: 0;
+  transform: translateY(180px); /* začne zespoda */
+  transition: all 1.7s ease-out;
+}
+
+.bottom-text-athletics.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

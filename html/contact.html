@@ -50,7 +50,7 @@
 
       <div class="contact-form">
         <div class="flow">
-          <h1>Kontaktní formulář</h1>
+          <h1 data-i18n="contact_form">Kontaktní formulář</h1>
         </div>
         <form action="https://formsubmit.co/35b034d1f6bea0c5a6aefdf6532aa98d" method="POST">
           <input type="text" name="_honey" style="display: none" />
@@ -58,25 +58,25 @@
           <input type="hidden" name="_next" value="https://rajdusf.github.io/torateam/html/index.html" />
 
           <div class="form-group">
-            <label for="name">Celé jméno:*</label>
+            <label for="name" data-i18n="full_name">Celé jméno:*</label>
             <input type="text" id="name" name="Celé Jméno" required />
           </div>
           <div class="form-group">
-            <label for="email">Email:*</label>
+            <label for="email" data-i18n="email">Email:*</label>
             <input type="email" id="email" name="E-mail" required />
           </div>
           <div class="form-group">
-            <label for="phone">Telefon:</label>
+            <label for="phone" data-i18n="phone">Telefon:</label>
             <input type="tel" id="phone" name="Telefon" />
           </div>
           <div class="form-group">
-            <label for="message">Zpráva:*</label>
+            <label for="message" data-i18n="message">Zpráva:*</label>
             <textarea id="message" name="Zpráva" required></textarea>
           </div>
 
-          Položky označené hvězdičkou (*) jsou povinné.
+          <span data-i18n="required_fields">Položky označené hvězdičkou (*) jsou povinné.</span>
 
-          <button>Odeslat zprávu</button>
+          <button data-i18n="submit_message">Odeslat zprávu</button>
         </form>
       </div>
     </main>
