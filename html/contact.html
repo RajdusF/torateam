@@ -9,36 +9,7 @@
     <link rel="icon" href="../photos/favicon.png" type="image/x-icon" />
   </head>
   <body data-mode="both">
-    <header>
-      <div class="lang-menu">
-        <div class="selected-lang" id="selected-lang">
-          <span class="flag-text">Čeština</span>
-        </div>
-        <ul>
-          <li><a href="#" class="cs">Čeština</a></li>
-          <li><a href="#" class="pl">Polski</a></li>
-          <li><a href="#" class="en">English</a></li>
-        </ul>
-      </div>
-      <a href="index.html">
-        <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
-      </a>
-      <div class="moving-car-wrapper">
-        <a href="easter.html" id="moving-logo-link">
-          <img src="../photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
-        </a>
-        <img src="../photos/siluety/javelin.png" class="moving-javelin" />
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="index.html" data-i18n="main_page">Hlavní strana</a></li>
-          <li><a href="racing.html" data-i18n="racing">Závody</a></li>
-          <li><a href="athletics.html" data-i18n="athletics">Atletika</a></li>
-          <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div id="header-placeholder"></div>
     <main>
       <div class="contact-container">
         <div class="contact-photo">
@@ -87,50 +58,71 @@
           <input type="hidden" name="_next" value="https://rajdusf.github.io/torateam/html/index.html" />
 
           <div class="form-group">
-            <label for="name">Celé jméno:</label>
+            <label for="name">Celé jméno:*</label>
             <input type="text" id="name" name="Celé Jméno" required />
           </div>
           <div class="form-group">
-            <label for="email">Email:</label>
+            <label for="email">Email:*</label>
             <input type="email" id="email" name="E-mail" required />
           </div>
           <div class="form-group">
-            <label for="phone">Telefon (nepovinné):</label>
+            <label for="phone">Telefon:</label>
             <input type="tel" id="phone" name="Telefon" />
           </div>
           <div class="form-group">
-            <label for="message">Zpráva:</label>
+            <label for="message">Zpráva:*</label>
             <textarea id="message" name="Zpráva" required></textarea>
           </div>
+
+          Položky označené hvězdičkou (*) jsou povinné.
 
           <button>Odeslat zprávu</button>
         </form>
       </div>
-
-      <script>
-        function copyText(element, message) {
-          navigator.clipboard.writeText(element.textContent).then(() => {
-            const toast = document.getElementById("toast")
-            toast.textContent = message // nastavíme text podle kliknutí
-            toast.classList.add("show")
-            setTimeout(() => {
-              toast.classList.remove("show")
-            }, 2000) // zmizí po 2s
-          })
-        }
-      </script>
-
-      <script src="../js/carAnimation.js"></script>
-      <script src="../js/language.js"></script>
     </main>
-    <div id="footer-placeholder" style="margin-top: 80px">
-      <script>
-        fetch("footer.html")
-          .then((response) => response.text())
-          .then((data) => {
-            document.getElementById("footer-placeholder").innerHTML = data
-          })
-      </script>
-    </div>
+    <div id="footer-placeholder" style="margin-top: 80px"></div>
+    <script>
+      fetch("header.html")
+        .then((r) => r.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html
+        })
+        .then(() => {
+          if (typeof initCarAnimation === "function") {
+            initCarAnimation()
+            console.log("Car animation initialized")
+          }
+        })
+        .then(() => {
+          if (typeof initLanguage === "function") {
+            initLanguage()
+            console.log("Language initialized")
+          }
+        })
+    </script>
+    <script src="../js/language.js"></script>
+
+    <script>
+      function copyText(element, message) {
+        navigator.clipboard.writeText(element.textContent).then(() => {
+          const toast = document.getElementById("toast")
+          toast.textContent = message // nastavíme text podle kliknutí
+          toast.classList.add("show")
+          setTimeout(() => {
+            toast.classList.remove("show")
+          }, 2000) // zmizí po 2s
+        })
+      }
+    </script>
+
+    <script src="../js/carAnimation.js"></script>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data
+        })
+    </script>
   </body>
 </html>

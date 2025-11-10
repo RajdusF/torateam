@@ -11,36 +11,7 @@
     <link rel="icon" href="../photos/favicon.png" type="image/x-icon" />
   </head>
   <body data-mode="athletic">
-    <header>
-      <div class="lang-menu">
-        <div class="selected-lang" id="selected-lang">
-          <span class="flag-text">Čeština</span>
-        </div>
-        <ul>
-          <li><a href="#" class="cs">Čeština</a></li>
-          <li><a href="#" class="pl">Polski</a></li>
-          <li><a href="#" class="en">English</a></li>
-        </ul>
-      </div>
-      <a href="index.html">
-        <img src="../photos/tora_logo.png" alt="Logo" class="logo" />
-      </a>
-      <div class="moving-car-wrapper">
-        <a href="easter.html" id="moving-logo-link">
-          <img src="../photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
-        </a>
-        <img src="../photos/siluety/javelin.png" class="moving-javelin" />
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="index.html" data-i18n="main_page">Hlavní strana</a></li>
-          <li><a href="racing.html" data-i18n="racing">Závody</a></li>
-          <li><a href="athletics.html" data-i18n="athletics">Atletika</a></li>
-          <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div id="header-placeholder"></div>
     <main>
       <div class="text-block">
         <p data-i18n="athletics_text_0">
@@ -146,11 +117,11 @@
       <section class="stats_1">
         <div class="stat">
           <div class="number">~ 60 <span class="unit">km</span></div>
-          <div class="label">ujedeme při každém atletickém mítinku</div>
+          <div class="label">ujedeme při každém atletickém závodě</div>
         </div>
         <div class="stat">
           <div class="number">300+</div>
-          <div class="label">atletických mítinků za námi</div>
+          <div class="label">atletických závodů za námi</div>
         </div>
         <div class="stat">
           <div class="number">~ 2 000 <span class="unit">kg</span></div>
@@ -160,7 +131,7 @@
       <section class="stats_2">
         <div class="stat">
           <div class="number">13 <span class="unit">aut</span></div>
-          <div class="label">nasazujeme každou sezónu</div>
+          <div class="label">připravených aut každou sezónu</div>
         </div>
         <div class="stat">
           <div class="number">42 <span class="unit">baterií</span></div>
@@ -230,18 +201,37 @@
       </div>
 
       <div style="height: 100px"></div>
-      <script src="../js/carAnimation.js"></script>
-      <script src="../js/car_portfolio.js"></script>
-      <script src="../js/language.js"></script>
     </main>
-    <div id="footer-placeholder">
-      <script>
-        fetch("footer.html")
-          .then((response) => response.text())
-          .then((data) => {
-            document.getElementById("footer-placeholder").innerHTML = data
-          })
-      </script>
-    </div>
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch("header.html")
+        .then((r) => r.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html
+        })
+        .then(() => {
+          if (typeof initCarAnimation === "function") {
+            initCarAnimation()
+            console.log("Car animation initialized")
+          }
+        })
+        .then(() => {
+          if (typeof initLanguage === "function") {
+            initLanguage()
+            console.log("Language initialized")
+          }
+        })
+    </script>
+    <script src="../js/language.js"></script>
+    <script src="../js/carAnimation.js"></script>
+    <script src="../js/car_portfolio.js"></script>
+
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data
+        })
+    </script>
   </body>
 </html>

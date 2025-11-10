@@ -10,37 +10,7 @@
     <link rel="icon" href="../photos/favicon.png" type="image/x-icon" />
   </head>
   <body data-mode="both">
-    <header>
-      <div class="lang-menu">
-        <div class="selected-lang" id="selected-lang">
-          <span class="flag-text">Čeština</span>
-        </div>
-        <ul>
-          <li><a href="#" class="cs">Čeština</a></li>
-          <li><a href="#" class="pl">Polski</a></li>
-          <li><a href="#" class="en">English</a></li>
-        </ul>
-      </div>
-      <a href="index.html">
-        <img src="../photos/tora_logo.png" alt="Logo" class="logo" data-i18n="logo_src" />
-      </a>
-
-      <div class="moving-car-wrapper">
-        <a href="easter.html" id="moving-logo-link">
-          <img src="../photos/siluety/final/javelin_car.png" alt="Logo" class="moving-logo" />
-        </a>
-        <img src="../photos/siluety/javelin.png" class="moving-javelin" />
-      </div>
-
-      <nav>
-        <ul>
-          <li><a href="index.html" data-i18n="main_page">Hlavní strana</a></li>
-          <li><a href="racing.html" data-i18n="racing">Závody</a></li>
-          <li><a href="athletics.html" data-i18n="athletics">Atletika</a></li>
-          <li><a href="contact.html" data-i18n="contact">Kontakt</a></li>
-        </ul>
-      </nav>
-    </header>
+    <div id="header-placeholder"></div>
     <main>
       <div class="background-wrapper">
         <div class="background-image" id="bg1" style="background-image: url('../photos/backgrounds/low_quality/4_edited.jpg')"></div>
@@ -104,82 +74,101 @@
           </div>
         </div>
       </section>
+    </main>
+    <div id="footer-placeholder"></div>
 
-      <!-- SCRIPTS -->
+    <!-- SCRIPTS -->
 
-      <script>
-        const videos = document.querySelectorAll(".clip")
-
-        videos.forEach((video) => {
-          // nastavíme pomalou rychlost
-          video.playbackRate = 0.7
-
-          // při najetí myši zrychlit
-          video.addEventListener("mouseenter", () => {
-            video.playbackRate = 1.0
-          })
-
-          // při odjetí myši zpomalit
-          video.addEventListener("mouseleave", () => {
-            video.playbackRate = 0.7
-          })
+    <script>
+      fetch("header.html")
+        .then((r) => r.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html
         })
-      </script>
+        .then(() => {
+          if (typeof initCarAnimation === "function") {
+            initCarAnimation()
+            console.log("Car animation initialized")
+          }
+        })
+        .then(() => {
+          if (typeof initLanguage === "function") {
+            initLanguage()
+            console.log("Language initialized")
+          }
+        })
+    </script>
+    <script src="../js/language.js"></script>
 
-      <script>
-        // vyber všechny boxy
-        const boxes = document.querySelectorAll(".box")
+    <script>
+      const videos = document.querySelectorAll(".clip")
+
+      videos.forEach((video) => {
+        // nastavíme pomalou rychlost
+        video.playbackRate = 0.7
+
+        // při najetí myši zrychlit
+        video.addEventListener("mouseenter", () => {
+          video.playbackRate = 1.0
+        })
+
+        // při odjetí myši zpomalit
+        video.addEventListener("mouseleave", () => {
+          video.playbackRate = 0.7
+        })
+      })
+    </script>
+
+    <script>
+      // vyber všechny boxy
+      const boxes = document.querySelectorAll(".box")
+
+      boxes.forEach((box) => {
+        // najdi nadpis uvnitř box-wrapper
+        const h2 = box.closest(".box-wrapper").querySelector("h2")
+
+        // při najetí myší na box
+        box.addEventListener("mouseenter", () => {
+          h2.style.transform = "translateY(-20px)"
+          h2.style.transition = "transform 0.4s"
+        })
+
+        // při opuštění boxu
+        box.addEventListener("mouseleave", () => {
+          h2.style.transform = "translateY(0)"
+        })
+      })
+    </script>
+
+    <script>
+      // Spustí se jen když zařízení není "malé" (mobil)
+      if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        // const boxes = document.querySelectorAll(".box")
 
         boxes.forEach((box) => {
-          // najdi nadpis uvnitř box-wrapper
-          const h2 = box.closest(".box-wrapper").querySelector("h2")
+          const targetId = box.dataset.bg
+          const targetBg = document.getElementById(targetId)
 
-          // při najetí myší na box
           box.addEventListener("mouseenter", () => {
-            h2.style.transform = "translateY(-20px)"
-            h2.style.transition = "transform 0.4s"
+            document.querySelectorAll(".background-image").forEach((bg) => bg.classList.remove("active"))
+            targetBg.classList.add("active")
           })
 
-          // při opuštění boxu
           box.addEventListener("mouseleave", () => {
-            h2.style.transform = "translateY(0)"
+            targetBg.classList.remove("active")
           })
         })
-      </script>
+      }
+    </script>
 
-      <script>
-        // Spustí se jen když zařízení není "malé" (mobil)
-        if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-          // const boxes = document.querySelectorAll(".box")
-
-          boxes.forEach((box) => {
-            const targetId = box.dataset.bg
-            const targetBg = document.getElementById(targetId)
-
-            box.addEventListener("mouseenter", () => {
-              document.querySelectorAll(".background-image").forEach((bg) => bg.classList.remove("active"))
-              targetBg.classList.add("active")
-            })
-
-            box.addEventListener("mouseleave", () => {
-              targetBg.classList.remove("active")
-            })
-          })
-        }
-      </script>
-
-      <script src="../js/carAnimation.js"></script>
-      <script src="../js/slider_index.js"></script>
-      <script src="../js/language.js"></script>
-    </main>
-    <div id="footer-placeholder">
-      <script>
-        fetch("footer.html")
-          .then((response) => response.text())
-          .then((data) => {
-            document.getElementById("footer-placeholder").innerHTML = data
-          })
-      </script>
-    </div>
+    <script src="../js/carAnimation.js"></script>
+    <script src="../js/slider_index.js"></script>
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data
+        })
+    </script>
   </body>
 </html>
