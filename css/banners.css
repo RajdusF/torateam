@@ -37,6 +37,13 @@
   justify-content: center;
 }
 
+@media (max-width: 1500px) {
+  .stat {
+    width: 250px;
+    height: 130px;
+  }
+}
+
 /* Hover efekt */
 .stat:hover {
   transform: translateY(-10px);
@@ -60,6 +67,12 @@
   display: inline-block; /* Přidáno pro správné zobrazení */
   text-align: center; /* Zajistit centrování */
   white-space: nowrap; /* Zabránit zalomení mezi číslem a jednotkou */
+}
+
+@media (max-width: 1500px) {
+  .stat .number {
+    font-size: 28px;
+  }
 }
 
 /* .stats_1 .stat:nth-child(1) .number {
@@ -86,6 +99,12 @@
   margin-left: 5px; /* Přidáno pro mezeru mezi číslem a jednotkou */
 }
 
+@media (max-width: 1500px) {
+  .stat .number .unit {
+    font-size: 22px;
+  }
+}
+
 /* Hover efekt – zvětšení celé number (včetně jednotky) */
 .stat:hover .number {
   transform: scale(1.15);
@@ -103,6 +122,12 @@
   text-align: center;
   height: 50px;
   padding: 0 10px;
+}
+
+@media (max-width: 1500px) {
+  .stat .label {
+    font-size: 14px;
+  }
 }
 
 /* Media queries pro lepší responzivitu */

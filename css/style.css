@@ -278,6 +278,12 @@ a:visited {
   transform: scale(0.95);
 }
 
+@media (max-width: 1500px) {
+  .logo {
+    width: 210px;
+  }
+}
+
 @media (max-width: 1000px) {
   .logo {
     width: 310px;
@@ -375,6 +381,12 @@ nav ul li a {
   transform-origin: bottom; /* zvětšování směrem dolů */
 }
 
+@media (max-width: 1500px) {
+  nav ul li a {
+    font-size: 17px; /* menší písmo pro mobil */
+  }
+}
+
 @media (max-width: 1000px) {
   nav ul li a {
     font-size: 22px; /* menší písmo pro mobil */
@@ -430,6 +442,12 @@ nav ul li a:hover {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
+@media (max-width: 1500px) {
+  .about h1 {
+    font-size: 37px;
+  }
+}
+
 @media (max-width: 1000px) {
   .about h1 {
     font-size: 46px;
@@ -442,6 +460,12 @@ nav ul li a:hover {
   color: var(--text-color);
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   text-align: justify;
+}
+
+@media (max-width: 1500px) {
+  .about p {
+    font-size: 15px;
+  }
 }
 
 @media (max-width: 1000px) {
@@ -504,6 +528,12 @@ strong {
   transform-origin: bottom;
 }
 
+@media screen and (max-width: 1500px) {
+  .box-wrapper h2 a {
+    font-size: 20px;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .box-wrapper h2 a {
     font-size: 30px;
@@ -540,6 +570,13 @@ strong {
   position: relative;
   margin-top: 15px;
   aspect-ratio: 14 / 9;
+}
+
+
+@media screen and (max-width: 1500px) {
+  .box {
+    height: 200px;
+  }
 }
 
 .box:hover {

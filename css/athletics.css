@@ -7,6 +7,13 @@
   text-align: justify;
 }
 
+@media screen and (max-width: 1500px) {
+  .text-block {
+    max-width: 570px;
+  }
+}
+
+
 @media screen and (max-width: 1000px) {
   .text-block {
     margin-top: 70px;
@@ -17,6 +24,12 @@
 /* Odstavce od sebe trochu oddělit */
 .text-block p {
   margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 1500px) {
+  .text-block p {
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -110,6 +123,12 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
   object-fit: contain;
 }
 
+@media screen and (max-width: 1500px) {
+  .athletics_column img {
+    max-height: 80px;
+  }
+}
+
 .athletics_row_bigger {
   display: flex;
   justify-content: center; /* obrázky vycentrované */
@@ -131,6 +150,12 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
   object-fit: contain;
 }
 /* MOBILE */
+
+@media screen and (max-width: 1500px) {
+  .athletics_column_bigger img {
+    height: 180px;
+  }
+}
 
 @media screen and (max-width: 1000px) {
   .athletic_logos_mobile {
@@ -193,6 +218,12 @@ img[src="../photos/atletiky_loga/svaz_lepsi.png"] {
   object-fit: contain;
 }
 
+@media screen and (max-width: 1500px) {
+  .flotila_column img {
+    max-width: 450px;
+  }
+}
+
 img[src="../photos/atletika_flotila/3.jpg"] {
   position: absolute;
   right: 200px;
@@ -212,6 +243,12 @@ img[src="../photos/atletika_flotila/3.jpg"] {
   opacity: 0;
   transform: translateY(180px); /* začne zespoda */
   transition: all 1.7s ease-out;
+}
+
+@media screen and (max-width: 1500px) {
+  .bottom-text-athletics {
+    font-size: 16px;
+  }
 }
 
 .bottom-text-athletics.visible {

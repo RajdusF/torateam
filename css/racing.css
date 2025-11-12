@@ -110,6 +110,12 @@ main.photos {
   line-height: 1.3;
 }
 
+@media screen and (max-width: 1500px) {
+  .text {
+    font-size: 15px;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .text {
     font-size: 27px;
@@ -194,7 +200,7 @@ ul {
 .racing-row {
   display: flex;
   align-items: center;
-  width: 50vw;
+  width: 55vw;
   margin-left: 20%;
   margin-top: 7%;
   opacity: 0;
@@ -234,6 +240,7 @@ ul {
   flex: 1;
   position: relative;
   margin: 0 25px;
+  max-width: 35vw;
 }
 
 .video-container video {
@@ -248,8 +255,14 @@ ul {
 }
 
 .text-container h3 {
-    font-size: 22px;
-    line-height: 1.4;
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+@media screen and (max-width: 1500px) {
+  .text-container h3 {
+    font-size: 15px;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -343,6 +356,12 @@ ul {
   opacity: 0;
   transform: translateY(100px); /* začne zespoda */
   transition: all 1.5s ease-out;
+}
+
+@media screen and (max-width: 1500px) {
+  .bottom-text {
+    font-size: 16px;
+  }
 }
 
 @media screen and (max-width: 1000px) {

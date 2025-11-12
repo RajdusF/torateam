@@ -3,6 +3,12 @@
   margin-bottom: 100px;
 }
 
+@media screen and (max-width: 1500px) {
+  .slider-wrapper {
+    max-width: 45vw;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .slider-wrapper {
     max-width: 85vw;

@@ -4,10 +4,18 @@
   --racing-car-width: 90px;
 }
 
+@media (max-width: 1500px) {
+  :root {
+    --atletic-car-width: calc(235px * 0.75);
+    --equipment-width: calc(220px * 0.75);
+    --racing-car-width: calc(90px * 0.75);
+  }
+}
+
 .moving-logo {
   position: relative; /* obrázek je nad obsahem */
   top: 73px; /* vzdálenost od horního okraje 63 */
-  width: var(--atletic-car-width); /* velikost obrázku */
+  width: var(--atletic-car-width);
   left: -30vw;
   /*                                   plynulost    0   koncova plynulost                            */
   animation-fill-mode: forwards;
@@ -17,14 +25,16 @@
   pointer-events: auto;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1500px) {
   .moving-logo {
-    top: 92px; /* menší velikost pro mobil */
+    top: 57px;
+    /* left: -80vw; */
   }
 }
 
 @media (max-width: 1000px) {
   .moving-logo {
+    top: 92px; /* menší velikost pro mobil */
     left: -80vw; /* menší velikost pro mobil */
   }
 }
@@ -248,5 +258,12 @@ img[src="../photos/siluety/final/offroad.png"] {
   img[src="../photos/siluety/final/offroad.png"] {
     top: 108px;
   }
-  
 }
+
+@media screen and (max-width: 1500px) {
+  img[src="../photos/siluety/final/onroad.png"],
+  img[src="../photos/siluety/final/offroad.png"] {
+    top: 69px;
+  }
+}
+
