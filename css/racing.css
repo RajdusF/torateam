@@ -250,6 +250,12 @@ ul {
   object-fit: cover;
 }
 
+@media screen and (max-width: 1000px) {
+  .video-container {
+    max-width: 50vw;
+  }
+}
+
 .text-container {
   flex: 1;
 }
@@ -270,7 +276,7 @@ ul {
     max-width: 40vw;
   }
   .text-container h3 {
-    font-size: 1.8rem;
+    font-size: 22px;
   }
 }
 

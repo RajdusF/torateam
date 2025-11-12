@@ -25,11 +25,11 @@
   text-align: center;
   /* flex: 1 1 0; */
   width: 310px;
-  height: 160px;
+  min-height: 160px;
   padding-top: 4px;
   transition: all 0.3s ease;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   border-left: 7px solid var(--my-color); /* Barevný pruh na levé straně */
   display: flex; /* Přidáno pro lepší uspořádání */
   flex-direction: column;
@@ -75,16 +75,6 @@
   }
 }
 
-/* .stats_1 .stat:nth-child(1) .number {
-  position: relative;
-  left: 5px;
-}
-
-.stats_1 .stat:nth-child(2) .number {
-  position: relative;
-  left: 16px;
-} */
-
 /* Jednotka menší, stále součást barvy */
 .stat .number .unit {
   display: inline-block;
@@ -122,6 +112,7 @@
   text-align: center;
   height: 50px;
   padding: 0 10px;
+  /* margin-bottom: 20px; */
 }
 
 @media (max-width: 1500px) {
@@ -152,6 +143,6 @@
   }
 
   .stat .label {
-    font-size: 18px;
+    font-size: 19px;
   }
 }

@@ -116,6 +116,12 @@ a:visited {
   z-index: 30;
 }
 
+@media screen and (max-width: 1500px) {
+  .lang-menu {
+    margin-top: 8px;
+  }
+}
+
 .selected-lang {
   cursor: pointer;
   display: flex;
@@ -152,6 +158,13 @@ a:visited {
 
 .flag-text {
   margin-left: 10px;
+}
+
+@media screen and (max-width: 1500px) {
+  .flag-text {
+    font-size: 15px;
+    margin-top: 2px;
+  }
 }
 
 @media screen and (max-width: 1000px) {
@@ -579,6 +592,13 @@ strong {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  .box {
+    width: 40vw;
+    height: auto;
+  }
+}
+
 .box:hover {
   filter: grayscale(0);
   transform: scale(1.22);
@@ -610,9 +630,19 @@ strong {
 
 .platba {
   display: flex;
-  flex-direction: column; /* pod sebou */
+  flex-direction: row; /* pod sebou */
   align-items: center; /* horizontální centrování */
-  margin-top: 30px;
+  margin-top: 120px;
+  gap: 50px;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .platba {
+    flex-direction: column; /* nad sebou na menších obrazovkách */
+    gap: 50px;
+    margin-top: 170px;
+  }
 }
 
 .platba img {
@@ -621,16 +651,22 @@ strong {
 }
 
 .platba p {
+  position: absolute;
+  top: 7vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 1000;
-  font-size: 24px;
+  font-size: 28px;
   font-weight: bold;
 }
 
+@media screen and (max-width: 1000px) {
+  .platba p {
+    top: 5vh;
+  }
+}
+
 img[src="../photos/ja.jpeg"] {
-  position: absolute;
-  left: 230px;
-  /* top: 190px; */
-  margin-top: 60px;
   width: 400px; /* šířka obrázku */
   height: auto; /* zachování proporcí */
   border-radius: 12px; /* zakulacené rohy */
@@ -639,21 +675,14 @@ img[src="../photos/ja.jpeg"] {
 }
 
 img[src="../photos/platba.jpeg"] {
-  position: absolute;
-  /* right: 200px; */
-  width: 350px; /* šířka obrázku */
-  margin-top: 60px;
   height: auto; /* zachování proporcí */
   border-radius: 12px; /* zakulacené rohy */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* jemný stín */
   transition: transform 0.4s ease, filter 0.4s ease;
 }
 
+
 img[src="../photos/atletika_flotila/3.jpg"] {
-  position: absolute;
-  right: 200px;
-  width: 430px; /* šířka obrázku */
-  margin-top: 60px;
   height: auto; /* zachování proporcí */
   border-radius: 12px; /* zakulacené rohy */
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* jemný stín */
@@ -663,14 +692,14 @@ img[src="../photos/atletika_flotila/3.jpg"] {
 .logo_easter {
   width: 290px;
   height: auto;
-  margin-right: 10px;
   transition: transform 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
-  margin-top: 20px;
 }
 
 .logo_easter:hover {
   transform: scale(1.1);
 }
+
+/* THANK YOU PAGE */
 
 .thankyou-container {
   text-align: left; /* vycentrování textu */

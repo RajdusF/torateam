@@ -253,12 +253,6 @@ img[src="../photos/siluety/final/offroad.png"] {
   top: 90px;
 }
 
-@media screen and (max-width: 1000px) {
-  img[src="../photos/siluety/final/onroad.png"],
-  img[src="../photos/siluety/final/offroad.png"] {
-    top: 108px;
-  }
-}
 
 @media screen and (max-width: 1500px) {
   img[src="../photos/siluety/final/onroad.png"],
@@ -267,3 +261,9 @@ img[src="../photos/siluety/final/offroad.png"] {
   }
 }
 
+@media screen and (max-width: 1000px) {
+  img[src="../photos/siluety/final/onroad.png"],
+  img[src="../photos/siluety/final/offroad.png"] {
+    top: 106px;
+  }
+}
