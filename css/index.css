@@ -1,11 +1,11 @@
 .slider-wrapper {
-  max-width: 50vw;
+  max-width: 55vw;
   margin-bottom: 100px;
 }
 
 @media screen and (max-width: 1500px) {
   .slider-wrapper {
-    max-width: 45vw;
+    max-width: 55vw;
   }
 }
 

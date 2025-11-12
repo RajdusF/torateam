@@ -112,7 +112,7 @@ main.photos {
 
 @media screen and (max-width: 1500px) {
   .text {
-    font-size: 15px;
+    font-size: 18px;
   }
 }
 
@@ -261,7 +261,7 @@ ul {
 
 @media screen and (max-width: 1500px) {
   .text-container h3 {
-    font-size: 15px;
+    font-size: 17px;
   }
 }
 
@@ -360,7 +360,7 @@ ul {
 
 @media screen and (max-width: 1500px) {
   .bottom-text {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
