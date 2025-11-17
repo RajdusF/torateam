@@ -6,41 +6,11 @@ function initLanguage() {
   console.log("Selected language:", lang)
   let texts = {}
 
-  // let flags = {}
   flags = {
     cs: "https://flagsapi.com/CZ/flat/64.png",
     pl: "https://flagsapi.com/PL/flat/64.png",
     en: "https://flagsapi.com/GB/flat/64.png",
   }
-
-  // Změna vlajky pro mobilní zobrazení
-  // function updateFlagForScreenSize() {
-  //   if (window.matchMedia("(max-width: 1000px)").matches) {
-  //     flags = {
-  //       cs: "https://flagsapi.com/CZ/flat/64.png",
-  //       pl: "https://flagsapi.com/PL/flat/64.png",
-  //       en: "https://flagsapi.com/GB/flat/64.png",
-  //     }
-  //   } else {
-  //   }
-  //   selectedLang.style.setProperty("--flag-url", `url(${flags})`)
-  // }
-
-  // Sleduj změnu velikosti okna
-  // window.addEventListener("resize", updateFlagForScreenSize)
-  // window.addEventListener("DOMContentLoaded", updateFlagForScreenSize)
-
-  // const flags = {
-  //   cs: "https://flagsapi.com/CZ/flat/32.png",
-  //   pl: "https://flagsapi.com/PL/flat/32.png",
-  //   en: "https://flagsapi.com/GB/flat/32.png",
-  // }
-
-  // const flags_mobile = {
-  //   cs: "https://flagsapi.com/CZ/flat/42.png",
-  //   pl: "https://flagsapi.com/PL/flat/42.png",
-  //   en: "https://flagsapi.com/GB/flat/42.png",
-  // }
 
   // Načtení JSON
   fetch("../language.json")
@@ -146,3 +116,19 @@ function initLanguage() {
     }
   })
 }
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   if (window.matchMedia("(hover: none) and (pointer: coarse)").matches) {
+//     const selected = document.getElementById("selected-lang");
+//     const text = selected.querySelector(".flag-text").textContent;
+    
+//     const link = document.createElement("a");
+//     link.href = "#";  // nebo kam má odkazovat
+//     link.textContent = text;
+//     link.className = "flag-link";
+
+//     // Odstranit starý obsah a vložit odkaz
+//     selected.innerHTML = "";
+//     selected.appendChild(link);
+//   }
+// });

@@ -36,6 +36,7 @@ body {
   flex-direction: column;
   overflow-y: auto;
   /* z-index: 10; */
+  will-change: transform;
 }
 
 h1 {
@@ -72,6 +73,9 @@ li {
 
 * {
   box-sizing: border-box;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -webkit-transform-style: preserve-3d;
 }
 
 a {
@@ -521,7 +525,6 @@ strong {
   opacity: 1;
 }
 
-
 .container {
   display: flex;
   justify-content: center;
@@ -565,18 +568,18 @@ strong {
 :root {
   --video-box-width: 700px;
   --video-box-height: 400px;
-  --split-left-top: 60%;   /* bod nahoře pro levou část */
-  --split-left-bottom: 40%;/* bod dole pro levou část */
-  --split-right-top: 60%;  /* bod nahoře pro pravou část */
-  --split-right-bottom: 40%;/* bod dole pro pravou část */
+  --split-left-top: 60%; /* bod nahoře pro levou část */
+  --split-left-bottom: 40%; /* bod dole pro levou část */
+  --split-right-top: 60%; /* bod nahoře pro pravou část */
+  --split-right-bottom: 40%; /* bod dole pro pravou část */
   --hover-left-expand-top: 100%;
   --hover-left-expand-bottom: 85%;
   --hover-right-expand-top: 85%;
   --hover-right-expand-bottom: 100%;
-  --active-video-scale: 1.00;
+  --active-video-scale: 1;
   --active-video-width: 130%; /* jak moc má aktivní video zasahovat do neaktivní poloviny */
-  --active-left-shift: 50%;   /* kde bude střed aktivního videa pro levé */
-  --active-right-shift: 50%;  /* kde bude střed aktivního videa pro pravé */
+  --active-left-shift: 50%; /* kde bude střed aktivního videa pro levé */
+  --active-right-shift: 50%; /* kde bude střed aktivního videa pro pravé */
 }
 
 .diagonal-box {
