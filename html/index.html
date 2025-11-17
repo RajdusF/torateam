@@ -60,6 +60,8 @@
             <img src="../photos/slider_index_photos/low_quality/4.jpg" alt="3" />
             <img src="../photos/slider_index_photos/low_quality/5.jpg" alt="4" />
             <img src="../photos/slider_index_photos/low_quality/6.jpg" alt="5" />
+            <img src="../photos/slider_index_photos/low_quality/7.jpg" alt="6" />
+            <img src="../photos/slider_index_photos/low_quality/8.jpg" alt="7" />
           </div>
 
           <!-- šipky -->
@@ -71,6 +73,8 @@
             <span data-slide="2"></span>
             <span data-slide="3"></span>
             <span data-slide="4"></span>
+            <span data-slide="5"></span>
+            <span data-slide="6"></span>
           </div>
         </div>
       </section>
@@ -105,16 +109,16 @@
 
       videos.forEach((video) => {
         // nastavíme pomalou rychlost
-        video.playbackRate = 0.7
+        video.playbackRate = 0.5
 
         // při najetí myši zrychlit
         video.addEventListener("mouseenter", () => {
-          video.playbackRate = 1.0
+          video.playbackRate = 0.8
         })
 
         // při odjetí myši zpomalit
         video.addEventListener("mouseleave", () => {
-          video.playbackRate = 0.7
+          video.playbackRate = 0.5
         })
       })
     </script>
