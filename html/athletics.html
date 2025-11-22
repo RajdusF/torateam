@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>TORA - Tomáš Rajdus</title>
+    <link rel="stylesheet" type="text/css" href="../css/slider.css" />
     <link rel="stylesheet" type="text/css" href="../css/style.css" />
     <link rel="stylesheet" type="text/css" href="../css/style_car_portfolio.css" />
     <link rel="stylesheet" type="text/css" href="../css/athletics.css" />
@@ -13,6 +14,7 @@
   <body data-mode="athletic">
     <main>
       <div id="header-placeholder"></div>
+
       <div class="text-block">
         <p data-i18n="athletics_text_0">
           Na atletických závodech se staráme o přepravu náčiní pomocí speciálně upravených RC modelů aut. Naše auta převážejí <strong>oštěpy</strong>,
@@ -139,19 +141,34 @@
         </div>
       </section>
 
-      <h3 class="our-fleet" data-i18n="athletics_our_fleet">Naše flotila</h3>
+      <section class="slide-container">
+        <div class="slider-wrapper">
+          <div class="slider">
+            <img src="../photos/slider_athletics/export/1.jpg" alt="0" />
+            <img src="../photos/slider_athletics/export/2.png" alt="1" />
+            <img src="../photos/slider_athletics/export/3.jpg" alt="2" />
+            <img src="../photos/slider_athletics/export/4.jpg" alt="3" />
+            <img src="../photos/slider_athletics/export/5.jpg" alt="4" />
+            <img src="../photos/slider_athletics/export/6.jpg" alt="5" />
+            <img src="../photos/slider_athletics/export/7.jpg" alt="6" />
+            <img src="../photos/slider_athletics/export/8.jpg" alt="7" />
+          </div>
 
-      <div class="flotila_row">
-        <div class="flotila_column">
-          <img src="../photos/atletika_flotila/1.jpg" />
+          <!-- šipky -->
+          <button class="slider-arrow left">&#10094;</button>
+          <button class="slider-arrow right">&#10095;</button>
+          <div class="slider-nav">
+            <span data-slide="0"></span>
+            <span data-slide="1"></span>
+            <span data-slide="2"></span>
+            <span data-slide="3"></span>
+            <span data-slide="4"></span>
+            <span data-slide="5"></span>
+            <span data-slide="6"></span>
+            <span data-slide="7"></span>
+          </div>
         </div>
-      </div>
-
-      <div class="flotila_row">
-        <div class="flotila_column">
-          <img src="../photos/atletika_flotila/2.jpg" />
-        </div>
-      </div>
+      </section>
 
       <div class="car-container">
         <div class="car-block from-left">
@@ -200,7 +217,9 @@
         </div>
       </div>
 
-      <p class="bottom-text-athletics" data-i18n="last_text_athletics">Zbytek aut si nepřeje být zveřejněn podle GDPR – respektujeme jejich soukromí.</p>
+      <p class="bottom-text-athletics" data-i18n="last_text_athletics">
+        Zbytek aut si nepřeje být zveřejněn podle GDPR – respektujeme jejich soukromí.
+      </p>
 
       <div style="height: 100px"></div>
     </main>
@@ -227,6 +246,7 @@
     <script src="../js/language.js"></script>
     <script src="../js/carAnimation.js"></script>
     <script src="../js/car_portfolio.js"></script>
+    <script src="../js/slider_athletics.js"></script>
 
     <script>
       fetch("footer.html")

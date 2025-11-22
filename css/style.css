@@ -35,7 +35,6 @@ body {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  /* z-index: 10; */
   /* will-change: transform; */
   /* transform: translateZ(0); */
 }
@@ -74,9 +73,9 @@ li {
 
 * {
   box-sizing: border-box;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  -webkit-transform-style: preserve-3d;
+  /* -webkit-backface-visibility: hidden; */
+  /* backface-visibility: hidden;             Tyhle tri radky narusovaly stacking context */
+  /* -webkit-transform-style: preserve-3d; */
 }
 
 a {
@@ -189,8 +188,8 @@ a:visited {
   padding-top: 8px;
   list-style: none;
   margin: 0;
-  /* background-color: var(--main-color); */
-  background-color: rgb(176, 236, 10);
+  background-color: var(--main-color);
+  /* background-color: rgb(176, 236, 10); TEST */
   /* border: 0px solid #747474; */
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
@@ -327,12 +326,13 @@ main {
   width: 100%;
   padding: 0;
   margin: 0;
+  position: relative;
+  z-index: 9999999;
 }
 
 header {
   width: 100%;
-  position: sticky;
-  /* height: 200px; */
+  position: relative;
   background-color: var(--main-color);
   padding: 6px;
   display: flex;
@@ -342,7 +342,9 @@ header {
   /* To not hide on iOS */
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  transform: translateZ(0);
+  /* transform: translateZ(0); */
+
+  z-index: 99999;
 }
 
 /* @media screen and (max-width: 1000px) {
@@ -351,9 +353,9 @@ header {
   }
 } */
 
-nav {
+/* nav {
   z-index: 2;
-}
+} */
 
 /* @media (max-width: 1000px) {
   nav {
@@ -496,16 +498,14 @@ strong {
 .background-wrapper,
 .background-image {
   position: fixed;
-  inset: 0; /* zkrácený zápis: top:0; right:0; bottom:0; left:0 */
+  inset: 0;
   width: 92%;
   height: 100%;
-  left: 50%;
-  transform: translateX(-50%); /* shift it back by half of its width */
-}
-
-.background-wrapper {
-  z-index: 0;
   pointer-events: none;
+  display: flex;
+  justify-self: center;
+  align-items: center;
+  z-index: 1;
 }
 
 .background-image {
@@ -524,6 +524,7 @@ strong {
 
 /* Video boxy */
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -535,7 +536,6 @@ strong {
 
 .box-wrapper h2 {
   position: relative;
-  z-index: 10;
 }
 
 /* Nadpis se při hoveru boxu posune nahoru */
@@ -546,7 +546,6 @@ strong {
   color: var(--text-color);
   transition: transform 0.5s; /* animace pohybu */
   transform-origin: bottom;
-  z-index: 10;
 }
 
 @media screen and (max-width: 1500px) {
@@ -585,12 +584,18 @@ strong {
   width: 100%;
   height: 250px;
   border: 4px solid #000;
-  filter: grayscale(1);
+  /* filter: grayscale(1); */
   overflow: hidden;
   transition: transform 0.4s, filter 0.4s, border-color 0.4s;
   position: relative;
   margin-top: 15px;
   aspect-ratio: 14 / 9;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .box {
+    filter: grayscale(1);
+  }
 }
 
 @media screen and (max-width: 1500px) {
@@ -659,7 +664,7 @@ strong {
 
 .platba p {
   position: absolute;
-  top: 7vh;
+  top: 22vh;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1000;
@@ -669,7 +674,7 @@ strong {
 
 @media screen and (max-width: 1000px) {
   .platba p {
-    top: 5vh;
+    top: 11vh;
   }
 }
 

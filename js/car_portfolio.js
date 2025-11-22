@@ -29,7 +29,7 @@ if (bottomTextAthletics) {
       })
     },
     {
-      threshold: 0.2, // spustí když je 20% elementu ve viewportu
+      threshold: 0.01, // spustí když je 20% elementu ve viewportu
     }
   )
   observer.observe(bottomTextAthletics)

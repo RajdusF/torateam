@@ -22,7 +22,7 @@
           <h2><a href="racing.html" data-i18n="racing">Závody</a></h2>
           <div class="box" data-bg="bg1">
             <a href="racing.html">
-              <video src="../videos/racing_test-2x-RIFE-RIFE3.1-60fps.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
+              <video src="../videos/racing_test-2x-RIFE-RIFE3.1-60fps.mp4" type="video/mp4" loop autoplay playsinline class="clip" muted></video>
             </a>
           </div>
         </div>
@@ -30,7 +30,7 @@
           <h2><a href="athletics.html" data-i18n="athletics">Atletika</a></h2>
           <div class="box" data-bg="bg2">
             <a href="athletics.html">
-              <video src="../videos/atletika_test-2x-RIFE-RIFE3.1-59.94006fps.mp4" type="video/mp4" loop autoplay class="clip" muted></video>
+              <video src="../videos/atletika_test-2x-RIFE-RIFE3.1-59.94006fps.mp4" type="video/mp4" loop autoplay playsinline class="clip" muted></video>
             </a>
           </div>
         </div>
@@ -105,23 +105,29 @@
     <script src="../js/language.js"></script>
 
     <script>
-      const videos = document.querySelectorAll(".clip")
+  const videos = document.querySelectorAll(".clip");
 
-      videos.forEach((video) => {
-        // nastavíme pomalou rychlost
-        video.playbackRate = 0.5
+  // detekce PC (myš)
+  const isPC = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-        // při najetí myši zrychlit
-        video.addEventListener("mouseenter", () => {
-          video.playbackRate = 0.8
-        })
+  videos.forEach((video) => {
+    // výchozí rychlost pro všechny
+    video.playbackRate = 0.35;
 
-        // při odjetí myši zpomalit
-        video.addEventListener("mouseleave", () => {
-          video.playbackRate = 0.5
-        })
-      })
-    </script>
+    if (isPC) {
+      // jen pro PC: efekt hoveru
+      video.addEventListener("mouseenter", () => {
+        video.playbackRate = 0.8;
+      });
+
+      video.addEventListener("mouseleave", () => {
+        video.playbackRate = 0.35;
+      });
+    } else {
+      video.playbackRate = 0.7;
+    }
+  });
+</script>
 
     <script>
       // vyber všechny boxy
@@ -133,7 +139,7 @@
 
         // při najetí myší na box
         box.addEventListener("mouseenter", () => {
-          h2.style.transform = "translateY(-20px)"
+          h2.style.transform = "translateY(-25px)"
           h2.style.transition = "transform 0.4s"
         })
 

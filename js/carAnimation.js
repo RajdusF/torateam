@@ -1,15 +1,15 @@
 function initCarAnimation() {
   const mode = document.body.dataset.mode // "car", "racing" nebo "both"
   const projectile = document.querySelector(".moving-javelin")
-  const min = 3000 // 3000
-  const max = 6000 // 6000
+  const min = 4000 // 3000
+  const max = 7000 // 6000
   const duration = 5.9 // délka animace v sekundách
   const projectileDuration = 5.3 // 4.5
   const racingDuration = 5.5 // délka animace v sekundách
-  const delayBack = 1500 // fixní zpoždění při návratu 2000
+  const delayBack = 1800 // fixní zpoždění při návratu 2000
   const carLogo = document.querySelector(".moving-logo")
 
-  let firstDelay = 0 // 3000
+  let firstDelay = 3800 // 3000
   let nextMode = Math.random() < 0.5 ? "athletic" : "racing"
   let racingDirection = Math.random() < 0.5 ? "right" : "left"
 

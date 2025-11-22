@@ -1,31 +1,48 @@
 import os
 from PIL import Image, ImageOps
 
-def compress_images(input_folder, output_folder, quality=80, max_size=(1920, 1080)):
-    # Pokud složka pro výstup neexistuje, vytvoří se
+def compress_images(input_folder, output_folder, quality=90, max_height=1000):
+    # vytvoření výstupní složky
     os.makedirs(output_folder, exist_ok=True)
 
-    # Projdi všechny soubory ve složce
-    for filename in os.listdir(input_folder):
-        input_path = os.path.join(input_folder, filename)
-        output_path = os.path.join(output_folder, filename)
+    # načti všechny obrázky a seřaď je (pro konzistentní 1,2,3…)
+    files = sorted(os.listdir(input_folder))
 
-        # Pokusíme se otevřít obrázek
+    counter = 1
+
+    for filename in files:
+        input_path = os.path.join(input_folder, filename)
+
+        # přeskoč složky
+        if os.path.isdir(input_path):
+            continue
+
         try:
             with Image.open(input_path) as img:
-                # Automatické otočení podle EXIF
+                # automatická korekce otočení z EXIF
                 img = ImageOps.exif_transpose(img)
 
-                # Zmenšení při zachování poměru stran
-                img.thumbnail(max_size)
+                # výpočet nových rozměrů při max. výšce
+                w, h = img.size
+                if h > max_height:
+                    scale = max_height / h
+                    new_size = (int(w * scale), max_height)
+                    img = img.resize(new_size, Image.LANCZOS)
 
-                # Uložení se zadanou kvalitou
+                # výstupní jméno → 1.jpg, 2.jpg, …
+                output_filename = f"{counter}.png"
+                output_path = os.path.join(output_folder, output_filename)
+
+                # uložení
                 img.save(output_path, optimize=True, quality=quality)
-                print(f"✅ {filename} -> komprimováno")
+                print(f"✅ {filename} -> {output_filename}")
+
+                counter += 1
+
         except Exception as e:
             print(f"⚠️ Přeskočeno: {filename} ({e})")
-
-# Příklad použití
-input_folder = "photos\\slider_index_photos"
-output_folder = "photos\\slider_index_photos\\low_quality"
+            
+            
+input_folder = "C:\\tora-stranky\\photos\\slider_athletics\\photoshop"
+output_folder = "C:\\tora-stranky\\photos\\slider_athletics\\export"
 compress_images(input_folder, output_folder)
