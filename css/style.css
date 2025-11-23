@@ -660,3 +660,10 @@ strong {
   line-height: 1.6; /* lepší čitelnost */
   margin: 0;
 }
+
+.construction-text {
+  text-align: center;
+  font-size: 24px;
+  color: var(--text-color);
+  margin-top: 50px;
+}
