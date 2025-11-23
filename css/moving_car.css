@@ -13,16 +13,18 @@
 }
 
 .moving-logo {
-  position: relative; /* obrázek je nad obsahem */
-  top: 73px; /* vzdálenost od horního okraje 63 */
+  position: relative;
+  top: 73px;
   width: var(--atletic-car-width);
   left: -30vw;
-  /*                                   plynulost    0   koncova plynulost                            */
   animation-fill-mode: forwards;
-  cursor: pointer;
-  /* transform: scaleX(-1); otočí horizontálně */
-  z-index: 1 !important; /* zajistí, že bude nad ostatním obsahem */
+  z-index: 1 !important;
   pointer-events: auto;
+
+  -webkit-user-drag: none; /* Safari, Chrome */
+  user-drag: none;         /* budoucí standardy */
+  user-select: none;       /* zabrání výběru textu/obrázku */
+  -moz-user-select: none;
 }
 
 @media (max-width: 1500px) {

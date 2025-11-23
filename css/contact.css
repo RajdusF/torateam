@@ -133,10 +133,6 @@
   width: 100%;
 }
 
-.fb-sites-wrapper {
-  margin-top: 80px; /* or whatever space you want */
-}
-
 .fb-sites {
   position: relative; /* základ pro ::after */
   display: inline-block; /* aby linka seděla přímo pod textem */
@@ -213,6 +209,17 @@
   }
 }
 
+.second-info {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+@media screen and (max-width: 1000px) {
+  .second-info {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
 @media (max-width: 1000px) {
   .contact-container {
     flex-direction: row; /* Keep items in a row on mobile */
@@ -222,10 +229,6 @@
     margin-bottom: 0;
     flex-wrap: wrap; /* Allow items to wrap if needed */
     justify-content: center;
-  }
-
-  .contact-photo {
-    margin: 0 20px 50px 0;
   }
 
   .contact-photo img {
@@ -255,10 +258,7 @@
     gap: 6px; /* space between items */
   }
 
-  /* ... existing code ... */
-
   .fb-sites-wrapper {
-    margin-top: 40px; /* or whatever space you want */
     display: flex;
     flex-direction: column; /* stack fb links vertically */
     gap: 10px; /* space between fb links */
@@ -300,7 +300,6 @@
 
   background-color: var(--surface-1);
   /* background-color: rgba(10, 51, 104, 0.39); */
-
 
   /* (25,119,241) */
   padding: 3rem;
@@ -420,7 +419,6 @@ input:not([type="checkbox"], [type="radio"]) {
     font-size: 28px;
     padding: 1.5ex 2ex;
   }
-  
 }
 
 .form-group:has(.fine-print) {
@@ -438,7 +436,6 @@ input:not([type="checkbox"], [type="radio"]) {
   box-sizing: border-box;
   margin: 0;
 }
-
 
 a {
   color: hsl(from var(--accent) h s 80%);

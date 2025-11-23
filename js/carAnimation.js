@@ -9,7 +9,7 @@ function initCarAnimation() {
   const delayBack = 1800 // fixní zpoždění při návratu 2000
   const carLogo = document.querySelector(".moving-logo")
 
-  let firstDelay = 3800 // 3000
+  let firstDelay = 3500 // 3000
   let nextMode = Math.random() < 0.5 ? "athletic" : "racing"
   let racingDirection = Math.random() < 0.5 ? "right" : "left"
 
@@ -152,10 +152,4 @@ function initCarAnimation() {
       racingDirection = "right"
     }
   }
-
-  const logoLink = document.getElementById("moving-logo-link")
-
-  logoLink.addEventListener("mousedown", () => {
-    window.location.href = "easter.html"
-  })
 }

@@ -58,7 +58,6 @@ function initLanguage() {
     selectedLangSpan.textContent = getLanguageName(lang)
     selectedLang.style.setProperty("--flag-url", `url(${flags[lang]})`)
     console.log("lang:", lang)
-    console.log("Flags updated for screen size:", flags[lang])
 
     // Skryj aktuálně vybraný jazyk z dropdownu
     langOptions.forEach((option) => {

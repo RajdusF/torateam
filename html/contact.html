@@ -22,6 +22,11 @@
             <p class="click-to-copy" onclick="copyText(this, 'Email zkopírován!')">tomas.rajdus@volny.cz</p>
           </div>
 
+          <div class="second-info">
+            <p>IČO:</p> <p class="click-to-copy" onclick="copyText(this, 'IČO zkopírováno!')">14608758</p><br>
+            <p>DIČ:</p> <p class="click-to-copy" onclick="copyText(this, 'DIČ zkopírováno!')">CZ6303200365</p>
+          </div>
+
           <div class="fb-sites-wrapper">
             <div class="fb-sites">
               <a href="https://www.facebook.com/tomas.rajdus.9">
@@ -90,7 +95,6 @@
         .then(() => {
           if (typeof initCarAnimation === "function") {
             initCarAnimation()
-            console.log("Car animation initialized")
           }
         })
         .then(() => {
