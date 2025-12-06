@@ -22,7 +22,7 @@
           <h2><a href="racing.html" data-i18n="racing">Závody</a></h2>
           <div class="box" data-bg="bg1">
             <a href="racing.html">
-              <video src="../videos/racing_test-2x-RIFE-RIFE3.1-60fps.mp4" type="video/mp4" loop autoplay playsinline class="clip" muted></video>
+              <video src="../videos/zavody_mensi_rozliseni_test-2x-RIFE-RIFE3.1-60fps.mp4" type="video/mp4" loop autoplay playsinline class="clip" muted></video>
             </a>
           </div>
         </div>
@@ -110,7 +110,7 @@
 
       videos.forEach((video) => {
         // výchozí rychlost pro všechny
-        video.playbackRate = 0.35
+        video.playbackRate = 0.5
 
         if (isPC) {
           // jen pro PC: efekt hoveru
@@ -119,7 +119,7 @@
           })
 
           video.addEventListener("mouseleave", () => {
-            video.playbackRate = 0.35
+            video.playbackRate = 0.5
           })
         } else {
           video.playbackRate = 0.7
@@ -151,7 +151,6 @@
     <script>
       // Spustí se jen když zařízení není "malé" (mobil)
       if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-        // const boxes = document.querySelectorAll(".box")
 
         boxes.forEach((box) => {
           const targetId = box.dataset.bg
