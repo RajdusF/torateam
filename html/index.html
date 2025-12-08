@@ -22,7 +22,15 @@
           <h2><a href="racing.html" data-i18n="racing">Závody</a></h2>
           <div class="box" data-bg="bg1">
             <a href="racing.html">
-              <video src="../videos/zavody_mensi_rozliseni_test-2x-RIFE-RIFE3.1-60fps.mp4" type="video/mp4" loop autoplay playsinline class="clip" muted></video>
+              <video
+                src="../videos/zavody_mensi_rozliseni_test-2x-RIFE-RIFE3.1-60fps.mp4"
+                type="video/mp4"
+                loop
+                autoplay
+                playsinline
+                class="clip"
+                muted
+              ></video>
             </a>
           </div>
         </div>
@@ -82,24 +90,29 @@
 
     <!-- SCRIPTS -->
 
-    <script>
+    <script defer>
       fetch("header.html")
         .then((r) => r.text())
         .then((html) => {
           document.getElementById("header-placeholder").innerHTML = html
         })
         .then(() => {
+          // inicializace dalších věcí, které jsou v headeru
           if (typeof initCarAnimation === "function") {
             initCarAnimation()
           }
-        })
-        .then(() => {
           if (typeof initLanguage === "function") {
             initLanguage()
             console.log("Language initialized")
           }
+
+          // TEĎ je header načtený → můžeme inicializovat hamburger
+          if (typeof initHamburger === "function") {
+            initHamburger()
+          }
         })
     </script>
+
     <script src="../js/language.js"></script>
 
     <script>
@@ -151,7 +164,6 @@
     <script>
       // Spustí se jen když zařízení není "malé" (mobil)
       if (window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-
         boxes.forEach((box) => {
           const targetId = box.dataset.bg
           const targetBg = document.getElementById(targetId)
@@ -170,6 +182,8 @@
 
     <script src="../js/carAnimation.js"></script>
     <script src="../js/slider_index.js"></script>
+    <script src="../js/hamburger.js"></script>
+
     <script>
       fetch("footer.html")
         .then((response) => response.text())

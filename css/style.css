@@ -105,7 +105,7 @@ a:visited {
 
 @media screen and (max-width: 1000px) {
   .mobile-alert {
-    display: block; /* zobrazit na mobilních zařízeních */
+    display: none; /* zobrazit na mobilních zařízeních */
     font-size: 28px;
     font-weight: bold;
     z-index: -1;
@@ -347,23 +347,16 @@ header {
   z-index: 99999;
 }
 
-/* @media screen and (max-width: 1000px) {
-  header {
-     height: 155px; 
-  }
-} */
-
 nav {
-  /* z-index: 2; */
   position: relative;
   right: 2vw;
 }
 
-/* @media (max-width: 1000px) {
+@media (max-width: 1000px) {
   nav {
-    max-width: 570px;
+    display: none;
   }
-} */
+}
 
 nav ul {
   align-items: center;
@@ -375,19 +368,10 @@ nav ul {
 nav ul li {
   position: relative;
   display: inline-block;
-  /* margin-right: 60px; */
-  /* margin-top: 40px; */
   color: #fff;
   text-decoration: none;
   transition: all 0.3s;
   text-align: center;
-}
-
-@media (max-width: 1000px) {
-  nav ul li {
-    margin-right: 35px;
-    margin-top: 65px;
-  }
 }
 
 nav ul li a {
@@ -397,7 +381,6 @@ nav ul li a {
   text-decoration: none;
   font-size: 21px;
   font-weight: bold;
-  /* padding: 5px 28px; */
   padding-bottom: 3px;
   margin: 0 30px;
   margin-top: 30px;
@@ -413,7 +396,9 @@ nav ul li a {
 
 @media (max-width: 1000px) {
   nav ul li a {
-    font-size: 22px; /* menší písmo pro mobil */
+    font-size: 20px; /* menší písmo pro mobil */
+    margin: 0 18px;
+    margin-top: 53px;
   }
 }
 
@@ -436,13 +421,17 @@ nav ul li a:hover {
   transform: scale(1.2);
 }
 
-/* skryj submenu */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .dropdown-menu {
   display: none;
   position: absolute;
   background: var(--main-color);
   padding: 0 20px 20px 0px;
-  top: 90%;
+  top: 100%;
   left: 0;
 }
 
@@ -454,14 +443,102 @@ nav ul li a:hover {
   position: relative;
 }
 
+.dropdown-menu li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .dropdown-menu li a {
   display: block;
-  /* padding: 8px 20px; */
+  margin-top: 20px;
   white-space: nowrap;
   text-decoration: none;
   color: var(--text-color);
 }
 
+/* MOBILE NAVIGATION */
+
+.mobile-nav {
+  display: none;
+}
+
+.hamburger {
+  font-size: 80px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-color);
+  margin-top: 45px;
+  margin-right: 20px;
+}
+
+.mobile-menu {
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--main-color);
+  position: absolute;
+  top: 130px;
+  right: -8px;
+  width: 300px;
+  z-index: 999;
+  overflow: hidden;
+}
+
+.mobile-menu li {
+  transition: all 0.3s;
+  text-align: center;
+}
+
+.mobile-menu li a {
+  position: relative;
+  display: inline-block;
+  display: block;
+  margin: 15px 0px;
+  padding: 20px;
+  text-decoration: none;
+  color: var(--text-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 40px;
+
+  transition: transform 0.5s;
+  transform-origin: bottom; /* zvětšování směrem dolů */
+}
+
+.mobile-menu li a::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 2px;
+  height: 4px;
+  width: 0;
+  background-color: var(--my-color);
+  transition: width 0.5s ease;
+  padding-left: 20px;
+}
+
+.mobile-menu li a:hover::after {
+  width: 100%;
+}
+
+.mobile-menu li a:hover {
+  transform: scale(1.2);
+}
+
+/* Zobraz mobilní menu při aktivaci */
+.mobile-nav.open .mobile-menu {
+  display: block;
+}
+
+/* Media query pro mobil */
+@media (max-width: 1000px) {
+  .mobile-nav {
+    display: block; /* zobraz hamburger */
+    position: relative;
+  }
+}
 
 /* About sekce */
 .about {

@@ -264,8 +264,11 @@ img[src="../photos/siluety/final/offroad.png"] {
 }
 
 @media screen and (max-width: 1000px) {
+  img[src="../photos/siluety/final/hammer_car.png"], img[src="../photos/siluety/final/hammer_car_equipment.png"] ,img[src="../photos/siluety/final/javelin_car.png"], img[src="../photos/siluety/final/javelin_car_equipment.png"] {
+    top: 112px;
+  }
   img[src="../photos/siluety/final/onroad.png"],
   img[src="../photos/siluety/final/offroad.png"] {
-    top: 106px;
+    top: 125px;
   }
 }

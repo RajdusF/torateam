@@ -224,35 +224,42 @@
       <div style="height: 100px"></div>
     </main>
     <div id="footer-placeholder"></div>
-    <script>
+
+    <script defer>
       fetch("header.html")
-        .then((r) => r.text())
-        .then((html) => {
-          document.getElementById("header-placeholder").innerHTML = html
-        })
-        .then(() => {
-          if (typeof initCarAnimation === "function") {
-            initCarAnimation()
-          }
-        })
-        .then(() => {
-          if (typeof initLanguage === "function") {
-            initLanguage()
-            console.log("Language initialized")
-          }
-        })
+      .then((r) => r.text())
+      .then((html) => {
+        document.getElementById("header-placeholder").innerHTML = html
+      })
+      .then(() => {
+        // inicializace dalších věcí, které jsou v headeru
+        if (typeof initCarAnimation === "function") {
+          initCarAnimation()
+        }
+        if (typeof initLanguage === "function") {
+          initLanguage()
+          console.log("Language initialized")
+        }
+        
+        // TEĎ je header načtený → můžeme inicializovat hamburger
+        if (typeof initHamburger === "function") {
+          initHamburger()
+        }
+      })
     </script>
     <script src="../js/language.js"></script>
     <script src="../js/carAnimation.js"></script>
     <script src="../js/car_portfolio.js"></script>
     <script src="../js/slider_athletics.js"></script>
-
+    <script src="../js/hamburger.js"></script>
+    
     <script>
       fetch("footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer-placeholder").innerHTML = data
-        })
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer-placeholder").innerHTML = data
+      })
     </script>
   </body>
-</html>
+  </html>
+  

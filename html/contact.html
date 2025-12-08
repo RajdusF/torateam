@@ -23,8 +23,11 @@
           </div>
 
           <div class="second-info">
-            <p>IČO:</p> <p class="click-to-copy" onclick="copyText(this, 'IČO zkopírováno!')">14608758</p><br>
-            <p>DIČ:</p> <p class="click-to-copy" onclick="copyText(this, 'DIČ zkopírováno!')">CZ6303200365</p>
+            <p>IČO:</p>
+            <p class="click-to-copy" onclick="copyText(this, 'IČO zkopírováno!')">14608758</p>
+            <br />
+            <p>DIČ:</p>
+            <p class="click-to-copy" onclick="copyText(this, 'DIČ zkopírováno!')">CZ6303200365</p>
           </div>
 
           <div class="fb-sites-wrapper">
@@ -78,34 +81,38 @@
             <label for="message" data-i18n="message">Zpráva:*</label>
             <textarea id="message" name="Zpráva" required></textarea>
           </div>
-
+          
           <span data-i18n="required_fields">Položky označené hvězdičkou (*) jsou povinné.</span>
-
-          <button data-i18n="submit_message">Odeslat zprávu</button>
+          
+          <button class="submit-button" data-i18n="submit_message">Odeslat zprávu</button>
         </form>
       </div>
     </main>
     <div id="footer-placeholder" style="margin-top: 80px"></div>
-    <script>
+    <script defer>
       fetch("header.html")
-        .then((r) => r.text())
-        .then((html) => {
-          document.getElementById("header-placeholder").innerHTML = html
-        })
-        .then(() => {
-          if (typeof initCarAnimation === "function") {
-            initCarAnimation()
-          }
-        })
-        .then(() => {
-          if (typeof initLanguage === "function") {
-            initLanguage()
-            console.log("Language initialized")
-          }
-        })
+      .then((r) => r.text())
+      .then((html) => {
+        document.getElementById("header-placeholder").innerHTML = html
+      })
+      .then(() => {
+        // inicializace dalších věcí, které jsou v headeru
+        if (typeof initCarAnimation === "function") {
+          initCarAnimation()
+        }
+        if (typeof initLanguage === "function") {
+          initLanguage()
+          console.log("Language initialized")
+        }
+        
+        // TEĎ je header načtený → můžeme inicializovat hamburger
+        if (typeof initHamburger === "function") {
+          initHamburger()
+        }
+      })
     </script>
     <script src="../js/language.js"></script>
-
+    
     <script>
       function copyText(element, message) {
         navigator.clipboard.writeText(element.textContent).then(() => {
@@ -118,15 +125,17 @@
         })
       }
     </script>
-
+    
     <script src="../js/carAnimation.js"></script>
-
+    <script src="../js/hamburger.js"></script>
+    
     <script>
       fetch("footer.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("footer-placeholder").innerHTML = data
-        })
+      .then((response) => response.text())
+      .then((data) => {
+        document.getElementById("footer-placeholder").innerHTML = data
+      })
     </script>
   </body>
-</html>
+  </html>
+  
