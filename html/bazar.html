@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TORA - Tomáš Rajdus</title>
+    <!-- <link rel="stylesheet" type="text/css" href="../css/slider.css" /> -->
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../css/moving_car.css" />
+    <link rel="stylesheet" type="text/css" href="../css/bazar.css" />
+    <link rel="icon" href="../photos/favicon.png" type="image/x-icon" />
+  </head>
+  <body data-mode="both">
+    <main>
+      <div id="header-placeholder"></div>
+
+      <div class="grid" id="productGrid"></div>
+
+      <div class="popup" id="popup">
+        <div class="popup-content" id="popupContent">
+          <button class="close-btn" id="closePopup">×</button>
+          <div class="popupImageWrapper">
+            <img id="popupImage" src="" alt="Produkt" />
+          </div>
+          <h2 id="popupTitle"></h2>
+          <p id="popupDescription"></p>
+          <p id="popupSpecs"></p>
+        </div>
+      </div>
+    </main>
+    <div id="footer-placeholder"></div>
+
+    <!-- SCRIPTS -->
+
+    <script src="../js/bazar.js"></script>
+
+    <script>
+      fetch("header.html")
+        .then((r) => r.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html
+        })
+        .then(() => {
+          if (typeof initCarAnimation === "function") {
+            initCarAnimation()
+          }
+        })
+        .then(() => {
+          if (typeof initLanguage === "function") {
+            initLanguage()
+            console.log("Language initialized")
+          }
+        })
+    </script>
+    <script src="../js/language.js"></script>
+
+    <script src="../js/carAnimation.js"></script>
+    <script>
+      fetch("footer.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data
+        })
+    </script>
+  </body>
+</html>

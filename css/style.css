@@ -353,9 +353,11 @@ header {
   }
 } */
 
-/* nav {
-  z-index: 2;
-} */
+nav {
+  /* z-index: 2; */
+  position: relative;
+  right: 2vw;
+}
 
 /* @media (max-width: 1000px) {
   nav {
@@ -364,15 +366,17 @@ header {
 } */
 
 nav ul {
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
 nav ul li {
+  position: relative;
   display: inline-block;
-  margin-right: 60px;
-  margin-top: 40px;
+  /* margin-right: 60px; */
+  /* margin-top: 40px; */
   color: #fff;
   text-decoration: none;
   transition: all 0.3s;
@@ -393,7 +397,10 @@ nav ul li a {
   text-decoration: none;
   font-size: 21px;
   font-weight: bold;
-  padding: 5px 0;
+  /* padding: 5px 28px; */
+  padding-bottom: 3px;
+  margin: 0 30px;
+  margin-top: 30px;
   transition: transform 0.5s;
   transform-origin: bottom; /* zvětšování směrem dolů */
 }
@@ -428,6 +435,33 @@ nav ul li a:hover::after {
 nav ul li a:hover {
   transform: scale(1.2);
 }
+
+/* skryj submenu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background: var(--main-color);
+  padding: 0 20px 20px 0px;
+  top: 90%;
+  left: 0;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu li a {
+  display: block;
+  /* padding: 8px 20px; */
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--text-color);
+}
+
 
 /* About sekce */
 .about {
@@ -537,6 +571,10 @@ strong {
 
 .box-wrapper h2 {
   position: relative;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 /* Nadpis se při hoveru boxu posune nahoru */
@@ -638,7 +676,6 @@ strong {
   text-align: center;
   width: 100%;
 }
-
 
 /* THANK YOU PAGE */
 
