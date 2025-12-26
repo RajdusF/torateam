@@ -14,7 +14,7 @@
 
 .moving-logo {
   position: relative;
-  top: 73px;
+  top: 74px;
   width: var(--atletic-car-width);
   left: -30vw;
   animation-fill-mode: forwards;
@@ -252,7 +252,7 @@ img[src="../photos/siluety/final/offroad.png"] {
   position: absolute;
   width: var(--racing-car-width); /* šířka obrázku */
   height: auto; /* zachování proporcí */
-  top: 90px;
+  top: 91px;
 }
 
 

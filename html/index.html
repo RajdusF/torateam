@@ -105,8 +105,12 @@
             initLanguage()
             console.log("Language initialized")
           }
-
-          // TEĎ je header načtený → můžeme inicializovat hamburger
+        })
+        .then(() => {
+          // ⏱️ zpoždění 300 ms
+          return new Promise((resolve) => setTimeout(resolve, 300))
+        })
+        .then(() => {
           if (typeof initHamburger === "function") {
             initHamburger()
           }

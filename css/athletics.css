@@ -1,3 +1,27 @@
+:root {
+  --main-color: #161616;
+  --background-color: #242323;
+  --text-color: #ffffff;
+  --my-color: #1977f1;
+}
+
+.athletics-page-title {
+  text-align: center;
+  font-size: 36px;
+  margin-top: 32px;
+  margin-bottom: 8px;
+  color: var(--text-color);
+  text-shadow: 1px 1px 4px rgba(24, 24, 24, 0.562);
+}
+
+@media screen and (max-width: 1000px) {
+  .athletics-page-title {
+    font-size: 50px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+  }
+}
+
 .text-block {
   max-width: 720px; /* ne přes celou obrazovku, omezení šířky */
   margin: 2.5% auto 2rem; /* zarovnat na střed, přidat spodní mezeru */

@@ -350,6 +350,9 @@ header {
 nav {
   position: relative;
   right: 2vw;
+  top: 12px;
+  display: flex; 
+  align-items: center;
 }
 
 @media (max-width: 1000px) {
@@ -359,6 +362,7 @@ nav {
 }
 
 nav ul {
+  display: flex;
   align-items: center;
   list-style: none;
   padding: 0;
@@ -376,7 +380,7 @@ nav ul li {
 
 nav ul li a {
   position: relative;
-  display: inline-block; /* důležité pro transform */
+  display: inline-block;
   color: #fff;
   text-decoration: none;
   font-size: 21px;
@@ -385,7 +389,7 @@ nav ul li a {
   margin: 0 30px;
   margin-top: 30px;
   transition: transform 0.5s;
-  transform-origin: bottom; /* zvětšování směrem dolů */
+  transform-origin: bottom;
 }
 
 @media (max-width: 1500px) {
@@ -436,7 +440,9 @@ nav ul li a:hover {
 }
 
 .dropdown:hover .dropdown-menu {
-  display: block;
+  /* SCHOVAT BAZAR */
+  /* display: block; */
+  display: none;
 }
 
 .dropdown {
@@ -648,10 +654,10 @@ strong {
 
 .box-wrapper h2 {
   position: relative;
-  height: 60px;
+  height: 30px;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
 }
 
 /* Nadpis se při hoveru boxu posune nahoru */

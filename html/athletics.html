@@ -15,6 +15,8 @@
     <main>
       <div id="header-placeholder"></div>
 
+      <h2 class="athletics-page-title" data-i18n="athletics-title">Atletika - svoz náčiní</h2>
+
       <div class="text-block">
         <p data-i18n="athletics_text_0">
           Na atletických závodech se staráme o přepravu náčiní pomocí speciálně upravených RC modelů aut. Naše auta převážejí <strong>oštěpy</strong>,
@@ -227,39 +229,42 @@
 
     <script defer>
       fetch("header.html")
-      .then((r) => r.text())
-      .then((html) => {
-        document.getElementById("header-placeholder").innerHTML = html
-      })
-      .then(() => {
-        // inicializace dalších věcí, které jsou v headeru
-        if (typeof initCarAnimation === "function") {
-          initCarAnimation()
-        }
-        if (typeof initLanguage === "function") {
-          initLanguage()
-          console.log("Language initialized")
-        }
-        
-        // TEĎ je header načtený → můžeme inicializovat hamburger
-        if (typeof initHamburger === "function") {
-          initHamburger()
-        }
-      })
+        .then((r) => r.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html
+        })
+        .then(() => {
+          // inicializace dalších věcí, které jsou v headeru
+          if (typeof initCarAnimation === "function") {
+            initCarAnimation()
+          }
+          if (typeof initLanguage === "function") {
+            initLanguage()
+            console.log("Language initialized")
+          }
+        })
+        .then(() => {
+          // ⏱️ zpoždění 300 ms
+          return new Promise((resolve) => setTimeout(resolve, 300))
+        })
+        .then(() => {
+          if (typeof initHamburger === "function") {
+            initHamburger()
+          }
+        })
     </script>
     <script src="../js/language.js"></script>
     <script src="../js/carAnimation.js"></script>
     <script src="../js/car_portfolio.js"></script>
     <script src="../js/slider_athletics.js"></script>
     <script src="../js/hamburger.js"></script>
-    
+
     <script>
       fetch("footer.html")
-      .then((response) => response.text())
-      .then((data) => {
-        document.getElementById("footer-placeholder").innerHTML = data
-      })
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("footer-placeholder").innerHTML = data
+        })
     </script>
   </body>
-  </html>
-  
+</html>
